@@ -1,0 +1,163 @@
+# ---------------------------------------------------------------
+# Redline — .gitignore (Next.js)
+# ---------------------------------------------------------------
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.pnp.cjs
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+jspm_packages/
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Production / framework caches
+.turbo/
+.swc/
+.vercel/
+.netlify/
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing / coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+
+# ---------------------------------------------------------------
+# Secrets & credentials — never commit any of these
+# ---------------------------------------------------------------
+
+# Environment files (all variants, including .env.local and .env)
+.env
+.env.*
+*.env
+!.env.example
+!.env.sample
+!.env.template
+
+# Generic secret / credential files
+secrets/
+.secrets/
+secrets.*
+credentials.*
+*credentials*.json
+*secret*.json
+*.secret
+*.secrets
+
+# Keys, certificates, keystores
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+*.jks
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.ppk
+
+# Cloud / service provider credentials
+.aws/
+.gcloud/
+gcp-*.json
+service-account*.json
+*-service-account.json
+.azure/
+.terraform/
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+kubeconfig
+.kube/config
+
+# Tooling auth / tokens
+.npmrc
+.yarnrc
+.netrc
+.pypirc
+.docker/config.json
+.firebase/
+firebase-debug.log
+.supabase/
+.sentryclirc
+.vercel/project.json
+.clerk/
+.wrangler/
+.dev.vars
+.prisma/
+auth.json
+token.json
+*.token
+
+# Databases & dumps (may contain real user data)
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
+*.bak
+
+# ---------------------------------------------------------------
+# Logs
+# ---------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ---------------------------------------------------------------
+# Editors, tooling & OS cruft
+# ---------------------------------------------------------------
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+.history/
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Local Claude Code settings (may contain machine-specific config)
+.claude/settings.local.json
+
+# Misc local scratch
+*.local
+tmp/
+temp/
+scratch/
