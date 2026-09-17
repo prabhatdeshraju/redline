@@ -161,6 +161,3 @@ $RECYCLE.BIN/
 tmp/
 temp/
 scratch/
-
-# Local issue tracker (see docs/agents/issue-tracker.md) — stays off the public repo
-.scratch/
