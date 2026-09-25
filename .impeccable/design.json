@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T00:00:00Z",
+  "title": "Design System: Redline",
+  "extensions": {
+    "colorMeta": {
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Dyeline Sheet",
+        "canonical": "#eceeed",
+        "tonalRamp": ["#232726", "#343a38", "#4a514f", "#666e6c", "#8b9391", "#b3bab8", "#d5dad9", "#f2f4f3"]
+      },
+      "sheet-lift": {
+        "role": "neutral",
+        "displayName": "Sheet Lift",
+        "canonical": "#f6f7f7",
+        "tonalRamp": ["#242626", "#363939", "#4c5050", "#686c6c", "#8d9191", "#b5b9b9", "#d7dada", "#f9fafa"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel Grey",
+        "canonical": "#e1e5e3",
+        "tonalRamp": ["#212523", "#323835", "#484f4c", "#646c69", "#89918e", "#b1b8b6", "#cdd4d1", "#eef1f0"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#c4cbc9",
+        "tonalRamp": ["#1f2322", "#2f3534", "#454d4b", "#5f6866", "#838d8b", "#a8b1af", "#c4cbc9", "#e6eae9"]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#9aa3a1",
+        "tonalRamp": ["#1d2120", "#2c3231", "#414947", "#5a6361", "#7a8482", "#9aa3a1", "#bcc3c1", "#dee2e1"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal Ink",
+        "canonical": "#191b1d",
+        "tonalRamp": ["#0d0e0f", "#191b1d", "#2a2d30", "#3e4245", "#565b5f", "#757a7e", "#a3a8ab", "#d4d7d9"]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#4d5553",
+        "tonalRamp": ["#161918", "#232726", "#343a38", "#4d5553", "#697270", "#8b9391", "#b4bab9", "#dde0df"]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Tertiary Ink",
+        "canonical": "#5f6765",
+        "tonalRamp": ["#181a19", "#262a29", "#39403e", "#4e5654", "#5f6765", "#828a88", "#adb4b2", "#d9dcdb"]
+      },
+      "orange-field": {
+        "role": "primary",
+        "displayName": "Committed Field Orange",
+        "canonical": "#c33f18",
+        "tonalRamp": ["#2d0d04", "#4a1708", "#6b220c", "#8e2e11", "#c33f18", "#e0662f", "#ef9a72", "#f9d5c6"]
+      },
+      "orange-mark": {
+        "role": "primary",
+        "displayName": "Safety Mark Orange",
+        "canonical": "#e0521c",
+        "tonalRamp": ["#331104", "#531c07", "#75290b", "#9a3710", "#c04515", "#e0521c", "#f08e5e", "#fbd3bd"]
+      },
+      "orange-ink": {
+        "role": "primary",
+        "displayName": "Deep Orange Ink",
+        "canonical": "#a83513",
+        "tonalRamp": ["#270b03", "#411306", "#5d1c09", "#7c270e", "#a83513", "#cc5a31", "#e3937a", "#f6d2c7"]
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Category Green",
+        "canonical": "#1d6b4c",
+        "tonalRamp": ["#05170f", "#0a271b", "#113c28", "#175338", "#1d6b4c", "#2f9169", "#63b993", "#bfe0d1"]
+      },
+      "field-ink": {
+        "role": "neutral",
+        "displayName": "Field White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#262626", "#3d3d3d", "#565656", "#757575", "#9a9a9a", "#c0c0c0", "#e2e2e2", "#ffffff"]
+      },
+      "bar": {
+        "role": "neutral",
+        "displayName": "Bar Grey",
+        "canonical": "#e4e8e6",
+        "tonalRamp": ["#202422", "#313734", "#474e4b", "#636b68", "#88918e", "#b0b8b5", "#cfd6d3", "#f0f3f2"]
+      },
+      "field-bg": {
+        "role": "neutral",
+        "displayName": "Field Ground",
+        "canonical": "#f8f9f9",
+        "tonalRamp": ["#252727", "#373a3a", "#4d5151", "#696d6d", "#8e9292", "#b6baba", "#d8dbdb", "#fbfcfc"]
+      },
+      "disabled-ink": {
+        "role": "neutral",
+        "displayName": "Disabled Ink",
+        "canonical": "#8c9492",
+        "tonalRamp": ["#1a1e1d", "#292e2d", "#3c4342", "#545c5b", "#727b79", "#8c9492", "#aeb5b3", "#d6dad9"]
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Panel Scrim",
+        "canonical": "rgba(25, 27, 29, 0.28)",
+        "tonalRamp": ["rgba(25,27,29,0.06)", "rgba(25,27,29,0.12)", "rgba(25,27,29,0.18)", "rgba(25,27,29,0.28)", "rgba(25,27,29,0.4)", "rgba(25,27,29,0.55)", "rgba(25,27,29,0.7)", "rgba(25,27,29,0.85)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The page's one headline and the closing band's head. Barlow Condensed 700, uppercase, balanced wrap." },
+      "headline": { "displayName": "Headline", "purpose": "Section heads in condensed caps. The schedule band's title sits one step under." },
+      "title": { "displayName": "Title", "purpose": "The clause type on a flag row — the thing a reader scans for. Also both actions." },
+      "body": { "displayName": "Body", "purpose": "All of the product's own prose, in Archivo, capped by role between 40ch and 64ch." },
+      "quote": { "displayName": "Document Voice", "purpose": "The inspected document's own words: source sentences, hedges, counter-offer wording. Spectral only, never below reading size." },
+      "label": { "displayName": "Label", "purpose": "Citations, key label, column minors, sheet number. Condensed caps at 0.11em." },
+      "micro-label": { "displayName": "Micro-label", "purpose": "Title-block and schedule-band field names, the smallest lettering on the sheet." },
+      "figure": { "displayName": "Figure", "purpose": "Any number a reader might compare, locate or count. Tabular numerals via .tnum." },
+      "op-display": { "displayName": "Operate Display", "purpose": "Operate step 10 (2.125rem). The document name in the head bar, the intake head, the all-clear stamp. Barlow Condensed 700, uppercase. Fixed rem, never clamped." },
+      "op-headline": { "displayName": "Operate Headline", "purpose": "Operate step 9 (1.75rem). Section heads on a task surface. Barlow Condensed 700 uppercase, drops to step 8 below 48rem." },
+      "op-title": { "displayName": "Operate Title", "purpose": "Operate step 8 (1.375rem). Flag number, clause type, panel title, query refusal. The thing a reader scans for." },
+      "op-quote": { "displayName": "Operate Quote", "purpose": "Operate step 7 (1.25rem). The source sentence in Spectral 400 at 1.45 — still the largest reading size in the flag body." },
+      "op-lead": { "displayName": "Operate Lead", "purpose": "Operate step 6 (1.125rem). Summary prose, the asked question, a red-line entry, a library document name, the counter-offer wording." },
+      "op-body": { "displayName": "Operate Body", "purpose": "Operate step 5 (1rem). The base size: interface prose in Archivo 400/1.55, button lettering in Barlow Condensed 600, the document panel's clauses in Spectral." },
+      "op-body-sm": { "displayName": "Operate Body Small", "purpose": "Operate step 4 (0.9375rem). Secondary and supporting prose, panel leads, notes, metadata values." },
+      "op-minor": { "displayName": "Operate Minor", "purpose": "Operate step 3 (0.875rem). Severity and threshold rank names, small buttons, clause references, captions, footnotes." },
+      "op-label": { "displayName": "Operate Label", "purpose": "Operate step 2 (0.8125rem). Condensed caps labels at 0.10–0.11em: citations, panel statuses, field labels, counts." },
+      "op-micro": { "displayName": "Operate Micro", "purpose": "Operate step 1 (0.75rem). Head-bar field names only — the smallest lettering on a task surface." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing curve in the system. Every transition and keyframe uses it." },
+      { "name": "state", "value": "180ms", "purpose": "Action background, colour and arrow advance on hover and focus." },
+      { "name": "chevron", "value": "200ms", "purpose": "Flag-row chevron rotation on expand and collapse." },
+      { "name": "disclose-open", "value": "260ms", "purpose": "Flag body height transition opening; 220ms closing. Skipped under reduced motion." },
+      { "name": "strike-rule-draw", "value": "760ms delay 120ms", "purpose": "The strike, beat 1: the mark-orange rule over the source figure draws from scaleX(0)." },
+      { "name": "strike-num-write", "value": "520ms delay 180ms", "purpose": "The strike, beat 2: the lead flag's figure number writes in from 0.4 opacity." },
+      { "name": "strike-caret", "value": "620ms delay 300ms", "purpose": "The strike, beat 3: the caret strikes down into the sentence from 0.3 opacity." },
+      { "name": "strike-leader-drop", "value": "640ms delay 360ms", "purpose": "The strike, beat 4: the leader drops down its gutter from scaleY(0)." },
+      { "name": "strike-hatch-fill", "value": "700ms delay 420ms", "purpose": "The strike, beat 5: the severity hatch fills from scaleX(0.72)." },
+      { "name": "op-fast", "value": "170ms", "purpose": "The Operate functional transition: button and row background, border and colour. Paired with the same ease curve." },
+      { "name": "op-chevron", "value": "200ms", "purpose": "Flag-row chevron rotation on a task surface — the upper bound of the Operate band." },
+      { "name": "op-cite-highlight", "value": "300ms", "purpose": "Background of a cited clause in the document panel. Observed value; it sits above the 170–200ms Operate band and has not been reconciled." },
+      { "name": "op-skeleton-pulse", "value": "1400ms alternate", "purpose": "Skeleton opacity 0.55 to 1, inside prefers-reduced-motion: no-preference only." },
+      { "name": "op-step-advance", "value": "650ms", "purpose": "Stepped analysing progress, one named step at a time; 220ms under reduced motion." },
+      { "name": "op-toast-dwell", "value": "4500ms", "purpose": "How long a toast stays before it hides itself." }
+    ],
+    "breakpoints": [
+      { "name": "row-collapse", "value": "62rem" },
+      { "name": "single-column", "value": "48rem" },
+      { "name": "op-rail-collapse", "value": "68rem" }
+    ],
+    "lineWork": [
+      { "name": "bound-edge", "value": "repeating-linear-gradient(-45deg, #9aa3a1 0 1px, transparent 1px 7px)", "purpose": "The sheet's hatched left margin: 10px wide, 6px below 48rem." },
+      { "name": "field-hatch", "value": "repeating-linear-gradient(-45deg, rgba(0,0,0,0.42) 0 2px, transparent 2px 7px)", "purpose": "5px survey line-work carried into both committed orange fields." },
+      { "name": "hatch-highest", "value": "repeating-linear-gradient(-45deg, #e0521c 0 4px, #eceeed 4px 7px)", "purpose": "Highest severity: the densest duty cycle." },
+      { "name": "hatch-high", "value": "repeating-linear-gradient(-45deg, #e0521c 0 2px, #eceeed 2px 9px)", "purpose": "High severity." },
+      { "name": "hatch-medium", "value": "repeating-linear-gradient(-45deg, #4d5553 0 1px, #eceeed 1px 12px)", "purpose": "Medium severity: sparsest, and in secondary ink rather than orange." }
+    ],
+    "measures": [
+      { "name": "sheet-max", "value": "96rem", "purpose": "The sheet's outer bound." },
+      { "name": "measure", "value": "64ch", "purpose": "Default prose measure." },
+      { "name": "measure-flag", "value": "62ch", "purpose": "Flag prose, counter-offer box, footer note." },
+      { "name": "measure-stand", "value": "52ch", "purpose": "The standfirst." },
+      { "name": "measure-note", "value": "40ch", "purpose": "Scope intro and limitation notes." }
+    ],
+    "knownIssues": [
+      { "name": "font-path-port-obstruction", "where": "workspace/fonts.css", "detail": "All six faces are loaded from ../landing/fonts/*.woff2. That relative path resolves only in the static two-folder build and breaks the moment this surface becomes app/workspace/page.tsx. The faces must move to public/fonts/ or next/font/local as part of the port. Recorded, not fixed.", "canonized": false },
+      { "name": "leader-and-caret-omitted", "where": "workspace/index.html .source", "detail": "The workspace source figure keeps the lift ground, the 2px mark-orange top rule and the ruled citation line, but drops the leader-and-caret form and the --source-pad derived clearance that DESIGN.md names as an authored form of this world. A deviation from the incumbent system, not a new Operate rule. The Derived Clearance Rule still stands.", "canonized": false },
+      { "name": "severity-swatch-size-drift", "where": "workspace/workspace.css .sev__hatch", "detail": "2.1 x 1.4rem against the recorded 2.25 x 1.5rem, and the key does not enlarge the swatch as the Persuade key does (3.25 x 1.7rem). The recorded system values are unchanged; the workspace numbers are drift and are not canonized.", "canonized": false },
+      { "name": "library-selection-rule-weight", "where": "workspace/workspace.css .lib__open", "detail": "The current-row left rule is declared at 2px and then overridden to 1px by a later duplicate border-left-width declaration, so the selection reads thinner than the flag row's 2px selection rule. Reported, not repaired; the 2px selection weight is the system value.", "canonized": false },
+      { "name": "untokenized-white", "where": "workspace/workspace.css", "detail": "Pure white appears as the literal #fff on the primary button label, the open flag's source figure and the cited clause, while the palette already carries it as field-ink. Cosmetic inconsistency in the source, not a second colour.", "canonized": false }
+    ]
+  },
+  "components": [
+    {
+      "name": "In-band Action",
+      "kind": "button",
+      "refersTo": "action-inband",
+      "description": "The one action, set into the right end of the orange schedule head. Transparent on the field, inverting to white on hover.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-action-inband\" href=\"#\">Inspect your own document</a></div>",
+      "css": ".ds-band { background: var(--orange-field, #c33f18); padding: 0.85rem 1.75rem; } .ds-action-inband { display: inline-flex; align-items: center; gap: 0.6rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.0625rem; text-transform: uppercase; letter-spacing: 0.055em; text-decoration: none; color: #fff; background: transparent; border: 1.5px solid currentColor; border-radius: 0; padding: 0.55rem 1.1rem; transition: background-color 180ms cubic-bezier(0.16,1,0.3,1), color 180ms cubic-bezier(0.16,1,0.3,1); } .ds-action-inband::after { content: \"\"; width: 0.85em; height: 0.85em; border-right: 1.5px solid currentColor; border-top: 1.5px solid currentColor; transform: rotate(45deg) translateY(-0.05em); transition: transform 180ms cubic-bezier(0.16,1,0.3,1); } .ds-action-inband:hover, .ds-action-inband:focus-visible { background: #fff; color: var(--orange-ink, #a83513); } .ds-action-inband:hover::after { transform: rotate(45deg) translate(0.15em, -0.2em); } .ds-action-inband:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Large Action",
+      "kind": "button",
+      "refersTo": "action-lg",
+      "description": "The closing instance of the same action, charcoal-filled on the sheet, turning field orange on hover.",
+      "html": "<a class=\"ds-action-lg\" href=\"#\">Inspect your own document</a>",
+      "css": ".ds-action-lg { display: inline-flex; align-items: center; gap: 0.6rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.055em; text-decoration: none; color: #fff; background: var(--ink, #191b1d); border: 1.5px solid var(--ink, #191b1d); border-radius: 0; padding: 0.85rem 1.5rem; transition: background-color 180ms cubic-bezier(0.16,1,0.3,1), border-color 180ms cubic-bezier(0.16,1,0.3,1); } .ds-action-lg::after { content: \"\"; width: 0.85em; height: 0.85em; border-right: 1.5px solid currentColor; border-top: 1.5px solid currentColor; transform: rotate(45deg) translateY(-0.05em); transition: transform 180ms cubic-bezier(0.16,1,0.3,1); } .ds-action-lg:hover, .ds-action-lg:focus-visible { background: var(--orange-field, #c33f18); border-color: var(--orange-field, #c33f18); } .ds-action-lg:hover::after { transform: rotate(45deg) translate(0.18em, -0.22em); } .ds-action-lg:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Flag Row",
+      "kind": "custom",
+      "refersTo": "flag-toggle",
+      "description": "The signature component: a hairline-ruled schedule row that is also the disclosure control. Figure number, severity mark, clause type, clause reference, chevron.",
+      "html": "<ol class=\"ds-flags\"><li class=\"ds-flag\"><h3 class=\"ds-flag-head\"><button type=\"button\" class=\"ds-flag-toggle\" aria-expanded=\"false\"><span class=\"ds-flag-num ds-tnum\">02</span><span class=\"ds-sev ds-sev--1\"><span class=\"ds-sev-hatch\" aria-hidden=\"true\"></span><span class=\"ds-sev-name\">Highest severity</span></span><span class=\"ds-flag-type\">Uncapped indemnification</span><span class=\"ds-flag-ref ds-tnum\">\u00a7 9.1</span><span class=\"ds-flag-chev\" aria-hidden=\"true\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"><path d=\"M3 6.5 8 11l5-4.5\"/></svg></span></button></h3></li></ol>",
+      "css": ".ds-flags { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule, #c4cbc9); } .ds-flag { border-bottom: 1px solid var(--rule, #c4cbc9); } .ds-flag-head { margin: 0; } .ds-flag-toggle { width: 100%; display: grid; grid-template-columns: 3.25rem minmax(11rem, auto) minmax(0, 1fr) auto 1.5rem; align-items: center; gap: 0 1.5rem; padding: 0.7rem 0.25rem 0.7rem 0; background: none; border: 0; border-radius: 0; text-align: left; color: var(--ink, #191b1d); font-family: Archivo, \"Segoe UI\", system-ui, sans-serif; font-size: 1.0625rem; cursor: pointer; } .ds-flag-toggle:hover { background: var(--sheet-lift, #f6f7f7); } .ds-flag-toggle:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 3px; } .ds-flag-num { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.6rem; line-height: 1; color: var(--ink-3, #5f6765); } .ds-flag-type { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.005em; } .ds-flag-ref { font-size: 0.9375rem; font-weight: 500; color: var(--ink-3, #5f6765); } .ds-flag-chev { display: flex; justify-content: flex-end; color: var(--ink-3, #5f6765); transition: transform 200ms cubic-bezier(0.16,1,0.3,1); } .ds-flag-toggle[aria-expanded=\"true\"] .ds-flag-chev { transform: rotate(180deg); } .ds-tnum { font-variant-numeric: tabular-nums; } .ds-sev { display: inline-flex; align-items: center; gap: 0.6rem; } .ds-sev-hatch { width: 2.25rem; height: 1.5rem; border: 1px solid var(--ink, #191b1d); flex: 0 0 auto; } .ds-sev--1 .ds-sev-hatch { background: repeating-linear-gradient(-45deg, var(--orange-mark, #e0521c) 0 4px, var(--sheet, #eceeed) 4px 7px); } .ds-sev-name { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.085em; text-transform: uppercase; color: var(--orange-ink, #a83513); white-space: nowrap; }"
+    },
+    {
+      "name": "Severity Mark",
+      "kind": "chip",
+      "refersTo": "flag-toggle",
+      "description": "Named rank plus hatch density, always together. Three published duty cycles; colour is never the sole signal.",
+      "html": "<div class=\"ds-sevset\"><span class=\"ds-sv ds-sv--1\"><span class=\"ds-sv-h\" aria-hidden=\"true\"></span><span class=\"ds-sv-n\">Highest severity</span></span><span class=\"ds-sv ds-sv--2\"><span class=\"ds-sv-h\" aria-hidden=\"true\"></span><span class=\"ds-sv-n\">High severity</span></span><span class=\"ds-sv ds-sv--3\"><span class=\"ds-sv-h\" aria-hidden=\"true\"></span><span class=\"ds-sv-n\">Medium severity</span></span></div>",
+      "css": ".ds-sevset { display: flex; flex-direction: column; gap: 0.5rem; } .ds-sv { display: inline-flex; align-items: center; gap: 0.6rem; } .ds-sv-h { width: 3.25rem; height: 1.7rem; border: 1px solid var(--ink, #191b1d); flex: 0 0 auto; } .ds-sv--1 .ds-sv-h { background: repeating-linear-gradient(-45deg, var(--orange-mark, #e0521c) 0 4px, var(--sheet, #eceeed) 4px 7px); } .ds-sv--2 .ds-sv-h { background: repeating-linear-gradient(-45deg, var(--orange-mark, #e0521c) 0 2px, var(--sheet, #eceeed) 2px 9px); } .ds-sv--3 .ds-sv-h { background: repeating-linear-gradient(-45deg, var(--ink-2, #4d5553) 0 1px, var(--sheet, #eceeed) 1px 12px); } .ds-sv-n { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.085em; text-transform: uppercase; color: var(--orange-ink, #a83513); } .ds-sv--3 .ds-sv-n { color: var(--ink-2, #4d5553); }"
+    },
+    {
+      "name": "Source Sentence",
+      "kind": "custom",
+      "refersTo": "source-figure",
+      "description": "The evidence block. Mark-orange rule over the top edge, caret and leader in the derived left gutter, the document's own sentence in Spectral at reading size. Never truncated, never hidden by motion.",
+      "html": "<figure class=\"ds-source\"><span class=\"ds-source-caret\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 20\" width=\"32\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M2 18 16 3l14 15\"/></svg></span><span class=\"ds-source-leader\" aria-hidden=\"true\"></span><blockquote class=\"ds-source-quote\"><p>The Contractor personally and unconditionally guarantees all obligations of the Contractor\u2019s company under this Agreement.</p></blockquote><figcaption class=\"ds-source-cite\">Source sentence \u00b7 \u00a7 12.4 \u00b7 quoted verbatim</figcaption></figure>",
+      "css": ".ds-source { --p: 2.25rem; position: relative; margin: 0; background: var(--sheet-lift, #f6f7f7); border-top: 1px solid var(--rule, #c4cbc9); border-bottom: 1px solid var(--rule, #c4cbc9); border-radius: 0; padding: 0.95rem var(--p) 0.85rem; } .ds-source::before { content: \"\"; position: absolute; inset-inline: -1px; top: -1px; height: 2px; background: var(--orange-mark, #e0521c); transform-origin: 0 50%; } .ds-source-caret { position: absolute; top: -0.65rem; left: calc(var(--p) - 1.15rem); color: var(--orange-mark, #e0521c); line-height: 0; } .ds-source-leader { position: absolute; top: 0.65rem; bottom: 2.3rem; left: calc(var(--p) - 0.8rem); width: 1px; background: var(--orange-mark, #e0521c); } .ds-source-leader::after { content: \"\"; position: absolute; left: 0; bottom: 0; width: 0.7rem; height: 1px; background: var(--orange-mark, #e0521c); } .ds-source-quote { margin: 0; } .ds-source-quote p { margin: 0; font-family: Spectral, Georgia, \"Times New Roman\", serif; font-size: 1.4rem; line-height: 1.42; color: var(--ink, #191b1d); } .ds-source-quote p::before { content: \"\\201C\"; } .ds-source-quote p::after { content: \"\\201D\"; } .ds-source-cite { margin-top: 0.6rem; padding-top: 0.4rem; border-top: 1px solid var(--rule, #c4cbc9); font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #5f6765); }"
+    },
+    {
+      "name": "Counter-offer Box",
+      "kind": "card",
+      "refersTo": "counter-text",
+      "description": "The artifact to send on: replacement wording in Spectral inside a green-ruled box with a weighted top edge. No fill, no radius, no shadow.",
+      "html": "<div class=\"ds-counter\"><h4 class=\"ds-minor\">Counter-offer to send back</h4><p class=\"ds-counter-text\">Delete clause 12.4. If the Client needs security, offer instead: \u201cThe Contractor\u2019s liability under this Agreement is limited to the fees paid or payable under it, and no personal guarantee is given.\u201d</p></div>",
+      "css": ".ds-minor { margin: 0 0 0.45rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-3, #5f6765); } .ds-counter-text { margin: 0; font-family: Spectral, Georgia, serif; font-size: 1.0625rem; line-height: 1.5; color: var(--ink, #191b1d); border: 1px solid var(--green, #1d6b4c); border-top-width: 2px; border-radius: 0; padding: 0.7rem 0.9rem 0.75rem; max-width: 62ch; }"
+    },
+    {
+      "name": "Scope Row",
+      "kind": "custom",
+      "refersTo": "flag-toggle",
+      "description": "A row of the published inspection scope. Absence is drawn at the same weight as presence: a green tick and 'Inspected \u00b7 not found' carries as much rule and type as a flagged row.",
+      "html": "<ol class=\"ds-scopelist\"><li class=\"ds-scoperow ds-scoperow--flagged\"><span class=\"ds-scope-n ds-tn\">1</span><span class=\"ds-scope-name\">Personal guarantees</span><span class=\"ds-scope-status\"><span class=\"ds-sv ds-sv--1\"><span class=\"ds-sv-h\" aria-hidden=\"true\"></span><span class=\"ds-sv-n\">Flagged \u00b7 highest</span></span></span></li><li class=\"ds-scoperow\"><span class=\"ds-scope-n ds-tn\">4</span><span class=\"ds-scope-name\">Automatic renewal</span><span class=\"ds-scope-status\"><span class=\"ds-sound\"><span class=\"ds-tick\" aria-hidden=\"true\"><svg viewBox=\"0 0 16 16\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"><path d=\"M2.5 8.5 6 12l7.5-8\"/></svg></span>Inspected \u00b7 not found</span></span></li></ol>",
+      "css": ".ds-scopelist { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink, #191b1d); } .ds-scoperow { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) auto; gap: 0 1.5rem; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid var(--rule, #c4cbc9); font-family: Archivo, \"Segoe UI\", system-ui, sans-serif; font-size: 1.0625rem; color: var(--ink, #191b1d); } .ds-scope-n { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--ink-3, #5f6765); } .ds-tn { font-variant-numeric: tabular-nums; } .ds-scope-name { font-weight: 500; } .ds-scoperow--flagged .ds-scope-name { font-weight: 600; } .ds-sound { display: inline-flex; align-items: center; gap: 0.5rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.085em; text-transform: uppercase; color: var(--green, #1d6b4c); white-space: nowrap; } .ds-tick { display: flex; } .ds-sv { display: inline-flex; align-items: center; gap: 0.6rem; } .ds-sv-h { width: 2.25rem; height: 1.5rem; border: 1px solid var(--ink, #191b1d); flex: 0 0 auto; } .ds-sv--1 .ds-sv-h { background: repeating-linear-gradient(-45deg, var(--orange-mark, #e0521c) 0 4px, var(--sheet, #eceeed) 4px 7px); } .ds-sv-n { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.085em; text-transform: uppercase; color: var(--orange-ink, #a83513); }"
+    },
+    {
+      "name": "Title Block",
+      "kind": "custom",
+      "refersTo": "schedule-band",
+      "description": "The survey drawing's title block: ruled cells of micro-label over value, carrying document class, method and ranking basis.",
+      "html": "<dl class=\"ds-titleblock\"><div class=\"ds-tb-cell\"><dt>Document class</dt><dd>Negotiable only</dd></div><div class=\"ds-tb-cell\"><dt>Method</dt><dd>Eight clause types</dd></div><div class=\"ds-tb-cell\"><dt>Ranked by</dt><dd>Worst case</dd></div></dl>",
+      "css": ".ds-titleblock { display: flex; margin: 0; border: 1px solid var(--rule-strong, #9aa3a1); border-right: 0; border-radius: 0; } .ds-tb-cell { padding: 0.4rem 1.1rem 0.45rem; border-right: 1px solid var(--rule-strong, #9aa3a1); min-width: 9.5rem; } .ds-titleblock dt { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3, #5f6765); } .ds-titleblock dd { margin: 0.05rem 0 0; font-family: Archivo, \"Segoe UI\", system-ui, sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.2; color: var(--ink, #191b1d); }"
+    },
+    {
+      "name": "All-clear Stamp",
+      "kind": "custom",
+      "refersTo": "allclear-stamp",
+      "description": "The survey's rubber stamp for the clean result. Doubled green border, rotated -2.5\u00b0. The all-clear gets the most design weight, not the least.",
+      "html": "<p class=\"ds-stamp\">All clear</p>",
+      "css": ".ds-stamp { margin: 0; display: inline-block; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 2.35rem; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green, #1d6b4c); background: transparent; border: 2.5px solid var(--green, #1d6b4c); border-radius: 0; outline: 1px solid var(--green, #1d6b4c); outline-offset: 3px; padding: 0.55rem 1.05rem 0.5rem; transform: rotate(-2.5deg); }"
+    },
+    {
+      "name": "Schedule Head Band",
+      "kind": "nav",
+      "refersTo": "schedule-band",
+      "description": "The first committed orange field: the schedule's head, carrying its title, the document metadata as micro-labelled cells, the action at its right end, and a hatch strip on its inner edge.",
+      "html": "<div class=\"ds-schedhead\"><h2 class=\"ds-sh-title\">Schedule of flags</h2><dl class=\"ds-sh-meta\"><div class=\"ds-sh-cell\"><dt>Document</dt><dd>Freelance services agreement</dd></div><div class=\"ds-sh-cell\"><dt>Inspected</dt><dd>24 Sep 2026</dd></div><div class=\"ds-sh-cell\"><dt>Flags</dt><dd><span class=\"ds-tnm\">3</span> of <span class=\"ds-tnm\">8</span> clause types</dd></div></dl></div>",
+      "css": ".ds-schedhead { position: relative; background: var(--orange-field, #c33f18); color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.5rem; border-radius: 0; padding: 0.85rem 1.75rem; } .ds-schedhead::after { content: \"\"; position: absolute; inset-inline: 0; bottom: 0; height: 5px; background: repeating-linear-gradient(-45deg, rgba(0,0,0,0.42) 0 2px, transparent 2px 7px); } .ds-sh-title { margin: 0; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 2.1rem; line-height: 1; letter-spacing: 0.015em; text-transform: uppercase; flex: 0 0 auto; } .ds-sh-meta { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 0; flex: 1 1 auto; } .ds-sh-cell dt { font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.13em; text-transform: uppercase; color: #fff; } .ds-sh-cell dd { margin: 0.05rem 0 0; font-family: Archivo, \"Segoe UI\", system-ui, sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.25; } .ds-tnm { font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Operate Button",
+      "kind": "button",
+      "refersTo": "op-btn",
+      "description": "The workspace's default control: hairline-boxed, condensed caps, charcoal on the sheet. Carries an optional tabular count cell ruled off at its right.",
+      "html": "<button type=\"button\" class=\"ds-op-btn\">Your red lines <span class=\"ds-op-btn-count\">3 matched</span></button> <button type=\"button\" class=\"ds-op-btn\" disabled>Copy</button>",
+      "css": ".ds-op-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.055em; text-transform: uppercase; color: var(--ink, #191b1d); background: transparent; border: 1px solid var(--rule-strong, #9aa3a1); border-radius: 0; padding: 0.45rem 0.85rem; cursor: pointer; transition: background-color 170ms cubic-bezier(0.16,1,0.3,1), border-color 170ms cubic-bezier(0.16,1,0.3,1), color 170ms cubic-bezier(0.16,1,0.3,1); } .ds-op-btn:hover { background: var(--sheet-lift, #f6f7f7); border-color: var(--ink, #191b1d); } .ds-op-btn:active { background: var(--panel, #e1e5e3); } .ds-op-btn:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 2px; } .ds-op-btn[disabled] { color: var(--disabled-ink, #8c9492); border-color: var(--rule, #c4cbc9); cursor: not-allowed; } .ds-op-btn-count { font-family: Archivo, sans-serif; font-weight: 500; font-size: 0.8125rem; letter-spacing: 0; text-transform: none; color: var(--orange-ink, #a83513); border-left: 1px solid var(--rule, #c4cbc9); padding-left: 0.5rem; }"
+    },
+    {
+      "name": "Operate Primary Button",
+      "kind": "button",
+      "refersTo": "op-btn-primary",
+      "description": "One per surface: the action that acts on the whole report. Charcoal at rest, field orange on hover, deep orange ink on press. Orange job one of three.",
+      "html": "<button type=\"button\" class=\"ds-op-btn-primary\">Copy all counter-offers</button>",
+      "css": ".ds-op-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.055em; text-transform: uppercase; color: #fff; background: var(--ink, #191b1d); border: 1px solid var(--ink, #191b1d); border-radius: 0; padding: 0.45rem 0.85rem; cursor: pointer; transition: background-color 170ms cubic-bezier(0.16,1,0.3,1), border-color 170ms cubic-bezier(0.16,1,0.3,1); } .ds-op-btn-primary:hover { background: var(--orange-field, #c33f18); border-color: var(--orange-field, #c33f18); } .ds-op-btn-primary:active { background: var(--orange-ink, #a83513); border-color: var(--orange-ink, #a83513); } .ds-op-btn-primary:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 2px; } .ds-op-btn-primary.is-busy { color: var(--disabled-ink, #8c9492); border-color: var(--rule, #c4cbc9); background: transparent; cursor: progress; }"
+    },
+    {
+      "name": "Operate Field",
+      "kind": "input",
+      "refersTo": "op-field",
+      "description": "A square input on its own near-white ground inside the sheet, strong-rule bordered. Focus is the mark-orange ring at zero offset plus a mark-orange border; invalid is the field-orange border.",
+      "html": "<label class=\"ds-op-minor\" for=\"ds-q\">Ask the document</label><input id=\"ds-q\" class=\"ds-op-field\" type=\"text\" placeholder=\"In your own words…\">",
+      "css": ".ds-op-minor { display: block; margin: 0 0 0.4rem; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-3, #5f6765); } .ds-op-field { font: 400 1rem/1.55 Archivo, \"Segoe UI\", system-ui, sans-serif; color: var(--ink, #191b1d); background: var(--field-bg, #f8f9f9); border: 1px solid var(--rule-strong, #9aa3a1); border-radius: 0; padding: 0.5rem 0.7rem; width: 100%; } .ds-op-field::placeholder { color: var(--ink-3, #5f6765); } .ds-op-field:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 0; border-color: var(--orange-mark, #e0521c); } .ds-op-field[aria-invalid=\"true\"] { border-color: var(--orange-field, #c33f18); }"
+    },
+    {
+      "name": "Threshold Mark",
+      "kind": "custom",
+      "refersTo": "op-threshold-mark",
+      "description": "A solid mark-orange square with a 1px charcoal border, deliberately never hatched: hatch density means severity rank, and a threshold is not a rank. It is the reader's own declared unacceptable term, disqualifying however the clause would otherwise rank. Full size (1.1rem) in flag bodies, the red-lines panel and the key; small (0.8rem) on collapsed flag rows and scope rows so a match is visible before the flag is opened.",
+      "html": "<p class=\"ds-thresh-line\"><span class=\"ds-thresh\"></span>Matches one of your red lines: <em>“I will not give a personal guarantee.”</em></p><p class=\"ds-thresh-row\"><span class=\"ds-thresh ds-thresh--sm\"></span><span class=\"ds-thresh-ref\">§ 12.4</span></p>",
+      "css": ".ds-thresh { display: inline-block; width: 1.1rem; height: 1.1rem; background: var(--orange-mark, #e0521c); border: 1px solid var(--ink, #191b1d); border-radius: 0; vertical-align: -0.15rem; margin-right: 0.55rem; } .ds-thresh--sm { width: 0.8rem; height: 0.8rem; margin-right: 0.5rem; vertical-align: -0.05rem; } .ds-thresh-line { margin: 0 0 0.7rem; padding: 0.55rem 0.7rem; border: 1px solid var(--orange-mark, #e0521c); font: 400 0.9375rem/1.55 Archivo, sans-serif; max-width: 78ch; } .ds-thresh-line em { font-family: Spectral, Georgia, serif; } .ds-thresh-row { margin: 0; } .ds-thresh-ref { font: 500 0.875rem Archivo, sans-serif; font-variant-numeric: tabular-nums; color: var(--ink-3, #5f6765); }"
+    },
+    {
+      "name": "Side Panel",
+      "kind": "custom",
+      "refersTo": "op-panel",
+      "description": "The reader's red lines, their library and their own document open as a right-edge panel over a scrim: role=dialog, aria-modal, Tab trapped inside, Escape closes, focus returns to the opener, and body scroll locks. Bordered with a 1.5px charcoal rule, drawn and not raised. Full width below 48rem.",
+      "html": "<div class=\"ds-panel-scrim\"></div><aside class=\"ds-panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"ds-panel-h\"><div class=\"ds-panel-head\"><h2 class=\"ds-panel-title\" id=\"ds-panel-h\">Your red lines</h2><button type=\"button\" class=\"ds-panel-close\" aria-label=\"Close\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"><path d=\"M3 3l10 10M13 3L3 13\"/></svg></button></div><div class=\"ds-panel-body\"><p class=\"ds-panel-lead\">Terms you will not accept, in your own words. A match is disqualifying however that clause would otherwise rank.</p></div></aside>",
+      "css": ".ds-panel-scrim { position: absolute; inset: 0; background: var(--scrim, rgba(25,27,29,0.28)); } .ds-panel { position: absolute; inset-block: 0; right: 0; width: min(24rem, 100%); background: var(--bar, #e4e8e6); border-left: 1.5px solid var(--ink, #191b1d); border-radius: 0; display: flex; flex-direction: column; } .ds-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1.1rem 0.75rem; border-bottom: 1.5px solid var(--ink, #191b1d); } .ds-panel-title { margin: 0; font-family: \"Barlow Condensed\", Archivo, sans-serif; font-weight: 700; font-size: 1.375rem; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; } .ds-panel-close { background: none; border: 1px solid var(--rule-strong, #9aa3a1); border-radius: 0; color: var(--ink, #191b1d); padding: 0.35rem; display: flex; cursor: pointer; transition: background-color 170ms cubic-bezier(0.16,1,0.3,1); } .ds-panel-close:hover { background: var(--sheet-lift, #f6f7f7); border-color: var(--ink, #191b1d); } .ds-panel-close:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 2px; } .ds-panel-body { padding: 1.1rem; overflow-y: auto; } .ds-panel-lead { margin: 0; font: 400 0.9375rem/1.55 Archivo, sans-serif; color: var(--ink-2, #4d5553); max-width: 60ch; }"
+    },
+    {
+      "name": "Library Row",
+      "kind": "custom",
+      "refersTo": "op-library-row",
+      "description": "One saved document per hairline-ruled row, the whole row a button: name, metadata, and its own expiry, with an expiring document's date in deep orange ink. The current document carries a mark-orange left rule and the lift ground. Orange job two of three.",
+      "html": "<ul class=\"ds-lib\"><li class=\"ds-lib-item ds-lib-item--current\"><button type=\"button\" class=\"ds-lib-open\"><span class=\"ds-lib-name\">Freelance services agreement</span><span class=\"ds-lib-meta\">Inspected 24 Sep 2026 · 4 flags</span><span class=\"ds-lib-exp ds-lib-exp--soon\">In your library until 21 Oct 2026</span></button></li><li class=\"ds-lib-item\"><button type=\"button\" class=\"ds-lib-open\"><span class=\"ds-lib-name\">Studio sublease</span><span class=\"ds-lib-meta\">Inspected 11 Sep 2026 · all clear</span><span class=\"ds-lib-exp\">In your library until 8 Oct 2026</span></button></li></ul>",
+      "css": ".ds-lib { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink, #191b1d); } .ds-lib-item { border-bottom: 1px solid var(--rule, #c4cbc9); } .ds-lib-open { width: 100%; display: grid; gap: 0.15rem; text-align: left; background: none; border: 0; border-left: 2px solid transparent; border-radius: 0; padding: 0.75rem 0.6rem; font: 400 1rem/1.55 Archivo, sans-serif; color: var(--ink, #191b1d); cursor: pointer; transition: background-color 170ms cubic-bezier(0.16,1,0.3,1); } .ds-lib-open:hover { background: var(--sheet-lift, #f6f7f7); } .ds-lib-open:focus-visible { outline: 2px solid var(--orange-mark, #e0521c); outline-offset: 2px; } .ds-lib-item--current .ds-lib-open { border-left-color: var(--orange-mark, #e0521c); background: var(--sheet-lift, #f6f7f7); } .ds-lib-name { font-weight: 600; font-size: 1.125rem; } .ds-lib-meta, .ds-lib-exp { font-size: 0.875rem; color: var(--ink-3, #5f6765); } .ds-lib-exp--soon { color: var(--orange-ink, #a83513); font-weight: 500; }"
+    },
+    {
+      "name": "Analysing State",
+      "kind": "custom",
+      "refersTo": "op-skeleton",
+      "description": "Waiting is named, not spun: three checkbox-square steps that advance one at a time (extracting, checking clause types, matching red lines) over panel-grey skeleton bars. The active step's square fills mark orange, a finished one fills green. The pulse runs only when motion is welcome.",
+      "html": "<ol class=\"ds-steps\"><li class=\"ds-step ds-step--done\">Extracting text in your browser</li><li class=\"ds-step ds-step--active\">Checking eight clause types</li><li class=\"ds-step\">Matching your red lines</li></ol><div class=\"ds-skel-wrap\"><span class=\"ds-skel ds-skel--wide\"></span><span class=\"ds-skel\"></span><span class=\"ds-skel ds-skel--row\"></span></div>",
+      "css": ".ds-steps { list-style: none; margin: 0 0 1.5rem; padding: 0; max-width: 40rem; } .ds-step { padding: 0.5rem 0; border-bottom: 1px solid var(--rule, #c4cbc9); font: 400 0.9375rem/1.55 Archivo, sans-serif; color: var(--ink-3, #5f6765); display: flex; align-items: center; gap: 0.6rem; } .ds-step::before { content: \"\"; width: 0.85rem; height: 0.85rem; border: 1px solid var(--rule-strong, #9aa3a1); border-radius: 0; flex: 0 0 auto; } .ds-step--active { color: var(--ink, #191b1d); } .ds-step--active::before { background: var(--orange-mark, #e0521c); border-color: var(--ink, #191b1d); } .ds-step--done { color: var(--ink-2, #4d5553); } .ds-step--done::before { background: var(--green, #1d6b4c); border-color: var(--ink, #191b1d); } .ds-skel-wrap { display: grid; gap: 0.7rem; max-width: 60rem; } .ds-skel { display: block; height: 1rem; background: var(--panel, #e1e5e3); } .ds-skel--wide { height: 2rem; max-width: 28rem; } .ds-skel--row { height: 3rem; } @media (prefers-reduced-motion: no-preference) { .ds-skel { animation: ds-pulse 1400ms cubic-bezier(0.16,1,0.3,1) infinite alternate; } } @keyframes ds-pulse { from { opacity: 0.55; } to { opacity: 1; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Condition Survey",
+    "overview": "Redline looks like the document a surveyor hands you before you commit: a dilapidations report, a schedule of defect. One dyeline sheet, bound at its left edge by a hatched margin rule, carrying a numbered schedule of flags in charcoal ink. Every element is a ruled row on that sheet. Nothing floats, nothing is a card, nothing is tilted into perspective, and the product's own interface is never screenshotted as an image of itself — the document is the stage, at full scale.\n\nThe register is measured and forensic rather than alarming. Safety orange is the only warm thing on the page and it is Committed: it owns two whole regions, bleeding to the sheet's edges, and appears nowhere as a decorative accent. Severity is stated twice — a named rank in condensed caps plus a diagonal hatch whose density carries the same information — so the page never asks a reader to decode a colour. Absence is drawn as deliberately as presence: the inspection scope, the all-clear stamp, and the limitations list get the same rule weight and the same type ramp as the flags do.\n\nThis is a single committed light world. color-scheme: light is declared and there is no dark variant; the use scene is daytime, a browser, and a client waiting on a signature, not a category habit about near-black hero sections. The page refuses the arrangement this category ships: no near-black hero, no perspective app screenshot, no three-card icon row, no ranking by how common a clause is.",
+    "keyCharacteristics": [
+      "One sheet, ruled rows, zero cards and zero corner radius.",
+      "Charcoal ink on a cool dyeline ground; orange owns regions, never accents.",
+      "Severity double-encoded: named rank plus hatch density.",
+      "Three type voices, strictly separated — the survey's lettering never shares a face with the document's own words.",
+      "Flat by construction: no shadows anywhere, depth from rule weight and a single tonal lift.",
+      "One authored motion moment, entirely from an already-visible default.",
+      "Two densities, one world: a Persuade sheet on clamped display type, an Operate sheet on a fixed ten-step rem ramp.",
+      "At Operate density orange has exactly three jobs — primary action, current selection, severity and threshold marks — and no authored entrance."
+    ],
+    "rules": [
+      { "name": "The Two-Value Orange Rule", "body": "The orange is two values on purpose. Marks, rules, hatch, focus ring and caret use the contract's safety orange; the two whole-region committed fields step down to the deeper field orange, because white and every legible tint of white fail 4.5:1 on the safety value. This is contrast-forced, not taste, and is cited at source in landing/redline.css:21–24. Never unify them, and never set white text on the mark value.", "section": "colors" },
+      { "name": "The Committed Field Rule", "body": "Orange arrives as a region or not at all — a full-bleed band with lettering inside it. It is never a scattered accent, never a tint wash, never a border colour on a neutral row. On this Persuade surface there are exactly two such fields. On task surfaces at Operate density the same world narrows to Restrained: orange is permitted only on the primary action, the current selection, and severity marks. Those tokens now exist: the workspace build created the Operate layer recorded in this file (bar, field-bg, disabled-ink, scrim, and the fixed ten-step rem ramp). Extend that layer for a new task surface; do not re-derive one from the Persuade ramp.", "section": "colors" },
+      { "name": "The No-Tint-Hierarchy Rule", "body": "Inside an orange field, hierarchy comes from size, weight and tracking — never from a lighter tint of the field colour, because no tint light enough to read clears 4.5:1 against it. Label and value both sit at pure white and are told apart by 0.75rem/0.13em condensed caps against 1rem medium sentence case.", "section": "colors" },
+      { "name": "The Double-Encoded Severity Rule", "body": "Severity is always a named rank and a hatch density; colour is never the sole signal. The ranks are Highest, High and Medium — and only those words. \"Category\" is reserved for clause type in this product and must never number a severity.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "The survey's lettering and the document's voice never share a face. Barlow Condensed and Archivo belong to Redline; Spectral belongs to the inspected document and to nothing else. That separation is the mechanism by which a reader can always tell the product's words from the document's words — legibility of authorship, not decoration — and it carries unchanged into the app shell.", "section": "typography" },
+      { "name": "The Tabular Figures Rule", "body": "Any figure a reader might compare, locate or count carries .tnum. A clause reference set in proportional numerals is a defect.", "section": "typography" },
+      { "name": "The Caps-Are-Structural Rule", "body": "Uppercase belongs to Barlow Condensed — headings, ranks, labels. Archivo body prose and Spectral quotations are never capitalised or letterspaced for emphasis.", "section": "typography" },
+      { "name": "The Derived Clearance Rule", "body": "The source figure's leader lives in its left gutter, so that gutter is a local custom property (--source-pad) the leader positions against. Clearance around a mark is derived from one declared value, never eyeballed twice.", "section": "layout" },
+      { "name": "The Ruled-Not-Raised Rule", "body": "Separation is drawn, never lifted. A new surface that needs a boundary gets a rule at the weight its level deserves; one that needs to feel closer gets the tonal lift or a hatch. Never a shadow, never a glow, never a backdrop blur.", "section": "elevation" },
+      { "name": "The Already-Visible Rule", "body": "Every animation begins from a state in which the content is already visible and readable. Nothing content-bearing is ever clipped, hidden or faded from zero by motion, and no text depends on a keyframe running to be legible. An earlier revision of this build hid the source sentence when the animation did not run; that is the failure this rule exists to prevent. Test: disable JS and CSS animation — every word must still be on the page.", "section": "components" },
+      { "name": "The Open-Without-JS Rule", "body": "Without JavaScript every flag is open and fully readable. JS only adds the collapse behaviour and the one-open-at-a-time discipline. Disclosure is an enhancement; it is never the condition of reading the evidence.", "section": "components" },
+      { "name": "The Fixed-Ramp-At-Operate Rule", "body": "Operate surfaces use a fixed rem ramp of exactly ten steps — 0.75, 0.8125, 0.875, 0.9375, 1, 1.125, 1.25, 1.375, 1.75, 2.125rem — and no clamp. Fluid display sizes belong to the Persuade sheet, where the headline is the composition; a heading that breathes inside a panel at a fixed desktop DPI looks worse, not better. Ten is the consolidated count: the first workspace build sprawled to roughly sixteen distinct sizes and that was drift, not a system. A new Operate size is added by consolidating two existing ones, never by appending an eleventh.", "section": "typography" },
+      { "name": "The Three-Jobs Rule", "body": "At Operate density orange has exactly three jobs: the primary action, the current selection, and severity or threshold marks. The current selection is drawn as a 2px mark-orange bottom rule on the open flag row and a mark-orange left rule on the current library row. Deep Orange Ink additionally carries links and small status lettering, as the Persuade surface already sanctions. Everything else on a task surface is ink, rule and ground.", "section": "colors" },
+      { "name": "The Threshold-Is-Not-A-Rank Rule", "body": "A severity mark is hatched; a threshold mark is a solid mark-orange block with a 1px charcoal border and is never hatched. Hatch density encodes rank, and a threshold has no rank — it is the reader's own declared unacceptable term, disqualifying however the clause would otherwise rank. The two marks never merge, never share a shape, and the threshold never sits in the rank rows of the key: it spans beneath them under its own rule.", "section": "shapes" },
+      { "name": "The Scrim-Is-Not-A-Shadow Rule", "body": "A panel is separated from the sheet by a 1.5px charcoal rule on its leading edge and a flat 28% ink scrim over everything behind it. The scrim is a dimmed ground, not a cast shadow: it has no blur, no offset and no spread, and it never gains one. There is still no box-shadow, filter or backdrop-filter anywhere in this system.", "section": "elevation" },
+      { "name": "The No-Entrance-At-Operate Rule", "body": "The strike — the landing page's authored five-beat entrance — is Persuade-only and is deliberately absent from task surfaces. Operate motion is functional and short: 170ms on a state change, 200ms on a disclosure chevron, a stepped named progress list and a pulsing skeleton while real work happens. A task surface never performs its own arrival.", "section": "components" }
+    ],
+    "dos": [
+      "Do build every new block as a ruled row or ruled cell on the one sheet, boundaries drawn with the hairline (1px {colors.rule}) and section breaks with 1.5px solid {colors.ink}.",
+      "Do use the mark orange for marks, rules, hatch, caret and focus, and the field orange for whole regions with white lettering on them — and keep both values as they are.",
+      "Do encode severity twice: a named rank in Barlow Condensed caps plus a hatch swatch at one of the three published duty cycles (4/7, 2/9, 1/12).",
+      "Do name the ranks Highest, High and Medium, and use the product's own words elsewhere too — a flag, its source sentence, an all-clear, a clause type.",
+      "Do set every quoted sentence and every hedge in Spectral, and everything the product itself says in Archivo or Barlow Condensed.",
+      "Do carry .tnum on every figure a reader might compare or locate.",
+      "Do derive clearance around a mark from a declared custom property, as the source figure derives its gutter from --source-pad.",
+      "Do theme browser surfaces — selection, caret, scrollbar, focus ring — from the palette on any new page.",
+      "Do start every animation from an already-visible, already-readable default, and make the page complete without JavaScript.",
+      "Do narrow orange to primary action, current selection and severity marks on Operate-density task surfaces, keeping this palette and these three faces.",
+      "Do set Operate surfaces on the fixed ten-step rem ramp (0.75 / 0.8125 / 0.875 / 0.9375 / 1 / 1.125 / 1.25 / 1.375 / 1.75 / 2.125rem), and earn a new step by consolidating two, never by appending an eleventh.",
+      "Do mark a threshold match with a solid orange block and a 1px charcoal border — full size (1.1rem) in flag bodies, the red-lines panel and the key; small (0.8rem) on any collapsed row, so the match is visible before the flag is opened.",
+      "Do hold Operate motion functional: 170ms on a state change, 200ms on a disclosure chevron, a named stepped wait, and no authored entrance.",
+      "Do make an overlay accountable: role=dialog, aria-modal, Tab trapped inside it, Escape closing it, focus returned to whatever opened it, and body scroll locked while it is open.",
+      "Do carry .tnum onto task surfaces too — flag numbers, clause references, counts, dates and expiries — and keep a screen-reader-only .u-sr sentence beside every mark that carries meaning."
+    ],
+    "donts": [
+      "Don't introduce a card, a rounded panel, or a nested container. Radius is 0 everywhere in this system.",
+      "Don't add a box-shadow, glow or backdrop blur to convey depth. Use rule weight, the single tonal lift, or hatch density.",
+      "Don't build hierarchy inside an orange field from a lighter tint of that orange — no tint that reads clears 4.5:1. Use size, weight and tracking.",
+      "Don't scatter orange as a decorative accent, a tint wash, or a border on a neutral row. It owns a region or it is a mark.",
+      "Don't let colour alone carry severity, and don't render severity as a smooth gradient.",
+      "Don't use \"finding\" for a flag, \"red line\" for a threshold outside the interface label \"your red lines\", or \"category\" for anything but clause type.",
+      "Don't set a source sentence smaller than the surrounding prose, truncate it, soften its wording, or let any animation or collapse state hide it.",
+      "Don't add a fourth type family, and don't set the product's own lettering in Spectral or the document's quoted words in Archivo or Barlow Condensed.",
+      "Don't load fonts from a third-party host or fall back to a system display face; all three families are self-hosted woff2 with font-display: swap.",
+      "Don't add a dark variant. This is a single committed light world (color-scheme: light) chosen from the use scene; there is no dark counterpart to inherit.",
+      "Don't invent app-shell tokens. The Restrained step-down has landed as the recorded Operate layer — extend it, and don't re-derive a task surface from the Persuade ramp.",
+      "Don't clamp a font size on an Operate surface, and don't carry the Persuade clamped display ramp into a task frame. Fixed rem, ten steps.",
+      "Don't hatch a threshold mark, rank it, or let it share a shape with a severity swatch. Hatch means rank; a threshold has none.",
+      "Don't replay the strike, or any authored entrance, on a task surface. Operate motion is 170–200ms and functional.",
+      "Don't let the panel scrim acquire a blur, offset or spread, and don't reach for a shadow when a panel needs separating — it gets a 1.5px charcoal rule.",
+      "Don't spend orange on an Operate surface outside its three jobs. A hover state, a border on a neutral row, a background tint: all of those are ink, rule or ground."
+    ]
+  }
+}
