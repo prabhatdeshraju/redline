@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redline — a schedule of flags for a document you can still change</title>
+<meta name="description" content="Redline inspects a negotiable document — a client agreement, statement of work, vendor or service agreement, or lease — and returns a numbered schedule of flags, ranked by the worst outcome each clause permits. Every flag quotes the sentence it came from.">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="redline.css">
+</head>
+<body>
+<a class="skip" href="#schedule">Skip to the schedule of flags</a>
+
+<div class="sheet">
+  <div class="sheet__edge" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="masthead__id">
+      <p class="wordmark">Redline</p>
+      <p class="masthead__line">Inspects a document you can still change, clause by clause.</p>
+    </div>
+    <dl class="titleblock">
+      <div class="titleblock__cell">
+        <dt>Document class</dt>
+        <dd>Negotiable only</dd>
+      </div>
+      <div class="titleblock__cell">
+        <dt>Method</dt>
+        <dd>Eight clause types</dd>
+      </div>
+      <div class="titleblock__cell">
+        <dt>Ranked by</dt>
+        <dd>Worst case</dd>
+      </div>
+    </dl>
+  </header>
+
+  <main>
+    <section class="hook">
+      <h1 class="hook__head">What this document lets them do to you.</h1>
+      <p class="hook__stand">Redline reads a negotiable document — a client agreement, statement of work, vendor or service agreement, or lease, anything you still have standing to change — and returns a numbered schedule of flags, ranked by the worst outcome each clause permits. Every flag quotes the sentence it came from, so you can find it in your own copy and check it yourself.</p>
+    </section>
+
+    <section class="schedule" id="schedule" aria-labelledby="schedule-head">
+      <div class="schedhead">
+        <h2 class="schedhead__title" id="schedule-head">Schedule of flags</h2>
+        <dl class="schedhead__meta">
+          <div class="schedhead__cell">
+            <dt>Document</dt>
+            <dd>Freelance services agreement</dd>
+          </div>
+          <div class="schedhead__cell">
+            <dt>Inspected</dt>
+            <dd><time datetime="2026-09-24">24 Sep 2026</time></dd>
+          </div>
+          <div class="schedhead__cell">
+            <dt>Flags</dt>
+            <dd><span class="tnum">3</span> of <span class="tnum">8</span> clause types</dd>
+          </div>
+        </dl>
+        <a class="action action--inband" href="../workspace/index.html">Inspect your own document</a>
+      </div>
+
+      <p class="synthetic">Example inspection — the agreement quoted below was written for this page, not a real client’s document.</p>
+
+      <ol class="flags">
+        <li>
+          <article class="flag flag--lead" id="flag-01">
+            <h3 class="flag__head">
+              <button type="button" class="flag__toggle" aria-expanded="true" aria-controls="flag-01-body">
+                <span class="flag__num tnum">01</span>
+                <span class="sev sev--1">
+                  <span class="sev__hatch" aria-hidden="true"></span>
+                  <span class="sev__name">Highest severity</span>
+                </span>
+                <span class="flag__type">Personal guarantee</span>
+                <span class="flag__ref tnum">§ 12.4</span>
+                <span class="flag__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M3 6.5 8 11l5-4.5"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="flag__body" id="flag-01-body">
+              <figure class="source">
+                <span class="source__caret" aria-hidden="true">
+                  <svg viewBox="0 0 32 20" width="32" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M2 18 16 3l14 15"/></svg>
+                </span>
+                <span class="source__leader" aria-hidden="true"></span>
+                <blockquote class="source__quote">
+                  <p>The Contractor personally and unconditionally guarantees all obligations of the Contractor’s company under this Agreement, and this guarantee shall survive termination and remain enforceable against the Contractor individually.</p>
+                </blockquote>
+                <figcaption class="source__cite">Source sentence · <span class="tnum">§ 12.4</span> · quoted verbatim</figcaption>
+              </figure>
+              <div class="flag__cols">
+                <div class="worst">
+                  <h4 class="minor">What it permits at worst</h4>
+                  <p>Your own assets — not your company’s — can be used to satisfy a claim under this agreement. The guarantee outlives the agreement that created it.</p>
+                  <p class="hedge">Whether a court would enforce it, and against which assets, depends on your jurisdiction and how the guarantee was executed.</p>
+                </div>
+                <div class="counter">
+                  <h4 class="minor">Counter-offer to send back</h4>
+                  <p class="counter__text">Delete clause 12.4. If the Client needs security, offer instead: “The Contractor’s liability under this Agreement is limited to the fees paid or payable under it, and no personal guarantee is given.”</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="flag" id="flag-02">
+            <h3 class="flag__head">
+              <button type="button" class="flag__toggle" aria-expanded="false" aria-controls="flag-02-body">
+                <span class="flag__num tnum">02</span>
+                <span class="sev sev--1">
+                  <span class="sev__hatch" aria-hidden="true"></span>
+                  <span class="sev__name">Highest severity</span>
+                </span>
+                <span class="flag__type">Uncapped indemnification</span>
+                <span class="flag__ref tnum">§ 9.1</span>
+                <span class="flag__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M3 6.5 8 11l5-4.5"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="flag__body" id="flag-02-body">
+              <figure class="source">
+                <span class="source__caret" aria-hidden="true">
+                  <svg viewBox="0 0 32 20" width="32" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M2 18 16 3l14 15"/></svg>
+                </span>
+                <span class="source__leader" aria-hidden="true"></span>
+                <blockquote class="source__quote">
+                  <p>The Contractor shall indemnify, defend and hold harmless the Client against any and all claims, losses, damages, liabilities and expenses of any kind arising out of or relating to the Services, without limitation.</p>
+                </blockquote>
+                <figcaption class="source__cite">Source sentence · <span class="tnum">§ 9.1</span> · quoted verbatim</figcaption>
+              </figure>
+              <div class="flag__cols">
+                <div class="worst">
+                  <h4 class="minor">What it permits at worst</h4>
+                  <p>You pay the Client’s legal costs and losses for a third party’s claim even where you did nothing wrong, with no ceiling and no relation to what you were paid.</p>
+                  <p class="hedge">Courts do read some indemnities more narrowly than they are written; how narrowly depends on the wording and the jurisdiction.</p>
+                </div>
+                <div class="counter">
+                  <h4 class="minor">Counter-offer to send back</h4>
+                  <p class="counter__text">Tie it to fault and cap it: “The Contractor shall indemnify the Client against claims arising from the Contractor’s gross negligence or wilful misconduct, up to the total fees paid under this Agreement.”</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="flag" id="flag-03">
+            <h3 class="flag__head">
+              <button type="button" class="flag__toggle" aria-expanded="false" aria-controls="flag-03-body">
+                <span class="flag__num tnum">03</span>
+                <span class="sev sev--2">
+                  <span class="sev__hatch" aria-hidden="true"></span>
+                  <span class="sev__name">High severity</span>
+                </span>
+                <span class="flag__type">IP assignment and work-for-hire</span>
+                <span class="flag__ref tnum">§ 6.2</span>
+                <span class="flag__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><path d="M3 6.5 8 11l5-4.5"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="flag__body" id="flag-03-body">
+              <figure class="source">
+                <span class="source__caret" aria-hidden="true">
+                  <svg viewBox="0 0 32 20" width="32" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M2 18 16 3l14 15"/></svg>
+                </span>
+                <span class="source__leader" aria-hidden="true"></span>
+                <blockquote class="source__quote">
+                  <p>All work product, together with all tools, libraries, methods and know-how used or developed in connection with the Services, is a work made for hire and all rights therein vest exclusively in the Client upon creation.</p>
+                </blockquote>
+                <figcaption class="source__cite">Source sentence · <span class="tnum">§ 6.2</span> · quoted verbatim</figcaption>
+              </figure>
+              <div class="flag__cols">
+                <div class="worst">
+                  <h4 class="minor">What it permits at worst</h4>
+                  <p>The tooling you arrived with, and everything you build alongside the deliverable, transfers to the Client on creation. Reuse and portfolio rights go with it.</p>
+                  <p class="hedge">Most commissioned freelance work does not legally qualify as work made for hire even where a contract says it is; what the clause then achieves varies.</p>
+                </div>
+                <div class="counter">
+                  <h4 class="minor">Counter-offer to send back</h4>
+                  <p class="counter__text">Separate the deliverable from your toolkit: “The Client owns the deliverables on payment in full. The Contractor retains ownership of pre-existing and general-purpose tools, libraries and know-how, and grants the Client a licence to use them as embedded in the deliverables.”</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <section class="scope" aria-labelledby="scope-head">
+      <div class="scope__intro">
+        <h2 class="section-head" id="scope-head">What was looked for</h2>
+        <p>The list is fixed and published. You can see what was inspected and what was not — which is the only thing that makes a clean result mean anything.</p>
+
+        <div class="key">
+          <h3 class="key__label">Key to the marks</h3>
+          <dl class="key__list">
+            <div class="key__item">
+              <dt><span class="sev sev--1"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">Highest severity</span></span></dt>
+              <dd>Unbounded, or reaching your own assets.</dd>
+            </div>
+            <div class="key__item">
+              <dt><span class="sev sev--2"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">High severity</span></span></dt>
+              <dd>Bounded, but it can cost you your ownership, your remedy, or your ability to earn.</dd>
+            </div>
+            <div class="key__item">
+              <dt><span class="sev sev--3"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">Medium severity</span></span></dt>
+              <dd>Bounded by the value of the agreement.</dd>
+            </div>
+          </dl>
+          <p class="key__note">Rank is what a clause permits at worst, never how common it is. Denser hatch, worse worst case.</p>
+        </div>
+      </div>
+
+      <div class="scope__col">
+      <ol class="scopelist">
+        <li class="scoperow scoperow--flagged">
+          <span class="scoperow__n tnum">1</span>
+          <span class="scoperow__name">Personal guarantees</span>
+          <span class="scoperow__status">
+            <span class="sev sev--1"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">Flagged · highest</span></span>
+          </span>
+        </li>
+        <li class="scoperow scoperow--flagged">
+          <span class="scoperow__n tnum">2</span>
+          <span class="scoperow__name">Uncapped indemnification</span>
+          <span class="scoperow__status">
+            <span class="sev sev--1"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">Flagged · highest</span></span>
+          </span>
+        </li>
+        <li class="scoperow">
+          <span class="scoperow__n tnum">3</span>
+          <span class="scoperow__name">Non-compete and non-solicit</span>
+          <span class="scoperow__status"><span class="sound"><span class="sound__tick" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span>Inspected · not found</span></span>
+        </li>
+        <li class="scoperow scoperow--flagged">
+          <span class="scoperow__n tnum">4</span>
+          <span class="scoperow__name">IP assignment and work-for-hire</span>
+          <span class="scoperow__status">
+            <span class="sev sev--2"><span class="sev__hatch" aria-hidden="true"></span><span class="sev__name">Flagged · high</span></span>
+          </span>
+        </li>
+        <li class="scoperow">
+          <span class="scoperow__n tnum">5</span>
+          <span class="scoperow__name">Limitation of liability and remedy-stripping</span>
+          <span class="scoperow__status"><span class="sound"><span class="sound__tick" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span>Inspected · not found</span></span>
+        </li>
+        <li class="scoperow">
+          <span class="scoperow__n tnum">6</span>
+          <span class="scoperow__name">Termination and notice</span>
+          <span class="scoperow__status"><span class="sound"><span class="sound__tick" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span>Inspected · not found</span></span>
+        </li>
+        <li class="scoperow">
+          <span class="scoperow__n tnum">7</span>
+          <span class="scoperow__name">Payment terms and nonpayment exposure</span>
+          <span class="scoperow__status"><span class="sound"><span class="sound__tick" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span>Inspected · not found</span></span>
+        </li>
+        <li class="scoperow">
+          <span class="scoperow__n tnum">8</span>
+          <span class="scoperow__name">Scope and change control</span>
+          <span class="scoperow__status"><span class="sound"><span class="sound__tick" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M2.5 8.5 6 12l7.5-8"/></svg></span>Inspected · not found</span></span>
+        </li>
+      </ol>
+      <div class="scope__notes">
+        <p>A clause that is not on this list is not looked for. A risk that comes from something the document <em>does not say</em> — no notice period, no payment terms, no liability cap — has no sentence to quote, so it is not flagged either.</p>
+        <p>You can also declare terms you will not accept, in your own words. Redline treats a match as disqualifying however that clause would otherwise rank.</p>
+      </div>
+      </div>
+    </section>
+
+    <section class="allclear" aria-labelledby="allclear-head">
+      <p class="stamp">All clear</p>
+      <div class="allclear__body">
+        <h2 class="section-head" id="allclear-head">When nothing matches, that is the result you get.</h2>
+        <p>An all-clear arrives with the full list of what was checked and found absent. Never an empty screen, and never padded with a manufactured top three so the inspection looks like it earned its keep.</p>
+      </div>
+    </section>
+
+    <section class="limits" aria-labelledby="limits-head">
+      <h2 class="section-head" id="limits-head">Limitations of this inspection</h2>
+      <ul class="limitlist">
+        <li>
+          <h3 class="minor">No verdict</h3>
+          <p>Redline never tells you whether to sign, and it is not legal advice. It is flat about what the document says and hedged about what that means.</p>
+        </li>
+        <li>
+          <h3 class="minor">Negotiable documents only</h3>
+          <p>Terms of service and other take-it-or-leave-it documents are out of scope. A counter-offer needs someone on the other side who can accept it.</p>
+        </li>
+        <li>
+          <h3 class="minor">Typed text only</h3>
+          <p>Scanned or photographed documents are not inspected. A misread character produces a quotation that is wrong in the one way you could not catch.</p>
+        </li>
+        <li>
+          <h3 class="minor">Before you sign</h3>
+          <p>Replacement wording is worth nothing once the document is signed. Redline is for the moment the terms can still change.</p>
+        </li>
+        <li>
+          <h3 class="minor">Worst case, not likelihood</h3>
+          <p>Late payment is the most common harm a freelancer meets. It still ranks below a personal guarantee, because ranking is by what a clause permits at worst.</p>
+        </li>
+        <li>
+          <h3 class="minor">No sentence, no flag</h3>
+          <p>Where the exact wording cannot be quoted, the flag is dropped rather than approximated. That is a defect to fix, not a result to serve you.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bring" id="bring" aria-labelledby="bring-head">
+      <h2 class="bring__head" id="bring-head">Bring the document you are about to sign.</h2>
+      <p class="bring__line">Paste the text or upload the file. It is read in your browser; only the extracted text is sent to be inspected.</p>
+      <a class="action action--lg" href="../workspace/index.html">Inspect your own document</a>
+    </section>
+  </main>
+
+  <footer class="sheetfoot">
+    <p class="sheetfoot__mark">Redline</p>
+    <p class="sheetfoot__note">Redline describes what a document says. It does not advise you whether to sign, and it is not a substitute for a lawyer. Documents on this page are synthetic examples.</p>
+    <p class="sheetfoot__sheet tnum">Sheet 1 of 1</p>
+  </footer>
+</div>
+
+<script src="redline.js"></script>
+</body>
+</html>

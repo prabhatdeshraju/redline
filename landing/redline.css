@@ -1,0 +1,965 @@
+/* Redline — landing page
+   World: the condition survey. Dyeline sheet, charcoal ink, safety orange
+   owning whole fields, category green for inspected-and-sound. No cards:
+   every element is a ruled row on one sheet.
+
+   Vocabulary note: the output unit is a FLAG, per CONTEXT.md, which lists
+   "finding" among the terms to avoid. The survey world supplies the form;
+   the product supplies every word. */
+
+:root {
+  --sheet: #eceeed;
+  --sheet-lift: #f6f7f7;
+  --panel: #e1e5e3;
+  --rule: #c4cbc9;
+  --rule-strong: #9aa3a1;
+
+  --ink: #191b1d;
+  --ink-2: #4d5553;
+  --ink-3: #5f6765;
+
+  /* The contract names safety orange #e0521c. It survives as the mark
+     colour; the two whole-region fields step down to #c33f18 because white
+     and its tints do not clear 4.5:1 on #e0521c. Contrast-forced, deliberate. */
+  --orange-field: #c33f18;
+  --orange-ink: #a83513;
+  --orange-mark: #e0521c;
+  --green: #1d6b4c;
+
+  --gutter: clamp(1rem, 4vw, 4.5rem);
+  --measure: 64ch;
+  --rhythm: clamp(3.5rem, 7vw, 7rem);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--rule-strong) var(--panel);
+}
+
+body {
+  margin: 0;
+  background: var(--sheet);
+  color: var(--ink);
+  font-family: "Archivo", "Segoe UI", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  caret-color: var(--orange-mark);
+}
+
+::selection { background: var(--orange-field); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--orange-mark);
+  outline-offset: 3px;
+}
+
+p { margin: 0 0 0.8em; }
+p:last-child { margin-bottom: 0; }
+
+em { font-style: italic; }
+
+a { color: var(--orange-ink); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--sheet);
+  padding: 0.7rem 1.1rem;
+  z-index: 10;
+  font: 600 0.9rem/1 "Archivo", sans-serif;
+}
+.skip:focus { left: 0; }
+
+/* ---------- the sheet ---------- */
+
+.sheet {
+  position: relative;
+  max-width: 96rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--sheet);
+  padding-inline: var(--gutter);
+  overflow-x: clip;
+}
+
+/* the sheet's bound edge: a hatched margin rule */
+.sheet__edge {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 10px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      var(--rule-strong) 0 1px,
+      transparent 1px 7px
+    );
+  border-right: 1px solid var(--rule);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  padding-block: 0.9rem 0.65rem;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.masthead__line {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+  max-width: 48ch;
+}
+
+.titleblock {
+  display: flex;
+  margin: 0;
+  border: 1px solid var(--rule-strong);
+  border-right: 0;
+}
+
+.titleblock__cell {
+  padding: 0.4rem 1.1rem 0.45rem;
+  border-right: 1px solid var(--rule-strong);
+  min-width: 9.5rem;
+}
+
+.titleblock dt {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.titleblock dd {
+  margin: 0.05rem 0 0;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+/* ---------- hook ---------- */
+
+.hook {
+  padding-block: clamp(1.1rem, 1.9vw, 1.45rem) clamp(0.9rem, 1.5vw, 1.15rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 1.25rem clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.hook__head {
+  margin: 0;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.3rem, 4.8vw, 3.9rem);
+  line-height: 0.93;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hook__stand {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  color: var(--ink-2);
+  padding-bottom: 0.3rem;
+}
+
+/* ---------- schedule head: the orange field ---------- */
+
+.schedule { padding-bottom: var(--rhythm); }
+
+.schedhead {
+  position: relative;
+  background: var(--orange-field);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2.5rem;
+  padding: 0.85rem clamp(1rem, 2vw, 1.75rem);
+  /* bleed to the sheet's edges */
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: calc(var(--gutter) + 0.5rem) var(--gutter);
+}
+
+/* survey line-work carried into the committed field, not just the swatches */
+.schedhead::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 5px;
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.42) 0 2px, transparent 2px 7px);
+}
+
+.schedhead__title {
+  margin: 0;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+.schedhead__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+/* Hierarchy on the orange fields comes from size, weight and tracking, not
+   tint: any tint of this orange light enough to read still fails 4.5:1. */
+.schedhead__cell dt {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.schedhead__cell dd {
+  margin: 0.05rem 0 0;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+/* ---------- the one action ---------- */
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  text-decoration: none;
+  border: 1.5px solid currentColor;
+  transition: background-color 180ms var(--ease), color 180ms var(--ease);
+}
+
+.action::after {
+  content: "";
+  width: 0.85em;
+  height: 0.85em;
+  border-right: 1.5px solid currentColor;
+  border-top: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-0.05em);
+  transition: transform 180ms var(--ease);
+}
+
+.action--inband {
+  color: #fff;
+  background: transparent;
+  font-size: 1.0625rem;
+  padding: 0.55rem 1.1rem;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.action--inband:hover,
+.action--inband:focus-visible {
+  background: #fff;
+  color: var(--orange-ink);
+}
+.action--inband:hover::after { transform: rotate(45deg) translate(0.15em, -0.2em); }
+
+.action--lg {
+  color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  padding: 0.85rem 1.5rem;
+}
+.action--lg:hover,
+.action--lg:focus-visible {
+  background: var(--orange-field);
+  border-color: var(--orange-field);
+}
+.action--lg:hover::after { transform: rotate(45deg) translate(0.18em, -0.22em); }
+
+/* ---------- synthetic-content label ---------- */
+
+.synthetic {
+  margin: 0.55rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+  max-width: 82ch;
+}
+
+/* ---------- flags ---------- */
+
+.flags {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.flag { border-bottom: 1px solid var(--rule); }
+
+.flag__head { margin: 0; }
+
+.flag__toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3.25rem minmax(11rem, auto) minmax(0, 1fr) auto 1.5rem;
+  align-items: center;
+  gap: 0 1.5rem;
+  padding: 0.7rem 0.25rem 0.7rem 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.flag__toggle:hover { background: var(--sheet-lift); }
+
+.flag__num {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--ink-3);
+}
+
+.flag__type {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+.flag__ref {
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.flag__chevron {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--ink-3);
+  transition: transform 200ms var(--ease);
+}
+
+.flag__toggle[aria-expanded="true"] .flag__chevron { transform: rotate(180deg); }
+
+/* severity mark: named rank + hatch density, so colour is never the only
+   signal. The key in the scope section teaches the density scale. */
+
+.sev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sev__hatch {
+  width: 2.25rem;
+  height: 1.5rem;
+  border: 1px solid var(--ink);
+  flex: 0 0 auto;
+}
+
+.sev--1 .sev__hatch {
+  background: repeating-linear-gradient(-45deg, var(--orange-mark) 0 4px, var(--sheet) 4px 7px);
+}
+.sev--2 .sev__hatch {
+  background: repeating-linear-gradient(-45deg, var(--orange-mark) 0 2px, var(--sheet) 2px 9px);
+}
+.sev--3 .sev__hatch {
+  background: repeating-linear-gradient(-45deg, var(--ink-2) 0 1px, var(--sheet) 1px 12px);
+}
+
+.sev__name {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--orange-ink);
+  white-space: nowrap;
+}
+.sev--3 .sev__name { color: var(--ink-2); }
+
+/* flag body */
+
+.flag__body {
+  padding: 0 0 1.1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 1.75rem clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.flag__body[hidden] { display: none; }
+
+/* source sentence: the document's own voice, at reading size */
+
+.source {
+  /* the leader lives in this gutter, so its clearance is derived, never guessed */
+  --source-pad: clamp(1.35rem, 2.5vw, 2.25rem);
+  position: relative;
+  margin: 0;
+  background: var(--sheet-lift);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.95rem var(--source-pad) 0.85rem;
+}
+
+.source::before {
+  content: "";
+  position: absolute;
+  inset-inline: -1px;
+  top: -1px;
+  height: 2px;
+  background: var(--orange-mark);
+  transform-origin: 0 50%;
+}
+
+.source__caret {
+  position: absolute;
+  top: -0.65rem;
+  left: calc(var(--source-pad) - 1.15rem);
+  color: var(--orange-mark);
+  line-height: 0;
+}
+
+/* the survey's leader: ties the mark to the note it annotates */
+.source__leader {
+  position: absolute;
+  top: 0.65rem;
+  bottom: 2.3rem;
+  left: calc(var(--source-pad) - 0.8rem);
+  width: 1px;
+  background: var(--orange-mark);
+}
+
+.source__leader::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0.7rem;
+  height: 1px;
+  background: var(--orange-mark);
+}
+
+.source__quote { margin: 0; }
+
+.source__quote p {
+  margin: 0;
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.42;
+  color: var(--ink);
+}
+
+.source__quote p::before { content: "\201C"; }
+.source__quote p::after { content: "\201D"; }
+
+.source__cite {
+  margin-top: 0.6rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--rule);
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.flag__cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem;
+  padding-top: 0.2rem;
+}
+
+.minor {
+  margin: 0 0 0.45rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.worst p, .counter p { max-width: 62ch; }
+
+.hedge {
+  color: var(--ink-2);
+  font-family: "Spectral", Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* the counter-offer is an artifact to send on: it gets a ruled box */
+.counter__text {
+  font-family: "Spectral", Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  border: 1px solid var(--green);
+  border-top-width: 2px;
+  padding: 0.7rem 0.9rem 0.75rem;
+  max-width: 62ch;
+}
+
+/* ---------- scope ---------- */
+
+.scope {
+  padding-block: 0 var(--rhythm);
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.section-head {
+  margin: 0 0 0.75rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.scope__intro > p { color: var(--ink-2); max-width: 40ch; }
+
+/* ---------- key to the marks ---------- */
+
+.key {
+  margin-top: 1.6rem;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 0.7rem;
+}
+
+.key__label {
+  margin: 0 0 0.6rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.key__list { margin: 0; }
+
+.key__item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.key__item dt { margin: 0; }
+
+/* the key is where the density scale is taught, so its swatches are sized
+   independently of the inline marks and stay legible at 390px */
+.key .sev__hatch {
+  width: 3.25rem;
+  height: 1.7rem;
+}
+
+.key__item dd {
+  margin: 0.2rem 0 0 2.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.key__note {
+  margin-top: 0.7rem;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+}
+
+.scopelist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1.5px solid var(--ink);
+}
+
+.scoperow {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  gap: 0 1.5rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.scoperow__n {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink-3);
+}
+
+.scoperow__name { font-weight: 500; }
+.scoperow--flagged .scoperow__name { font-weight: 600; }
+
+.sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.sound__tick { display: flex; }
+
+.scope__col { min-width: 0; }
+
+.scope__notes {
+  margin-top: 1.25rem;
+  max-width: var(--measure);
+  color: var(--ink-2);
+  font-size: 1rem;
+}
+
+/* ---------- all clear ---------- */
+
+.allclear {
+  padding-block: var(--rhythm);
+  border-top: 1.5px solid var(--ink);
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 2rem clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.stamp {
+  margin: 0;
+  justify-self: start;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 2.5px solid var(--green);
+  outline: 1px solid var(--green);
+  outline-offset: 3px;
+  padding: 0.55rem 1.05rem 0.5rem;
+  transform: rotate(-2.5deg);
+}
+
+.allclear__body { min-width: 0; }
+.allclear__body p { max-width: var(--measure); color: var(--ink-2); }
+.allclear .section-head { max-width: 30ch; }
+
+/* ---------- limitations ---------- */
+
+.limits { padding-block: 0 var(--rhythm); }
+
+.limits .section-head { max-width: 22ch; }
+
+/* six items, three columns: two complete rows, no dangling cell */
+.limitlist {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1.5px solid var(--ink);
+}
+
+.limitlist li {
+  padding: 1.15rem clamp(1rem, 2vw, 1.75rem) 1.35rem clamp(1rem, 2vw, 1.75rem);
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+
+.limitlist li:nth-child(3n) { border-right: 0; padding-right: 0; }
+.limitlist li:nth-child(3n + 1) { padding-left: 0; }
+
+/* the limitations are sub-headings, not labels: a real step above body */
+.limits .minor {
+  font-size: 1.25rem;
+  letter-spacing: 0.035em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.limitlist p { color: var(--ink-2); font-size: 1rem; max-width: 40ch; }
+
+/* ---------- the close: second orange field ---------- */
+
+.bring {
+  position: relative;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: clamp(2.75rem, 6vw, 5rem) var(--gutter) clamp(2.75rem, 6vw, 5rem) calc(var(--gutter) + 0.5rem);
+  background: var(--orange-field);
+  color: #fff;
+}
+
+.bring::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 5px;
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.42) 0 2px, transparent 2px 7px);
+}
+
+.bring__head {
+  margin: 0 0 0.6rem;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.bring__line {
+  margin: 0 0 1.75rem;
+  max-width: 48ch;
+  font-size: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  color: #fff;
+}
+
+.bring .action--lg:hover,
+.bring .action--lg:focus-visible {
+  background: #fff;
+  border-color: #fff;
+  color: var(--orange-ink);
+}
+
+/* ---------- sheet foot ---------- */
+
+.sheetfoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2.5rem;
+  padding-block: 1.25rem 2rem;
+  border-top: 1.5px solid var(--ink);
+}
+
+.sheetfoot__mark {
+  margin: 0;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+.sheetfoot__note {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+  max-width: 62ch;
+  flex: 1 1 22rem;
+}
+
+.sheetfoot__sheet {
+  margin: 0;
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  flex: 0 0 auto;
+}
+
+/* ---------- the strike: one authored moment ---------- */
+/* From an already-visible default: the only thing that draws from nothing
+   is the decorative rule, never the source sentence. An animation that
+   never runs must still leave every word on the page. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .flag--lead .source::before {
+    animation: rule-draw 760ms var(--ease) 120ms both;
+  }
+  .js .flag--lead .source__leader {
+    animation: leader-drop 640ms var(--ease) 360ms both;
+  }
+  .js .flag--lead .source__caret {
+    animation: caret-strike 620ms var(--ease) 300ms both;
+  }
+  .js .flag--lead .sev__hatch {
+    animation: hatch-fill 700ms var(--ease) 420ms both;
+  }
+  .js .flag--lead .flag__num {
+    animation: num-write 520ms var(--ease) 180ms both;
+  }
+}
+
+@keyframes rule-draw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes leader-drop {
+  from { transform: scaleY(0); opacity: 0.35; }
+  to   { transform: none; opacity: 1; }
+}
+
+@keyframes caret-strike {
+  from { transform: translateY(-0.7rem); opacity: 0.3; }
+  to   { transform: none; opacity: 1; }
+}
+
+@keyframes hatch-fill {
+  from { transform: scaleX(0.72); opacity: 0.4; }
+  to   { transform: none; opacity: 1; }
+}
+
+@keyframes num-write {
+  from { opacity: 0.4; transform: translateX(-0.35rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+.source__leader { transform-origin: 50% 0; }
+
+.js .flag__body { overflow: hidden; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 62rem) {
+  .hook {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .scope, .allclear {
+    grid-template-columns: 1fr;
+  }
+  .titleblock { border-left: 0; }
+  .titleblock__cell:first-child { padding-left: 0; }
+
+  .flag__body { grid-template-columns: minmax(0, 1fr); }
+  .flag__cols {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.4rem clamp(2rem, 4vw, 3rem);
+  }
+
+  .limitlist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .limitlist li:nth-child(3n) { border-right: 1px solid var(--rule); padding-right: clamp(1rem, 2vw, 1.75rem); }
+  .limitlist li:nth-child(3n + 1) { padding-left: clamp(1rem, 2vw, 1.75rem); }
+  .limitlist li:nth-child(2n) { border-right: 0; padding-right: 0; }
+  .limitlist li:nth-child(2n + 1) { padding-left: 0; }
+}
+
+@media (max-width: 48rem) {
+  body { font-size: 1rem; }
+
+  .sheet__edge { width: 6px; }
+
+  .titleblock {
+    flex-wrap: wrap;
+    border: 0;
+    gap: 0.75rem 1.5rem;
+  }
+  .titleblock__cell {
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    flex: 0 0 auto;
+  }
+
+  .schedhead { gap: 1rem 1.5rem; }
+  .action--inband { width: 100%; justify-content: space-between; }
+
+  .flag__toggle {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 1.25rem;
+    grid-template-areas:
+      "num sev chev"
+      ".   type type"
+      ".   ref  ref";
+    gap: 0.3rem 1rem;
+    align-items: start;
+    padding-block: 0.95rem 1.1rem;
+  }
+  .flag__num { grid-area: num; font-size: 1.35rem; padding-top: 0.1rem; }
+  .sev { grid-area: sev; }
+  .flag__type { grid-area: type; }
+  .flag__ref { grid-area: ref; }
+  .flag__chevron { grid-area: chev; padding-top: 0.2rem; }
+
+  .sev__hatch { width: 1.9rem; height: 1.25rem; }
+
+  .source { --source-pad: 1.7rem; padding: 1.15rem var(--source-pad) 1rem; }
+
+  /* the status labels are the widest thing on the page: let them wrap
+     onto their own row rather than forcing the document wider than 390px */
+  .scoperow {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.3rem 1rem;
+    padding: 0.8rem 0;
+  }
+  .scoperow__status { grid-column: 2; }
+  .sound, .sev__name { white-space: normal; }
+
+  .key__item dd { margin-left: 0; }
+  .key .sev__hatch { width: 3rem; height: 1.6rem; }
+
+  .limitlist { grid-template-columns: minmax(0, 1fr); }
+  .limitlist li,
+  .limitlist li:nth-child(3n),
+  .limitlist li:nth-child(3n + 1),
+  .limitlist li:nth-child(2n),
+  .limitlist li:nth-child(2n + 1) { padding-inline: 0; border-right: 0; }
+
+  .stamp { font-size: 1.5rem; }
+}
