@@ -1,0 +1,71 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "landing/index.html"
+        ],
+        "createdAt": "2026-09-25T02:31:58.229Z",
+        "reason": "Survey hatch is the severity encoding, not decoration: hatch density is the non-colour channel that carries Category 1/2/3 alongside the named rank, so colour is never the sole signal (direction contract, seed 9575ff6b). Also the sheet's bound edge."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(0, 0, 0)",
+        "files": [
+          "landing/index.html"
+        ],
+        "createdAt": "2026-09-25T03:00:25.185Z",
+        "reason": "Detector cannot resolve currentColor: the value is .action::after's chevron border, which inherits #fff on both the orange band and the charcoal button. Verified white in .impeccable/review/desktop-firstview.png and desktop.png. Not an off-palette literal."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "landing/index.html"
+        ],
+        "createdAt": "2026-09-25T03:00:25.574Z",
+        "reason": "Heuristic reads the wrapper, not the padded child. Finish reviewer confirmed from screenshots and source: .titleblock__cell carries 0.45rem/1.1rem inside its border, .flags first row carries 0.7rem below its border-top, .limitlist li carries clamp(1rem,2vw,1.75rem) inset each side. The one real instance (limitlist left inset) was fixed this session."
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "landing/index.html"
+        ],
+        "createdAt": "2026-09-25T03:00:26.022Z",
+        "reason": "Remaining hits are 31-42 char display headings and section heads in Barlow Condensed caps, the condition-survey world's drawing-office lettering (direction contract, seed 9575ff6b). The one genuinely long uppercase passage, a 72-char source caption, was shortened this session on the reviewer's finding."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "workspace/index.html"
+        ],
+        "createdAt": "2026-09-25T03:33:34.018Z",
+        "reason": "Finish reviewer verified from source and captures: the named section/ol/ul are unpadded structural wrappers whose gutter comes from .sheet, and their children carry --row-y or explicit padding. No child is flush against a padded boundary. Same wrapper heuristic confirmed on landing/index.html."
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "workspace/index.html"
+        ],
+        "createdAt": "2026-09-25T03:33:34.357Z",
+        "reason": "Finish reviewer verified from captures: the 69-76 char runs are whole scope-row text nodes (number + clause name + status) where only the short status span is uppercased; no uppercase run is hard to read. The one genuine long caps run it named, the all-clear head at 58 chars, was trimmed to 41 in the fix batch."
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "workspace/index.html"
+        ],
+        "createdAt": "2026-09-25T03:33:34.747Z",
+        "reason": "Severity hatch is the encoding, not decoration: hatch density carries Highest/High/Medium as the non-colour channel, taught by the key to the marks, plus the sheet's bound edge. Same sanctioned exception as landing/index.html."
+      }
+    ]
+  }
+}
