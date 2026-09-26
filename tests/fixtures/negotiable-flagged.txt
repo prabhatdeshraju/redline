@@ -1,0 +1,267 @@
+MASTER SERVICES AGREEMENT
+(Independent Contractor)
+
+This Master Services Agreement (this "Agreement") is made as of 14 March 2026
+between Meridian Harbor Group LLC, a Delaware limited liability company with its
+principal office at 400 Quay Street, Suite 1150, Wilmington, Delaware 19801
+("Client"), and the individual or entity identified on the signature page
+("Contractor"). Client and Contractor are each a "Party" and together the
+"Parties."
+
+1. DEFINITIONS
+
+1.1 "Statement of Work" or "SOW" means a document signed by both Parties that
+describes services to be performed under this Agreement, the fees for those
+services, and the schedule on which they are to be delivered. Each SOW is
+governed by this Agreement and, in the event of a conflict between a SOW and this
+Agreement, this Agreement controls except where the SOW expressly states that it
+overrides a specific numbered section.
+
+1.2 "Services" means the work described in a SOW, together with any work
+reasonably incidental to it.
+
+1.3 "Deliverable" means any tangible or intangible output that a SOW identifies
+as a deliverable, in any medium, whether complete or in draft.
+
+1.4 "Client Materials" means data, documents, brand assets, credentials and other
+materials that Client supplies to Contractor for use in performing the Services.
+
+1.5 "Confidential Information" means non-public information disclosed by one
+Party to the other that is marked confidential or that a reasonable person would
+understand to be confidential from the circumstances of its disclosure.
+
+1.6 "Business Day" means a day other than a Saturday, Sunday or federal holiday
+in the United States.
+
+2. ENGAGEMENT AND SERVICES
+
+2.1 Client engages Contractor to perform the Services described in each SOW, and
+Contractor accepts that engagement, on the terms of this Agreement.
+
+2.2 Contractor shall perform the Services with the degree of skill and care
+ordinarily exercised by a competent professional performing services of a similar
+kind.
+
+2.3 Contractor determines the method, sequence and location of performance, and
+supplies Contractor's own equipment and software except where a SOW states
+otherwise.
+
+2.4 Contractor may not subcontract any part of the Services without Client's
+prior written consent, which Client will not withhold unreasonably. Contractor
+remains responsible for the work of any approved subcontractor.
+
+3. SCOPE AND CHANGE CONTROL
+
+3.1 The scope of the Services for any engagement is the scope stated in the
+applicable SOW.
+
+3.2 Either Party may propose a change to a SOW in writing. A proposed change
+takes effect when both Parties have signed a written change order describing the
+change and its effect, if any, on fees and schedule.
+
+3.3 Contractor shall notify Client promptly if Contractor believes that a request
+falls outside the scope of the applicable SOW.
+
+3.4 Contractor shall perform such additional tasks, revisions and iterations as Client reasonably requests in order to achieve Client's objectives for the engagement, including an unlimited number of revision rounds on any deliverable, at no additional charge and without an amendment to the applicable Statement of Work.
+
+3.5 Client's failure to sign a change order does not relieve Contractor of the
+obligation to continue performing the Services then in progress.
+
+4. FEES AND PAYMENT
+
+4.1 Client shall pay the fees stated in the applicable SOW. Unless a SOW states
+otherwise, fees are quoted exclusive of sales, use and value-added taxes, which
+are Client's responsibility where they apply.
+
+4.2 Contractor shall invoice Client monthly in arrears for Services performed in
+the preceding calendar month, and shall include in each invoice the SOW
+reference, the period covered and a description of the Services performed.
+
+4.3 Invoices are payable ninety (90) days after Client's receipt and acceptance of the corresponding deliverable, acceptance is at Client's sole discretion, and Client may withhold payment of any invoice in whole or in part while any other matter between the Parties remains unresolved.
+
+4.4 Contractor shall bear Contractor's own expenses. Client will reimburse
+travel and third-party costs only where a SOW identifies them in advance and
+Client has approved them in writing.
+
+4.5 Contractor shall keep records sufficient to support each invoice for two (2)
+years and shall make them available to Client on reasonable notice.
+
+4.6 Contractor is responsible for all of Contractor's own federal, state and
+local taxes, including self-employment tax, and for any insurance Contractor
+elects to carry.
+
+5. CONTRACTOR REPRESENTATIONS
+
+5.1 Contractor represents that Contractor has the right to enter into this
+Agreement and that performing the Services will not breach any obligation
+Contractor owes to a third party.
+
+5.2 Contractor represents that the Deliverables will be Contractor's original
+work, except for third-party material identified to Client in writing together
+with the licence terms that apply to it.
+
+5.3 Contractor represents that Contractor will comply with all laws applicable to
+Contractor's performance of the Services.
+
+5.4 Except as expressly stated in this Section 5, Contractor makes no warranty
+of any kind regarding the Deliverables, and any implied warranty of
+merchantability or fitness for a particular purpose is disclaimed to the extent
+permitted by law.
+
+6. CLIENT OBLIGATIONS
+
+6.1 Client shall provide the Client Materials, approvals and access that the
+applicable SOW identifies as Client dependencies, on the dates it identifies.
+Where Client is late in doing so, the schedule in that SOW is extended by the
+period of the delay.
+
+6.2 Client shall designate one individual as the point of contact authorised to
+give approvals and sign change orders on Client's behalf.
+
+7. INTELLECTUAL PROPERTY
+
+7.1 Client retains all right, title and interest in the Client Materials.
+Contractor may use the Client Materials only as needed to perform the Services.
+
+7.2 All deliverables, works in progress, sketches, source code, data models, prompts, configurations, tooling and any other material Contractor conceives, creates or reduces to practice in connection with the Services are works made for hire owned exclusively by Client from the moment of creation, and to the extent any such material does not qualify as a work made for hire, Contractor hereby irrevocably assigns to Client all right, title and interest in it worldwide, including any general-purpose tools, libraries or methods Contractor develops while performing the Services.
+
+7.3 Contractor shall execute any document and take any further act that Client
+reasonably requests to record or perfect Client's ownership under Section 7.2,
+at Client's expense.
+
+7.4 Contractor waives, to the extent permitted by law, any moral right,
+attribution right or right of integrity in the Deliverables.
+
+7.5 Contractor shall not display, describe or reproduce any Deliverable, in a
+portfolio or otherwise, without Client's prior written consent.
+
+8. CONFIDENTIALITY
+
+8.1 Each Party shall keep the other Party's Confidential Information in
+confidence, shall use it only for the purposes of this Agreement, and shall
+disclose it only to those of its personnel and advisers who need it for those
+purposes and who are bound by confidentiality obligations no less protective
+than these.
+
+8.2 The obligations in Section 8.1 do not apply to information that is or becomes
+public through no breach of this Agreement, that the receiving Party already held
+without a duty of confidence, or that the receiving Party develops independently
+without reference to the disclosing Party's Confidential Information.
+
+8.3 A Party may disclose Confidential Information where compelled by law or by a
+court or regulator, provided that it gives the other Party prompt notice where it
+is lawful to do so.
+
+8.4 On termination, each Party shall return or destroy the other Party's
+Confidential Information on request, except for copies retained in routine
+backups or where retention is required by law.
+
+9. DATA PROTECTION
+
+9.1 Where Contractor processes personal data on Client's behalf, Contractor shall
+process it only on Client's documented instructions and shall apply
+administrative and technical safeguards appropriate to the sensitivity of the
+data.
+
+9.2 Contractor shall notify Client without undue delay after becoming aware of
+any unauthorised access to or disclosure of personal data processed under this
+Agreement.
+
+10. INDEMNIFICATION
+
+10.1 Contractor shall defend, indemnify and hold harmless Client, its affiliates, officers, employees and agents from and against any and all claims, demands, losses, liabilities, damages, fines, penalties, costs and expenses, including reasonable attorneys' fees, arising out of or in any way connected with the Services, whether or not caused by any act or omission of Contractor, and this obligation is not subject to any limitation or cap on liability set out in this Agreement.
+
+10.2 Client shall control the defence and settlement of any claim for which
+Contractor owes an indemnity under Section 10.1, and Contractor shall pay the
+costs of that defence as they are incurred.
+
+10.3 Contractor's obligations under this Section 10 survive termination or
+expiry of this Agreement.
+
+11. LIMITATION OF LIABILITY
+
+11.1 Neither Party excludes liability for death or personal injury caused by its
+negligence, or for fraud.
+
+11.2 Client's total liability to Contractor for any claim arising out of or relating to this Agreement, whether in contract, tort or otherwise, shall not exceed the lesser of the fees actually paid to Contractor in the thirty (30) days preceding the event giving rise to the claim or five hundred dollars ($500), and Contractor waives any right to consequential, incidental, indirect or special damages, to specific performance, and to injunctive relief of any kind.
+
+11.3 Nothing in Section 11.2 limits Contractor's obligations under Section 10.
+
+12. TERM AND TERMINATION
+
+12.1 This Agreement begins on the date stated above and continues until
+terminated under this Section 12.
+
+12.2 Either Party may terminate this Agreement, or any individual SOW, for
+convenience on thirty (30) days' written notice to the other Party.
+
+12.3 Either Party may terminate this Agreement immediately on written notice if
+the other Party commits a material breach and does not cure it within fifteen
+(15) Business Days of receiving notice describing the breach.
+
+12.4 On termination, Client shall pay Contractor for Services performed up to
+the effective date of termination, and Contractor shall deliver to Client all
+work in progress in the form it then exists.
+
+13. GUARANTEE
+
+13.1 Contractor may perform the Services through a single-member limited
+liability company, corporation or other entity, provided that Contractor
+identifies that entity to Client in writing before the first SOW is signed.
+
+13.2 If Contractor is an entity, the individual signing below in the capacity of principal, member or officer of that entity personally and unconditionally guarantees the full and prompt performance of every obligation of Contractor under this Agreement, including the payment of any amounts owed to Client, and Client may proceed directly against that individual’s personal assets without first proceeding against Contractor.
+
+14. GENERAL
+
+14.1 Contractor is an independent contractor and not an employee, partner or
+agent of Client. Nothing in this Agreement creates a joint venture or
+partnership between the Parties.
+
+14.2 Notices under this Agreement must be in writing and are effective when
+delivered by hand, by courier with tracking, or by email to the address stated on
+the signature page with confirmation of receipt.
+
+14.3 This Agreement is governed by the laws of the State of Delaware, without
+regard to its conflict of laws rules. The state and federal courts located in
+New Castle County, Delaware have exclusive jurisdiction over any dispute arising
+out of it.
+
+14.4 Neither Party may assign this Agreement without the other Party's prior
+written consent, except that either Party may assign it in full to a successor in
+connection with a merger or a sale of substantially all of its assets.
+
+14.5 Neither Party is liable for a failure or delay in performance caused by an
+event beyond its reasonable control, provided that it notifies the other Party
+promptly and resumes performance as soon as it is able.
+
+14.6 If any provision of this Agreement is held unenforceable, that provision is
+modified to the minimum extent necessary to make it enforceable, or if it cannot
+be so modified it is severed, and the remaining provisions continue in force.
+
+14.7 A waiver of any breach of this Agreement is effective only if given in
+writing, and does not waive any other or later breach.
+
+14.8 This Agreement may be amended only by a written instrument signed by both
+Parties.
+
+14.9 This Agreement, together with each SOW and change order, is the entire
+agreement between the Parties on its subject matter and supersedes all prior
+discussions, proposals and understandings, whether written or oral.
+
+14.10 This Agreement may be signed in counterparts, including by electronic
+signature, each of which is an original and all of which together constitute one
+instrument.
+
+Sections 7, 8, 10 and 11 survive the termination or expiry of this Agreement.
+
+SIGNED for and on behalf of Meridian Harbor Group LLC
+
+Name: ____________________  Title: ____________________  Date: ____________
+
+SIGNED by Contractor
+
+Name: ____________________  Entity (if any): ____________________
+
+Individual signing as guarantor under Section 13.2
+
+Name: ____________________  Date: ____________

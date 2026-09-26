@@ -1,0 +1,275 @@
+DESIGN AND DEVELOPMENT RETAINER AGREEMENT
+
+This Retainer Agreement (this "Agreement") is made as of 6 April 2026 between
+Kestrel Lane Studio LLC, with its principal office at 118 Fenway Row, Portland,
+Maine 04101 ("Studio"), and Northfield Provisions Co., with its principal office
+at 27 Alder Street, Concord, New Hampshire 03301 ("Company"). Studio and Company
+are each a "Party" and together the "Parties."
+
+1. DEFINITIONS
+
+1.1 "Retainer Period" means a calendar month during which this Agreement is in
+force.
+
+1.2 "Included Hours" means the number of Studio hours per Retainer Period stated
+in Section 3.1.
+
+1.3 "Work Request" means a written request from Company for work to be performed
+under this Agreement, submitted through the shared project tracker or by email to
+Studio's named contact.
+
+1.4 "Work Product" means the designs, documents, code and other material Studio
+delivers to Company under this Agreement.
+
+1.5 "Company Materials" means the brand assets, copy, product data and other
+material Company supplies to Studio for use in the work.
+
+1.6 "Confidential Information" means non-public information disclosed by one
+Party to the other that is marked confidential or that a reasonable person would
+understand to be confidential from the circumstances of its disclosure.
+
+1.7 "Business Day" means a day other than a Saturday, Sunday or federal holiday
+in the United States.
+
+2. SERVICES
+
+2.1 Studio will provide design and front-end development services to Company on
+a monthly retainer, in response to Work Requests and in the priority order the
+Parties agree at the start of each Retainer Period.
+
+2.2 Studio will perform the work with the degree of skill and care ordinarily
+exercised by a competent professional performing work of a similar kind.
+
+2.3 Studio will nominate one person as Company's day-to-day contact and will tell
+Company in advance of any change to that nomination.
+
+2.4 Company will nominate one person authorised to submit Work Requests, approve
+Work Product and approve changes under Section 4.
+
+2.5 Studio's normal working hours are 9:00 a.m. to 6:00 p.m. Eastern time on
+Business Days, and Studio is under no obligation to perform work outside those
+hours.
+
+3. RETAINER, HOURS AND CARRY-OVER
+
+3.1 The retainer is forty (40) Included Hours per Retainer Period.
+
+3.2 Studio will report hours used to Company in writing within five (5) Business
+Days after the end of each Retainer Period, with a short description of what the
+hours were spent on.
+
+3.3 Up to eight (8) unused Included Hours carry over into the next Retainer
+Period. Hours carried over expire if unused in that following period.
+
+3.4 Work in excess of the Included Hours, and any carry-over available, will be
+performed only where Company has approved it in advance in writing, and will be
+charged at the hourly rate in Section 5.2.
+
+4. CHANGE CONTROL
+
+4.1 Either Party may propose a change to the priorities, the Included Hours or
+the scope of any Work Request in progress, by giving the other Party written
+notice describing the change.
+
+4.2 A proposed change takes effect when both Parties have confirmed it in
+writing, including the effect of the change on hours, fees and delivery dates.
+
+4.3 Where a Work Request in progress turns out to need materially more hours than
+estimated, Studio will stop at the estimated figure and tell Company before
+continuing, so that Company can decide whether to approve the additional hours or
+reduce the request.
+
+4.4 Neither Party is obliged to accept a proposed change, and work continues
+under the existing arrangement until a change is confirmed in writing.
+
+5. FEES AND PAYMENT
+
+5.1 The monthly retainer fee is nine thousand six hundred dollars ($9,600),
+payable for each Retainer Period.
+
+5.2 Approved work beyond the Included Hours is charged at two hundred and forty
+dollars ($240) per hour, billed in fifteen-minute increments.
+
+5.3 Studio will invoice Company on the first Business Day of each Retainer Period
+for that period's retainer fee, and in arrears for any approved additional hours
+used in the preceding period.
+
+5.4 Invoices are payable within thirty (30) days of the invoice date.
+
+5.5 Interest accrues on any amount that remains unpaid more than thirty (30) days
+after its due date, at one percent (1%) per month or the maximum rate permitted
+by law, whichever is lower.
+
+5.6 Either Party may dispute an invoice in good faith by giving written notice
+within ten (10) Business Days of receiving it, setting out the reason. The
+undisputed part of the invoice remains payable on its original due date, and the
+Parties will resolve the disputed part promptly.
+
+5.7 Pre-approved third-party costs incurred by Studio on Company's behalf, such
+as stock photography licences or font licences, are re-charged at cost with
+receipts attached to the relevant invoice.
+
+5.8 Fees are exclusive of sales and use taxes, which are Company's
+responsibility where they apply.
+
+6. OWNERSHIP AND LICENCES
+
+6.1 Company retains all right, title and interest in the Company Materials, and
+Studio may use them only as needed to perform the work.
+
+6.2 On payment of the invoice covering the Retainer Period in which a piece of
+Work Product was delivered, Studio grants Company a perpetual, worldwide,
+non-exclusive, fully paid licence to use, modify and distribute that Work Product
+for any purpose connected with Company's business.
+
+6.3 Studio retains ownership of its own pre-existing materials, internal tooling,
+component libraries and general know-how, none of which is exclusive to Company,
+and Section 6.2 does not transfer ownership of any of it.
+
+6.4 Each Party may describe the engagement and display the delivered Work Product
+in a portfolio, case study or award submission, once Company has published the
+work or given written consent, whichever comes first.
+
+7. CONFIDENTIALITY
+
+7.1 Each Party will keep the other Party's Confidential Information in
+confidence, will use it only for the purposes of this Agreement, and will
+disclose it only to personnel and advisers who need it for those purposes and who
+are bound by confidentiality obligations no less protective than these.
+
+7.2 The obligations in Section 7.1 do not apply to information that is or becomes
+public through no breach of this Agreement, that the receiving Party already held
+without a duty of confidence, or that the receiving Party develops independently.
+
+7.3 A Party may disclose Confidential Information where compelled by law or by a
+court or regulator, provided that it gives the other Party prompt notice where it
+is lawful to do so.
+
+7.4 The obligations in this Section 7 continue for three (3) years after
+termination of this Agreement.
+
+8. WARRANTIES
+
+8.1 Each Party warrants that it has the right to enter into this Agreement.
+
+8.2 Studio warrants that the Work Product will be its original work, except for
+third-party material identified to Company in writing together with the licence
+terms that apply to it.
+
+8.3 Studio warrants that Work Product will conform to the description in the
+relevant Work Request for thirty (30) days after delivery, and will correct any
+non-conformity reported within that period at no charge.
+
+8.4 Company warrants that it has the right to supply the Company Materials to
+Studio for the use contemplated by this Agreement.
+
+9. MUTUAL INDEMNITY
+
+9.1 Each Party will indemnify the other against third-party claims that the
+material it supplied under this Agreement infringes that third party's
+intellectual property rights, where the claim arises from the indemnifying
+Party's own material and not from a modification made by the other Party.
+
+9.2 The indemnifying Party's liability under Section 9.1 is subject to the cap in
+Section 10.2.
+
+9.3 A Party seeking indemnity will notify the other promptly, will allow the
+indemnifying Party to lead the defence, and will not settle the claim without the
+indemnifying Party's written consent.
+
+10. LIABILITY
+
+10.1 Neither Party excludes or limits liability for death or personal injury
+caused by its negligence, for fraud, or for any other liability that cannot
+lawfully be limited.
+
+10.2 Subject to Section 10.1, each Party's total liability to the other for all
+claims arising out of or relating to this Agreement is capped at the total fees
+paid and payable under this Agreement in the twelve (12) months before the event
+giving rise to the claim.
+
+10.3 The cap in Section 10.2 applies equally to both Parties, and neither Party
+waives any remedy available to it at law or in equity, including the right to
+seek specific performance or injunctive relief.
+
+10.4 Each Party remains liable for direct losses caused by its own breach of this
+Agreement, and nothing in this Section 10 prevents a Party from recovering unpaid
+fees due to it.
+
+11. TERM, TERMINATION AND NOTICE
+
+11.1 This Agreement begins on the date stated above and continues from Retainer
+Period to Retainer Period until either Party terminates it.
+
+11.2 Either Party may terminate this Agreement for convenience, effective at the
+end of a Retainer Period, by giving the other Party not less than thirty (30)
+days' written notice. The notice period is the same for both Parties.
+
+11.3 Either Party may terminate this Agreement immediately on written notice if
+the other Party commits a material breach and does not cure it within fifteen
+(15) Business Days of receiving notice describing the breach.
+
+11.4 On termination for any reason, Company will pay Studio for the Retainer
+Period in which termination takes effect and for any approved additional hours
+already worked, and Studio will deliver to Company all completed and in-progress
+Work Product in the form it then exists.
+
+11.5 Termination does not affect any right or remedy that either Party had
+accrued before the effective date of termination.
+
+11.6 Sections 6, 7, 9, 10 and 12 survive termination of this Agreement.
+
+12. GENERAL
+
+12.1 Studio is an independent contractor and not an employee, partner or agent of
+Company, and nothing in this Agreement creates a joint venture or partnership
+between the Parties.
+
+12.2 Each Party is free to work with any other client, customer, supplier or
+contractor, including a competitor of the other Party, and nothing in this
+Agreement restricts either Party from doing so.
+
+12.3 Notices under this Agreement must be in writing and are effective when
+delivered by hand, by courier with tracking, or by email to the named contact
+with confirmation of receipt.
+
+12.4 This Agreement is governed by the laws of the State of Maine, without regard
+to its conflict of laws rules, and the Parties submit to the non-exclusive
+jurisdiction of the state and federal courts located in Cumberland County, Maine.
+
+12.5 Before commencing proceedings, the Parties will each nominate a senior
+representative to meet, in person or by video, and attempt in good faith to
+resolve the dispute within twenty (20) Business Days of a written request to do
+so. This Section 12.5 does not prevent either Party from seeking urgent relief
+from a court.
+
+12.6 Neither Party may assign this Agreement without the other Party's prior
+written consent, except that either Party may assign it in full to a successor in
+connection with a merger or a sale of substantially all of its assets.
+
+12.7 Neither Party is liable for a failure or delay in performance caused by an
+event beyond its reasonable control, provided that it notifies the other Party
+promptly and resumes performance as soon as it is able.
+
+12.8 If any provision of this Agreement is held unenforceable, that provision is
+modified to the minimum extent necessary to make it enforceable, or if it cannot
+be so modified it is severed, and the remaining provisions continue in force.
+
+12.9 This Agreement may be amended only by a written instrument signed by both
+Parties.
+
+12.10 This Agreement is the entire agreement between the Parties on its subject
+matter and supersedes all prior discussions, proposals and understandings,
+whether written or oral.
+
+12.11 This Agreement may be signed in counterparts, including by electronic
+signature, each of which is an original and all of which together constitute one
+instrument.
+
+SIGNED for and on behalf of Kestrel Lane Studio LLC
+
+Name: ____________________  Title: ____________________  Date: ____________
+
+SIGNED for and on behalf of Northfield Provisions Co.
+
+Name: ____________________  Title: ____________________  Date: ____________

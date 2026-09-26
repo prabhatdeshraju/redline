@@ -32,7 +32,8 @@ npm run dev
 
 | # | Ticket | Status | Note |
 |---|--------|--------|------|
-| — | Next.js scaffold + landing port | in progress | Not a ticket; prerequisite from step 1 of the build brief |
+| — | Next.js scaffold + landing port | **done** | Next 16 / React 19 / Vitest 5. Landing verified identical by node-by-node DOM diff (382 nodes, 2 intended href changes). Commit `6241204` |
+| — | Labelled fixtures | in progress | Step 3 of the build brief |
 | 01 | Project foundation and auth | not started | |
 | 02 | Upload and extract in the browser | not started | |
 | 03 | Labelled corpus and citation harness | not started | |
@@ -110,6 +111,55 @@ passing, and the spec's central gate is a test.
 Chose Vitest over Jest: it needs no Babel configuration with TypeScript, starts
 fast enough that the citation gate can run on every save, and is the common
 default alongside Next.js now. Added with `@vitejs/plugin-react` and `jsdom`.
+
+### 5. The "adhesion contract with planted clauses" fixture was split in three
+
+Your step 3 asked for two fixtures, one of them "an adhesion contract with at
+least four planted clauses … and its expected severity band".
+
+That document cannot exist in this product. ADR 0002 makes an adhesion contract
+a **refusal**, not an analysis — Redline never flags one, because a counter-offer
+has nobody on the other side who could accept it. A fixture that was both
+adhesion and expected to yield ranked flags would have been testing behaviour
+the product is designed not to have.
+
+**Did:** built three fixtures instead of two —
+`tests/fixtures/negotiable-flagged.*` (a negotiable agreement carrying the six
+planted clauses and their bands), `tests/fixtures/clean.*` (genuinely clean, the
+all-clear fixture), and `tests/fixtures/adhesion.*` (take-it-or-leave-it terms,
+which ticket 07 uses to test the refusal).
+
+This reads the intent as "a contract with planted clauses, plus a clean one,
+plus the adhesion case the spec needs anyway". If you actually wanted the
+planted clauses inside the adhesion document, ticket 07 and ADR 0002 need
+revisiting first.
+
+### 6. Kept the block `next dev` appends to CLAUDE.md
+
+Next 16 writes a `<!-- BEGIN:nextjs-agent-rules -->` block into `CLAUDE.md` on
+every `next dev` run, from `node_modules/next/dist/server/lib/generate-agent-files.js`.
+No opt-out flag exists.
+
+**Kept and committed it.** Its content is worth having — it warns that Next 16
+diverges from model training data and points at the local docs in
+`node_modules/next/dist/docs/`, which is true and which I have put into every
+subagent brief since. Removing it would only produce an uncommitted diff that
+returns on the next dev run.
+
+**Left for you:** it is your standing-instructions file, so if you want it gone,
+delete the block and accept the recurring diff, or pin Next below 16.
+
+### 7. Repointed `workspace/fonts.css`
+
+Moving the landing page into the app deleted `landing/fonts/`, which
+`workspace/fonts.css` referenced with `../landing/fonts/*.woff2`. The six faces
+now live in `public/fonts/`, so those URLs point at `/fonts/` instead.
+
+`DESIGN.md` line 553 had already recorded this exact move as the port fix, so
+this is the documented change rather than a new decision. Note that
+`workspace/index.html` is a **static design reference**, not a route — opening
+it directly from the filesystem will no longer find the fonts, because they now
+resolve from the running app. The real screens are what tickets 02–12 build.
 
 ---
 

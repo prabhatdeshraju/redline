@@ -1,0 +1,49 @@
+{
+  "documentType": "negotiable",
+  "title": "Meridian Harbor Group LLC — Master Services Agreement (Independent Contractor)",
+  "expectedAllClear": false,
+  "plantedClauses": [
+    {
+      "clauseType": "personal-guarantee",
+      "severity": "highest",
+      "clauseRef": "13.2",
+      "sourceSentence": "If Contractor is an entity, the individual signing below in the capacity of principal, member or officer of that entity personally and unconditionally guarantees the full and prompt performance of every obligation of Contractor under this Agreement, including the payment of any amounts owed to Client, and Client may proceed directly against that individual’s personal assets without first proceeding against Contractor.",
+      "whatItPermits": "The document makes the individual who signs personally responsible for everything the contractor entity owes, including money, and says the client can go straight at that person's own assets without first pursuing the entity. Whether a guarantee in these terms would be enforced, and against which assets, depends on the jurisdiction and the circumstances."
+    },
+    {
+      "clauseType": "uncapped-indemnification",
+      "severity": "highest",
+      "clauseRef": "10.1",
+      "sourceSentence": "Contractor shall defend, indemnify and hold harmless Client, its affiliates, officers, employees and agents from and against any and all claims, demands, losses, liabilities, damages, fines, penalties, costs and expenses, including reasonable attorneys' fees, arising out of or in any way connected with the Services, whether or not caused by any act or omission of Contractor, and this obligation is not subject to any limitation or cap on liability set out in this Agreement.",
+      "whatItPermits": "The document requires the contractor to pay the client's losses and legal costs for any claim connected to the services, including claims where the contractor did nothing wrong, and states that the cap elsewhere in the agreement does not apply to this obligation. The amount is not limited by the contract value, so what the exposure comes to would depend on the claim."
+    },
+    {
+      "clauseType": "ip-assignment-work-for-hire",
+      "severity": "high",
+      "clauseRef": "7.2",
+      "sourceSentence": "All deliverables, works in progress, sketches, source code, data models, prompts, configurations, tooling and any other material Contractor conceives, creates or reduces to practice in connection with the Services are works made for hire owned exclusively by Client from the moment of creation, and to the extent any such material does not qualify as a work made for hire, Contractor hereby irrevocably assigns to Client all right, title and interest in it worldwide, including any general-purpose tools, libraries or methods Contractor develops while performing the Services.",
+      "whatItPermits": "The document gives the client ownership of everything the contractor creates in connection with the services from the moment it exists, and assigns anything that does not qualify as work made for hire, expressly including general-purpose tools and libraries built along the way. Read with clause 7.5, it also means the contractor cannot show the work without written consent. Whether material of this kind legally qualifies as work made for hire is a separate question from what the document asserts."
+    },
+    {
+      "clauseType": "limitation-of-liability",
+      "severity": "high",
+      "clauseRef": "11.2",
+      "sourceSentence": "Client's total liability to Contractor for any claim arising out of or relating to this Agreement, whether in contract, tort or otherwise, shall not exceed the lesser of the fees actually paid to Contractor in the thirty (30) days preceding the event giving rise to the claim or five hundred dollars ($500), and Contractor waives any right to consequential, incidental, indirect or special damages, to specific performance, and to injunctive relief of any kind.",
+      "whatItPermits": "The document caps what the contractor can recover from the client at the lesser of thirty days of fees or $500, and removes the contractor's right to consequential damages, specific performance and injunctive relief. The cap runs one way only: clause 11.3 confirms it does not limit the contractor's own indemnity obligation. Whether a court would uphold a cap and a waiver of remedies drafted this way depends on the governing law."
+    },
+    {
+      "clauseType": "payment-terms",
+      "severity": "medium",
+      "clauseRef": "4.3",
+      "sourceSentence": "Invoices are payable ninety (90) days after Client's receipt and acceptance of the corresponding deliverable, acceptance is at Client's sole discretion, and Client may withhold payment of any invoice in whole or in part while any other matter between the Parties remains unresolved.",
+      "whatItPermits": "The document sets payment at ninety days after the client receives and accepts a deliverable, makes acceptance the client's sole discretion, and allows the client to hold back all or part of any invoice while any other matter between the parties is unresolved. On these terms the contractor can perform the work and have no fixed date by which payment is due."
+    },
+    {
+      "clauseType": "scope-and-change-control",
+      "severity": "medium",
+      "clauseRef": "3.4",
+      "sourceSentence": "Contractor shall perform such additional tasks, revisions and iterations as Client reasonably requests in order to achieve Client's objectives for the engagement, including an unlimited number of revision rounds on any deliverable, at no additional charge and without an amendment to the applicable Statement of Work.",
+      "whatItPermits": "The document commits the contractor to additional tasks, revisions and an unlimited number of revision rounds at no extra charge and with no change order, whenever the client says they are needed to meet its objectives for the engagement. The volume of unpaid work this permits is not bounded by the statement of work."
+    }
+  ]
+}

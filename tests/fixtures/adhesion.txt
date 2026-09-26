@@ -1,0 +1,187 @@
+PARCELMINT TERMS OF SERVICE
+
+Last updated: 2 February 2026
+
+These Terms of Service ("Terms") govern your access to and use of the ParcelMint
+website, mobile applications and related services (together, the "Service"),
+operated by ParcelMint Technologies, Inc., 2200 Harrison Street, Floor 6, San
+Francisco, California 94110 ("ParcelMint", "we", "us"). Please read them
+carefully.
+
+1. ACCEPTANCE OF THESE TERMS
+
+1.1 By creating an account, accessing the Service, or clicking "I agree", you
+accept these Terms and they form a binding agreement between you and ParcelMint.
+
+1.2 By continuing to use the Service after these Terms take effect, you accept
+them in full. If you do not agree to these Terms, you must stop using the Service
+and close your account.
+
+1.3 These Terms apply to every user of the Service. We do not offer individually
+negotiated terms, and no ParcelMint employee or agent has authority to vary these
+Terms for you, whether orally or in writing, except by a written amendment signed
+by an officer of ParcelMint.
+
+1.4 You must be at least 18 years old, or the age of majority where you live, to
+use the Service.
+
+2. CHANGES TO THESE TERMS AND TO THE SERVICE
+
+2.1 We may modify these Terms at any time and in our sole discretion. We will
+post the modified Terms with a revised "Last updated" date and, where we consider
+the change material, will notify you by email or in the Service.
+
+2.2 Modified Terms take effect immediately on posting for new users, and fourteen
+(14) days after posting for existing users. Your continued use of the Service
+after that date constitutes acceptance of the modified Terms. Your only remedy if
+you do not accept a change is to stop using the Service.
+
+2.3 We may add, change, suspend or discontinue any feature of the Service at any
+time, with or without notice, and we are not liable to you for doing so.
+
+2.4 We may change our fees, plan tiers and usage limits on thirty (30) days'
+notice. Fees already paid are not refundable except where required by law.
+
+3. YOUR ACCOUNT
+
+3.1 You are responsible for maintaining the confidentiality of your credentials
+and for all activity that occurs under your account.
+
+3.2 You must provide accurate registration information and keep it current.
+
+3.3 You may not share your account, resell access to it, or allow any other
+person to use it.
+
+4. ACCEPTABLE USE
+
+4.1 You will not use the Service to transmit unlawful, infringing, deceptive or
+harmful content, to interfere with the operation of the Service, or to gain
+unauthorised access to any system or account.
+
+4.2 You will not scrape, crawl, reverse engineer, decompile, or attempt to derive
+the source code of any part of the Service, except to the extent that restriction
+is prohibited by applicable law.
+
+4.3 You will not use the Service to send unsolicited commercial messages or to
+circumvent any rate limit, quota or access control.
+
+5. YOUR CONTENT
+
+5.1 You retain ownership of the content you upload to the Service ("Your
+Content").
+
+5.2 You grant us a worldwide, non-exclusive, royalty-free, sublicensable licence
+to host, store, reproduce, modify, adapt, publish and display Your Content for
+the purposes of operating, improving and promoting the Service. This licence
+continues for as long as Your Content remains on the Service and for a reasonable
+period afterwards while it remains in our backups.
+
+5.3 You represent that you have all rights necessary to grant the licence in
+Section 5.2.
+
+5.4 We may remove any content that we believe, in our sole discretion, violates
+these Terms or applicable law.
+
+6. SUSPENSION AND TERMINATION
+
+6.1 We may suspend or terminate your account and your access to the Service at
+any time, with or without notice, and with or without cause, including where we
+believe you have violated these Terms.
+
+6.2 On termination, your right to use the Service ends immediately. We may delete
+Your Content after thirty (30) days, and we have no obligation to retain it or to
+provide it to you in any particular format.
+
+6.3 You may close your account at any time through the account settings page.
+Closing your account does not entitle you to a refund of any prepaid fees.
+
+7. DISCLAIMERS
+
+7.1 The Service is provided "as is" and "as available", without warranty of any
+kind. To the maximum extent permitted by law, we disclaim all warranties, express
+or implied, including the implied warranties of merchantability, fitness for a
+particular purpose, title and non-infringement.
+
+7.2 We do not warrant that the Service will be uninterrupted, timely, secure or
+error-free, or that any data will not be lost or corrupted.
+
+8. LIMITATION OF LIABILITY
+
+8.1 To the maximum extent permitted by law, ParcelMint and its officers,
+directors, employees and suppliers will not be liable for any indirect,
+incidental, special, consequential, exemplary or punitive damages, or for any
+loss of profits, revenue, data, goodwill or business opportunity, arising out of
+or relating to your use of the Service.
+
+8.2 Our total liability for all claims arising out of or relating to these Terms
+or the Service will not exceed the greater of the amounts you paid us in the
+three (3) months before the event giving rise to the claim or one hundred dollars
+($100).
+
+9. INDEMNITY
+
+9.1 You will indemnify, defend and hold harmless ParcelMint and its officers,
+directors, employees and suppliers from and against any claim, demand, loss,
+liability, damage, cost or expense, including reasonable attorneys' fees, arising
+out of or relating to Your Content, your use of the Service, or your breach of
+these Terms.
+
+10. DISPUTE RESOLUTION, ARBITRATION AND CLASS ACTION WAIVER
+
+10.1 Please read this Section 10 carefully. It affects how disputes between you
+and ParcelMint are resolved and limits the ways in which you can seek relief.
+
+10.2 You and ParcelMint agree that any dispute, claim or controversy arising out
+of or relating to these Terms or the Service will be resolved by final and
+binding individual arbitration administered by the American Arbitration
+Association under its Consumer Arbitration Rules, rather than in court, except
+that either party may bring an individual claim in small claims court.
+
+10.3 The arbitration will be conducted in the county of your billing address or
+by videoconference, and the arbitrator's decision is final and may be entered as
+a judgment in any court of competent jurisdiction.
+
+10.4 You and ParcelMint each waive any right to a trial by jury and any right to
+participate in a class action, class arbitration, collective action or
+representative proceeding. The arbitrator may not consolidate the claims of more
+than one person and may not preside over any form of representative proceeding.
+
+10.5 You may reject the arbitration agreement in Section 10.2 by sending written
+notice to legal@parcelmint.example within thirty (30) days of first accepting
+these Terms. Rejecting it does not affect any other part of these Terms.
+
+10.6 Any claim must be brought within one (1) year after it arises, or it is
+permanently barred.
+
+11. FEES, RENEWAL AND CANCELLATION
+
+11.1 Paid plans renew automatically at the end of each billing period at the
+then-current price, and we will charge the payment method on file until you
+cancel.
+
+11.2 You may cancel at any time before the start of the next billing period.
+Cancellation takes effect at the end of the current billing period, and fees
+already charged are not refunded.
+
+12. GENERAL
+
+12.1 These Terms are governed by the laws of the State of California, without
+regard to its conflict of laws rules.
+
+12.2 We may assign these Terms, in whole or in part, without notice to you, for
+example in connection with a merger, acquisition or sale of assets. You may not
+assign these Terms or any right under them.
+
+12.3 If any provision of these Terms is held unenforceable, that provision is
+severed and the remaining provisions continue in force, except that if the class
+action waiver in Section 10.4 is held unenforceable, Section 10 does not apply to
+the affected claim.
+
+12.4 Our failure to enforce any provision of these Terms is not a waiver of our
+right to enforce it later.
+
+12.5 These Terms, together with our Privacy Policy and any plan-specific terms we
+publish, are the entire agreement between you and ParcelMint regarding the
+Service.
+
+12.6 Questions about these Terms may be sent to legal@parcelmint.example.

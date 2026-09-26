@@ -1,0 +1,26 @@
+{
+  "documentType": "negotiable",
+  "title": "Kestrel Lane Studio LLC — Design and Development Retainer Agreement",
+  "expectedAllClear": true,
+  "plantedClauses": [],
+  "checkedAndAbsent": [
+    "personal-guarantee",
+    "uncapped-indemnification",
+    "non-compete-non-solicit",
+    "ip-assignment-work-for-hire",
+    "limitation-of-liability",
+    "termination-and-notice",
+    "payment-terms",
+    "scope-and-change-control"
+  ],
+  "notes": {
+    "personal-guarantee": "No guarantee of any kind. Nobody signs in a personal capacity for the obligations of a party, and there is no guarantor signature block.",
+    "uncapped-indemnification": "Clause 9.1 is a mutual indemnity limited to third-party intellectual property claims about each party's own material, and clause 9.2 subjects it to the liability cap in clause 10.2.",
+    "non-compete-non-solicit": "No restraint on either party's other work or on approaching the other side's clients or staff. Clause 12.2 states positively that either party may work with anyone, including a competitor.",
+    "ip-assignment-work-for-hire": "Clause 6.2 grants the company a perpetual paid licence rather than ownership, and clause 6.3 keeps the studio's pre-existing materials, tooling and component libraries with the studio. Clause 6.4 permits portfolio display.",
+    "limitation-of-liability": "Clause 10.2 caps each party's liability at twelve months of fees and applies to both sides equally. Clause 10.1 preserves the liabilities that cannot lawfully be limited, and clause 10.3 waives no remedy.",
+    "termination-and-notice": "Clause 11.2 gives both parties the same thirty days' notice for convenience, clause 11.3 gives both the same cure period, and clause 11.4 requires payment for work already performed on termination.",
+    "payment-terms": "Clause 5.4 sets net thirty days from the invoice date with no acceptance condition, clause 5.5 sets late-payment interest, and clause 5.6 keeps the undisputed part of a disputed invoice payable on its original due date.",
+    "scope-and-change-control": "Section 4 defines a written change-control process requiring both parties to confirm a change, and clause 4.3 requires the studio to stop at the estimate and ask before exceeding it."
+  }
+}
