@@ -27,7 +27,11 @@
 import { modelClientFromEnvironment, modelConfiguration } from "@/lib/model/openrouter";
 
 import type { Analyser } from "./analysis";
-import { asAnalyser, createAnalysisBoundary } from "./boundary";
+import {
+  asAnalyser,
+  createAnalysisBoundary,
+  type AnalysisBoundary,
+} from "./boundary";
 import { CLAUSE_TYPES_IN_SCOPE } from "./clause-search";
 import { clauseTypeEntry } from "./taxonomy";
 
@@ -39,6 +43,27 @@ export const describe = [
     .toLowerCase(),
   `(${CLAUSE_TYPES_IN_SCOPE.length} of the 8 clause types; the rest are ticket 05)`,
 ].join(" ");
+
+/** The boundary the product calls, wired to the environment.
+ *
+ * This is how a screen reaches the analysis: through the gated entry point, from
+ * a server module, without naming a key or a model identifier anywhere near the
+ * interface. `tests/one-place-talks-to-a-model.test.ts` holds this module as the
+ * only wiring of the model client, so a server action asking for an inspection
+ * asks here rather than building a client of its own.
+ *
+ * An unconfigured environment is not an exception here, unlike `createAnalyser`
+ * below: `modelClientFromEnvironment` returns a client that reports
+ * `not-configured` on every call and reaches no network, so the caller gets one
+ * `unavailable` outcome carrying one sentence to show the reader, and a missing
+ * key can never be mistaken for a document with nothing in it. The harness wants
+ * the opposite — a run with no key must fail loudly rather than report a corpus
+ * of empty analyses — which is why the two entry points differ. */
+export function createBoundary(): AnalysisBoundary {
+  return createAnalysisBoundary({
+    model: modelClientFromEnvironment(process.env),
+  });
+}
 
 /** The analyser, or a stated reason there is none.
  *

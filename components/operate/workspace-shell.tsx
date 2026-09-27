@@ -15,8 +15,11 @@
 
 import { useState } from "react";
 
+import { Inspection } from "@/components/operate/inspection";
 import { Intake, type IntakeStage } from "@/components/operate/intake";
 import { SheetFrame } from "@/components/operate/sheet-frame";
+import { CLAUSE_TYPES_IN_SCOPE } from "@/lib/analysis/clause-search";
+import { CLAUSE_TAXONOMY } from "@/lib/analysis/taxonomy";
 import type { AccountsState } from "@/lib/auth/session";
 
 type WorkspaceShellProps = {
@@ -186,14 +189,27 @@ export function WorkspaceShell({ state }: WorkspaceShellProps) {
           <div>
             <dt>Clause types</dt>
             <dd>
-              <span className="tnum">8</span>, fixed and published
+              <span className="tnum">{CLAUSE_TYPES_IN_SCOPE.length}</span> looked
+              for of <span className="tnum">{CLAUSE_TAXONOMY.length}</span>{" "}
+              published
             </dd>
           </div>
         </>
       }
     >
       <div>
-        <Intake onStage={setStage} />
+        {/* The inspection is handed to intake rather than placed after it: it
+            belongs under the text it was produced from, and it exists only once
+            there is text. The extracted text lives in this browser and the
+            server function is given the text and nothing else. */}
+        <Intake
+          onStage={setStage}
+          next={
+            stage.step === "extracted" ? (
+              <Inspection documentText={stage.extraction.text} />
+            ) : null
+          }
+        />
 
         <section className="summary" aria-labelledby="account-head">
           <h2 className="sect-head" id="account-head">

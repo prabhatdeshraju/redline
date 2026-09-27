@@ -1161,3 +1161,41 @@ a.btn { text-decoration: none; }
 @media (max-width: 48rem) {
   .extract { max-height: 20rem; }
 }
+
+/* ---------- the source sentence in its surroundings, and what was not looked for ----------
+   Two additions for the flag screen. Both use existing tokens only: no new
+   colour, no shadow, no radius, no new type size.
+
+   The marked run inside a context window. The source sentence is set apart from
+   the passage around it three ways at once — full-strength ink against the
+   secondary ink of the passage, Spectral 500 against 400, and a 1px mark-orange
+   rule under it — so the mark never depends on colour alone. The UA's own yellow
+   ground is cleared: this world has one ground and that is not it. Orange is
+   spent here on its second Operate job, the current selection, exactly as
+   `.doc__cl.is-cited` spends it.
+
+   The status on a scope row for a clause type this build does not look for. It
+   wears the rank name's own lettering in tertiary ink, and deliberately not the
+   green of "inspected · not found": a clause type that was never looked for must
+   not read as one that was looked for and found absent. */
+
+.doc__cl mark {
+  background: none;
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom: 1px solid var(--orange-mark);
+}
+
+.unsearched {
+  font-family: "Barlow Condensed", "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+@media (max-width: 48rem) {
+  .unsearched { white-space: normal; }
+}

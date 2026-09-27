@@ -12,7 +12,13 @@
 
 "use client";
 
-import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import {
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 
 import {
   ACCEPTED_FILE_TYPES,
@@ -35,6 +41,12 @@ type IntakeViewProps = {
   readonly onStartOver?: () => void;
   readonly pastedRef?: React.RefObject<HTMLTextAreaElement | null>;
   readonly fileRef?: React.RefObject<HTMLInputElement | null>;
+  /** What comes after the recovered text once there is some: the inspection
+   *  (`components/operate/inspection.tsx`). A slot rather than an import, because
+   *  this screen's job ends when the text is out of the file — what is then done
+   *  with the text is the analysis boundary's side of the product, and intake
+   *  stays testable without it. */
+  readonly next?: ReactNode;
 };
 
 const count = (value: number): string => value.toLocaleString("en-US");
@@ -291,9 +303,11 @@ function ExtractedText({ text }: { readonly text: string }) {
 function Extracted({
   extraction,
   onStartOver,
+  next,
 }: {
   readonly extraction: Extraction;
   readonly onStartOver?: () => void;
+  readonly next?: ReactNode;
 }) {
   const where =
     extraction.format === "pasted-text"
@@ -301,7 +315,7 @@ function Extracted({
       : (extraction.documentName ?? "the file you chose");
 
   return (
-    <div>
+    <>
       <section className="summary" aria-labelledby="recovered-head">
         <h2 className="sect-head" id="recovered-head">
           What was recovered
@@ -342,21 +356,8 @@ function Extracted({
         </div>
       </section>
 
-      <section className="summary" aria-labelledby="next-head">
-        <h2 className="sect-head" id="next-head">
-          What happens next
-        </h2>
-        <div className="sect-body">
-          <p className="summary__text">
-            Having this text inspected is not built yet. This build reads a
-            document and shows you what it recovered, so the part the rest of
-            Redline depends on can be checked first: every flag quotes a sentence
-            from your own document, and that only holds if the sentences above are
-            the sentences on your page.
-          </p>
-        </div>
-      </section>
-    </div>
+      {next}
+    </>
   );
 }
 
@@ -404,7 +405,7 @@ export function IntakeView(props: IntakeViewProps) {
   switch (props.stage.step) {
     case "waiting":
       return (
-        <div>
+        <>
           <Waiting {...props} />
           <section className="summary" aria-labelledby="leaves-section-head">
             <h2 className="sect-head" id="leaves-section-head">
@@ -414,7 +415,7 @@ export function IntakeView(props: IntakeViewProps) {
               <WhatLeaves />
             </div>
           </section>
-        </div>
+        </>
       );
     case "reading":
       return <Reading documentName={props.stage.documentName} />;
@@ -423,6 +424,7 @@ export function IntakeView(props: IntakeViewProps) {
         <Extracted
           extraction={props.stage.extraction}
           onStartOver={props.onStartOver}
+          next={props.next}
         />
       );
     case "refused":
@@ -442,8 +444,11 @@ export function IntakeView(props: IntakeViewProps) {
  * fetch: the only way out of this component is the stage it reports upwards. */
 export function Intake({
   onStage,
+  next,
 }: {
   readonly onStage?: (stage: IntakeStage) => void;
+  /** What follows the recovered text: the inspection, handed in by the shell. */
+  readonly next?: ReactNode;
 }) {
   const [stage, setStage] = useState<IntakeStage>({ step: "waiting" });
   const [nothingGiven, setNothingGiven] = useState(false);
@@ -498,6 +503,7 @@ export function Intake({
       onStartOver={onStartOver}
       pastedRef={pastedRef}
       fileRef={fileRef}
+      next={next}
     />
   );
 }

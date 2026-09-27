@@ -120,11 +120,24 @@ describe("after a document is read", () => {
     expect(html).toContain("typeset ligatures");
   });
 
-  it("offers no analysis, because analysis is not built, and says so", () => {
-    expect(html).toContain("What happens next");
-    expect(html).toContain("not built yet");
-    /* No button that does nothing. */
-    expect(html).not.toContain("Inspect this document");
+  it("hands the screen over to what comes next, rather than describing it", () => {
+    /* Ticket 04 built the inspection, and the shell hands it in as `next`. This
+       screen's job ends when the text is out of the file: it no longer says
+       analysis is unbuilt, and it does not reach for the analysis itself. */
+    expect(html).not.toContain("not built yet");
+
+    const withNext = renderToStaticMarkup(
+      <IntakeView
+        stage={{ step: "extracted", extraction: EXTRACTION }}
+        next={<p>Have this text inspected</p>}
+      />,
+    );
+
+    expect(withNext).toContain("Have this text inspected");
+    /* Under the recovered text, not above it: the inspection is of that text. */
+    expect(withNext.indexOf("Have this text inspected")).toBeGreaterThan(
+      withNext.indexOf("class=\"extract\""),
+    );
   });
 
   it("lets the reader bring a different document", () => {
