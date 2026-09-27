@@ -90,3 +90,48 @@ clause, e.g. `"12.4"`), `sourceSentence` (the single sentence a flag must quote,
 byte-for-byte out of the `.txt`), and `whatItPermits` — one or two sentences on
 the concrete worst case, flat about what the document says and hedged about what
 it means legally, with no verdict on whether to sign (ADR 0004).
+
+## The binary fixtures
+
+Three files carrying the same prose as `negotiable-flagged.txt`, so the
+extraction boundary can be tested against real files rather than against a
+parser that was mocked out. Built once by
+`tests/fixtures/build-binary-fixtures.mjs`, which is committed beside them and
+documents what each one is designed to break; no dependency was added for it.
+Re-run it only if the prose changes.
+
+### `negotiable-flagged.pdf`
+
+Three pages of the same agreement, with a real text layer, built to break
+verbatim matching in every way `02` names:
+
+- a running header on every page and a running footer carrying a page number,
+  both of which interrupt a sentence at a page boundary
+- clause 4.3 and clause 13.2 hyphenated at line ends (`correspo-` / `nding`,
+  `individ-` / `ual`)
+- four source sentences carrying the ﬁ ligature as U+FB01, via an
+  `/Encoding /Differences` entry mapping a code to the `/fi` glyph
+- clause 13.2's typographic apostrophe (U+2019) as WinAnsi `0x92`
+- a two-column page 2, under a heading spanning both columns, whose **right
+  column is written to the file before its left column** and whose running
+  header is written last, so correct reading order cannot come from stream order
+- clause 13.2 beginning at the foot of page 2's right column and finishing at the
+  top of page 3, with a footer and a header between the two halves
+
+Consumed by: **02** (`tests/extraction-boundary.test.ts`).
+
+### `negotiable-flagged.docx`
+
+The same six source sentences as Word paragraphs, one carrying the ﬁ ligature
+and one the typographic apostrophe. A DOCX has no pages and no line breaks, so
+this fixture tests the character rule rather than the layout repair — and it is
+what proves the ligature rule is ours, since no PDF parser is involved.
+
+Consumed by: **02**.
+
+### `scan-no-text-layer.pdf`
+
+Two pages, each painting one image XObject and showing no text at all: the shape
+a scan has. It exists so the refusal can be tested. It must never extract.
+
+Consumed by: **02**.

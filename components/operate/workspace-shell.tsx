@@ -1,14 +1,21 @@
 /* The application shell.
+ *
+ * The frame from workspace/index.html: the sheet, the ruled head bar with its
+ * micro-labelled metadata cells, the report, and the closing footer. It now holds
+ * the intake screen, which is the first state the app shell brief names.
+ *
+ * A client component, because the head bar has to say what is in the frame and
+ * what is in the frame is decided in the reader's browser — the document is read
+ * there and nowhere else. The account state is still worked out on the server and
+ * handed down as a plain value, so all five states below are reachable from a
+ * test without going near the auth library.
+ */
 
-   The frame from workspace/index.html at the point in the build where it holds
-   no document yet: the sheet, the ruled head bar that says who the reader is,
-   the head-rail sections, and the closing footer. No document content, because
-   none exists yet — and no control for a feature that is not built, because a
-   button that does nothing is worse than no button.
+"use client";
 
-   Pure function of the account state, so every state below is reachable in a
-   test without going near the auth library. */
+import { useState } from "react";
 
+import { Intake, type IntakeStage } from "@/components/operate/intake";
 import { SheetFrame } from "@/components/operate/sheet-frame";
 import type { AccountsState } from "@/lib/auth/session";
 
@@ -30,17 +37,60 @@ function readerCell(state: AccountsState): string {
   }
 }
 
-/** The footer's sheet line. */
-function sheetLine(state: AccountsState): string {
+/** The head-bar cell naming what is in the frame. */
+function documentCell(stage: IntakeStage): string {
+  switch (stage.step) {
+    case "waiting":
+      return "None brought yet";
+    case "reading":
+      return stage.documentName ?? "Pasted text";
+    case "extracted":
+      return stage.extraction.documentName ?? "Pasted text";
+    case "refused":
+      return stage.refusal.documentName ?? "Pasted text";
+  }
+}
+
+/** The head-bar cell saying how much text there is. The number a reader checks a
+ *  failed parse against, so it is never rounded and never hidden. */
+function lengthCell(stage: IntakeStage): React.ReactNode {
+  switch (stage.step) {
+    case "waiting":
+      return "Nothing read yet";
+    case "reading":
+      return "Reading in your browser";
+    case "extracted":
+      return (
+        <>
+          <span className="tnum">
+            {stage.extraction.characters.toLocaleString("en-US")}
+          </span>{" "}
+          characters
+        </>
+      );
+    case "refused":
+      return "Not read — see below";
+  }
+}
+
+/** The footer's condensed-caps sheet line: the state of this screen, stated. */
+function sheetLine(state: AccountsState, stage: IntakeStage): string {
+  const document =
+    stage.step === "extracted"
+      ? "Document read in this browser"
+      : stage.step === "refused"
+        ? "Document refused"
+        : "No document read";
+
   switch (state.accounts) {
     case "signed-in":
-      return "Signed in";
+      return `${document} · Signed in`;
     case "signed-out":
-      return "Signed out";
+      return `${document} · Signed out`;
     case "not-configured":
-      return "No account system in this build";
+      return `${document} · No account system in this build`;
     case "unreachable":
-      return "Account system unreachable";
+      return `${document} · Account system unreachable`;
   }
 }
 
@@ -110,13 +160,15 @@ function AccountNote({ state }: WorkspaceShellProps) {
 }
 
 export function WorkspaceShell({ state }: WorkspaceShellProps) {
+  const [stage, setStage] = useState<IntakeStage>({ step: "waiting" });
+
   return (
     <SheetFrame
       name="Workspace"
       skipLabel="Skip to the workspace"
       actionsLabel="Your account"
       actions={<AccountAction state={state} />}
-      sheetLine={sheetLine(state)}
+      sheetLine={sheetLine(state, stage)}
       meta={
         <>
           <div>
@@ -125,7 +177,11 @@ export function WorkspaceShell({ state }: WorkspaceShellProps) {
           </div>
           <div>
             <dt>Document</dt>
-            <dd>None in this build</dd>
+            <dd>{documentCell(stage)}</dd>
+          </div>
+          <div>
+            <dt>Extracted</dt>
+            <dd>{lengthCell(stage)}</dd>
           </div>
           <div>
             <dt>Clause types</dt>
@@ -137,24 +193,7 @@ export function WorkspaceShell({ state }: WorkspaceShellProps) {
       }
     >
       <div>
-        <section className="summary" aria-labelledby="nothing-head">
-          <h2 className="sect-head" id="nothing-head">
-            Nothing inspected yet
-          </h2>
-          <div className="sect-body">
-            <p className="summary__text">
-              This is the frame a report arrives in. Bringing a document to it is
-              not built yet: this build carries the frame and the account system,
-              and nothing that reads a document.
-            </p>
-            <p className="summary__hedge">
-              When it is built, the document will be read in your own browser and
-              only the extracted text will be sent to be inspected. Redline
-              describes what a document says. It does not advise you whether to
-              sign.
-            </p>
-          </div>
-        </section>
+        <Intake onStage={setStage} />
 
         <section className="summary" aria-labelledby="account-head">
           <h2 className="sect-head" id="account-head">

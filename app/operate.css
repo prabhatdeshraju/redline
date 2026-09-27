@@ -1140,3 +1140,24 @@ body.is-locked { overflow: hidden; }
    no new value, nothing restyled. */
 
 a.btn { text-decoration: none; }
+
+/* ---------- extracted text ---------- *
+   One addition for the intake screen: the scroll box the recovered text is read
+   in. It is the document panel's own form — Spectral clauses on ruled rows —
+   inside a bounded, scrollable frame, because the whole of a contract cannot sit
+   in the flow of the page. No new token, no new colour, no shadow, no radius. */
+
+.extract {
+  max-height: 26rem;
+  overflow-y: auto;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1.5px solid var(--ink);
+  background: var(--sheet-lift);
+  padding-inline: 0.6rem;
+}
+
+.extract .doc__cl:last-child { border-bottom: 0; }
+
+@media (max-width: 48rem) {
+  .extract { max-height: 20rem; }
+}

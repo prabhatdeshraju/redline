@@ -15,12 +15,92 @@ match its document, the defect belongs here — never in loosening the match.
 
 **Blocked by:** 01.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] A reader can upload a PDF, upload a DOCX, or paste text directly
-- [ ] Parsing happens in the browser; the file is never uploaded as a file
-- [ ] The extracted text and its length are shown before analysis is offered
-- [ ] Sentences survive page breaks, column order, hyphenation at line ends, ligatures, and headers interrupting a sentence
-- [ ] An image-only PDF is detected and refused with a reason, never analysed
-- [ ] A document too long to handle is refused clearly rather than silently truncated
-- [ ] The interface states what leaves the reader's machine, before it leaves
+- [x] A reader can upload a PDF, upload a DOCX, or paste text directly
+- [x] Parsing happens in the browser; the file is never uploaded as a file
+- [x] The extracted text and its length are shown before analysis is offered
+- [x] Sentences survive page breaks, column order, hyphenation at line ends, ligatures, and headers interrupting a sentence
+- [x] An image-only PDF is detected and refused with a reason, never analysed
+- [x] A document too long to handle is refused clearly rather than silently truncated
+- [x] The interface states what leaves the reader's machine, before it leaves
+
+## Comments
+
+**Built.** The extraction boundary is `lib/extraction/extract.ts`:
+`extractDocument(source, options?) -> Promise<ExtractionOutcome>`, where a
+source is a `File` the reader chose or text they pasted, and the outcome is
+either the document's text with its length and diagnostics, or a refusal that
+says why. All the faithful-text-recovery logic is pure functions in
+`lib/extraction/text-recovery.ts`, tested directly against positioned text
+items the test writes itself.
+
+How each criterion was verified:
+
+1. **PDF, DOCX or pasted text** — `tests/extraction-boundary.test.ts` parses
+   `negotiable-flagged.pdf` with real pdf.js and `negotiable-flagged.docx`
+   with real mammoth, and extracts pasted text; driven by hand at `/workspace`
+   for all three.
+2. **Parsed in the browser, never uploaded as a file** —
+   `tests/no-route-accepts-a-file.test.ts` reads the source and asserts no
+   server module calls `formData`/`arrayBuffer`/`request.body`, that
+   `lib/extraction` never touches the network, that it is imported only from
+   modules carrying the client directive, and that the intake form has no
+   `action`, `method` or `enctype`. Confirmed live: every network request
+   on the page while a PDF and a DOCX were read was a GET for a static asset.
+3. **Text and its length shown before analysis is offered** — the extracted
+   state shows the character count in the head bar and twice in the body, then
+   the text itself. No analysis is offered at all, because analysis is not built
+   yet and a button that does nothing is worse than no button.
+4. **Sentences survive page breaks, column order, hyphenation, ligatures and
+   interrupting headers** — a case each in `tests/text-recovery.test.ts`, plus
+   the property that matters end to end: all six source sentences in
+   `negotiable-flagged.json` occur verbatim in the text extracted from both
+   the PDF and the DOCX, U+2019 included.
+5. **Image-only PDF detected and refused** — `scan-no-text-layer.pdf` refuses
+   with `no-text-layer` and never extracts. A partly-scanned document refuses
+   too, naming the pages.
+6. **Too long refused, not truncated** — `MAX_EXTRACTED_CHARACTERS` is 250,000,
+   overridable by `NEXT_PUBLIC_MAX_EXTRACTED_CHARACTERS`. The refusal states
+   the document's length and the limit.
+7. **The interface states what leaves the machine, before it leaves** — a "What
+   leaves this machine" block on the empty intake screen, and again beside the
+   recovered text with the exact character count.
+
+**Open, not done:** what Redline does with a terms-of-service upload is still
+the undecided product question the app-shell brief records; intake names it as
+out of scope but nothing detects one — that is ticket 07.
+
+## Comments
+
+**2026-09-26 — implemented.** The extraction boundary is
+`lib/extraction/extract.ts`, with the hard logic in six pure stages in
+`text-recovery.ts`: rows → column boundaries → lines → reading order → running
+lines stripped → joined. Parser adapters for pdf.js and mammoth sit behind it,
+so the recovery logic is testable without a binary.
+
+The character rule, written down because getting it backwards breaks verbatim
+matching invisibly: **artefacts of the file are normalised, what the writer
+typed is not.** Ligatures decompose, NBSP and friends become spaces, invisibles
+are dropped. Curly quotes, apostrophes, dashes and accents are left exactly as
+typed. Both directions are asserted — folding either way fails the suite.
+pdf.js runs with `disableNormalization: true` so one documented rule owns the
+whole of it.
+
+The binary fixtures are generated by a committed script with a hand-rolled PDF
+writer and zip writer; the approved `pdf-lib` and `jszip` were not needed. The
+PDF deliberately fights the extractor: a running header and footer, hyphenation
+inside two source sentences, a two-column page whose right column is written to
+the file *before* its left, a ligature encoding map, and clause 13.2 split
+across a page boundary with header and footer between its halves.
+
+**Unverified:** real-world PDFs from Word, InDesign or a scanner's "searchable
+PDF" — every PDF tested was written by this repo, and the reading-order and
+running-header heuristics are where that will show first. The length refusal was
+tested with the limit injected at 250, not at 250,000. Nothing was opened in
+Safari or Firefox.
+
+**Note:** pdf.js runs from its legacy build in the browser too, because the
+default build calls `Uint8Array.prototype.toHex`, which Node 24 and released
+Safari/Firefox lack. Picking per environment would mean the suite tested a
+different parser than ships.

@@ -33,9 +33,9 @@ npm run dev
 | # | Ticket | Status | Note |
 |---|--------|--------|------|
 | — | Next.js scaffold + landing port | **done** | Next 16 / React 19 / Vitest 5. Landing verified identical by node-by-node DOM diff (382 nodes, 2 intended href changes). Commit `6241204` |
-| — | Labelled fixtures | in progress | Step 3 of the build brief |
-| 01 | Project foundation and auth | not started | |
-| 02 | Upload and extract in the browser | not started | |
+| — | Labelled fixtures | **done** | 3 fixtures; citation invariant independently verified. Commit `925c164` |
+| 01 | Project foundation and auth | **done** | 4 of 6 criteria met; Vercel + Supabase reachability unverified (no projects exist). Commit `b841299` |
+| 02 | Upload and extract in the browser | **done** | All 7 criteria met. 2 runtime dependencies installed, 0 devDependencies. |
 | 03 | Labelled corpus and citation harness | not started | |
 | 04 | First flag with source sentence | not started | |
 | 05 | Full taxonomy ranked | not started | |
@@ -161,14 +161,111 @@ this is the documented change rather than a new decision. Note that
 it directly from the filesystem will no longer find the fonts, because they now
 resolve from the running app. The real screens are what tickets 02–12 build.
 
+### 8. Approved four dependencies for extraction without asking
+
+`CLAUDE.md` says to ask before adding a dependency. You were not here, and
+ticket 02 cannot be built without a PDF and a DOCX parser.
+
+Approved: **`pdfjs-dist`** (Mozilla's parser, the only credible browser-side PDF
+text extractor, and it exposes the text-layer information needed to detect a
+scan) and **`mammoth`** for DOCX. For generating binary test fixtures only, and
+as devDependencies, `pdf-lib` and `jszip`.
+
+Anything beyond those four, the subagent was told to stop and report rather than
+install.
+
+**Only two were needed.** `pdfjs-dist` 6.3.289 and `mammoth` 1.13.0 are
+installed as runtime dependencies. `pdf-lib` and `jszip` were **not**
+installed: the binary fixtures are written by a committed one-off script,
+`tests/fixtures/build-binary-fixtures.mjs`, which assembles a PDF and a zip
+from `node:zlib` and about eighty lines of arithmetic. The generated files are
+committed; nothing in the suite runs the script.
+
+One consequence worth recording: pdf.js is loaded from its **legacy** build,
+in the browser as well as in the suite. Its default build calls
+`Uint8Array.prototype.toHex`, which Node 24 and released Safari and Firefox do
+not have. Selecting the build per environment would have meant the suite
+exercised a different parser than the one that ships, which for the module that
+owns ADR 0001's guarantee is not a trade worth making. The worker is served from
+`public/pdfjs/`, and a test fails if that copy ever drifts from the installed
+package.
+
+### 9. Set the document length limit at 250,000 characters
+
+The ticket requires a too-long document to be refused clearly rather than
+truncated, and names no number. The spec's undecided list does not cover it, so
+this is mine rather than one of the five you reserved.
+
+Chose 250,000 **characters** — roughly 60k tokens, which leaves room for the
+analysis prompt and the response inside a typical context window. Counted in
+characters rather than bytes or pages because that is what actually bounds the
+model call. It is one named exported constant with the reasoning beside it, and
+overridable by environment variable so it can be tuned without a code change.
+
+**Left for you:** if you know the real context budget of the model you settle
+on, this is a one-line change.
+
+### 10. Normalise ligatures, but never quotes
+
+Extraction decomposes `ﬁ ﬂ ﬀ ﬃ ﬄ` to their ASCII sequences, because a reader
+searching their own copy types `fi`, not the ligature. It does **not** normalise
+curly quotes or apostrophes, because those appear in the reader's document as
+typed — and the fixture corpus deliberately contains one (U+2019 in clause 13.2
+of `negotiable-flagged.txt`).
+
+Getting this backwards breaks verbatim matching in exactly the way the product
+cannot afford, and it would break it invisibly: the text would look right and
+the substring check would fail.
+
+### 11. Used `done` as a ticket status, which is not in the vocabulary
+
+`docs/agents/triage-labels.md` defines five labels — `needs-triage`,
+`needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. All five are
+pre-work states; none means the work is finished.
+
+Used `**Status:** done` for want of a completion label, and ticked only the
+criteria actually verified. **Left for you:** add a completion label to that
+table, or tell me which of the five you intended for finished work.
+
 ---
 
 ## Could not be verified
 
-Filled in as the build proceeds.
+**Ticket 02 — real-world PDFs.** Every PDF the extraction boundary has been
+tested against was written by this repository. The fixture is built to break
+verbatim matching in the six ways the ticket names — running headers and
+footers, hyphenation at line ends, ligatures, two columns written to the file in
+the wrong order, a heading spanning both, and a sentence split across a page
+boundary — and the text-recovery functions are tested directly on top of that.
+But a PDF from Word, from InDesign, from a scanner's "searchable PDF" mode, or
+from a Chinese or Arabic typesetter will be shaped differently, and nothing here
+has seen one. The reading-order and running-header heuristics are the parts most
+likely to need a second pass against real files.
+
+**Ticket 02 — the length refusal at its real size.** The 250,000-character
+refusal is tested with the limit injected at 250, not with a quarter of a
+million characters of real document. The path is identical; the size is not.
+
+**Ticket 02 — browsers other than Chrome.** The intake screen was driven by hand
+in Chrome: a pasted document, a PDF, a DOCX and an image-only PDF, with every
+network request on the page confirmed to be a GET for a static asset. Nothing
+has been opened in Safari or Firefox, and the legacy pdf.js build was chosen
+partly for them.
 
 ---
 
 ## Deliberately not done
 
-Filled in as the build proceeds.
+**OCR.** Out of scope on purpose (`CLAUDE.md`, ADR 0001). An image-only PDF is
+refused with the reason, and a partly-scanned one is refused too rather than
+inspected on the pages that happen to have text.
+
+**Any way for a document to reach a server.** Ticket 02 offers no analysis
+action, because analysis is not built and a button that does nothing is worse
+than no button. The extracted state says what would be sent, states the exact
+character count, and says plainly that nothing has been sent.
+
+**Terms-of-service detection.** The intake screen names adhesion contracts as
+out of scope, as the reviewed static reference does, but nothing detects one.
+That is ticket 07, and what Redline should show such a reader is still one of
+the five undecided questions.

@@ -83,8 +83,10 @@ describe("a signed-out visitor", () => {
   it("reaches the workspace rather than being sent away to sign in", () => {
     const html = shell({ accounts: "signed-out" });
 
-    /* The whole screen is here: no redirect, no gate, no empty placeholder. */
-    expect(html).toContain("Nothing inspected yet");
+    /* The whole screen is here: no redirect, no gate, no empty placeholder.
+       A signed-out reader gets intake, which is the point of ADR-recorded
+       anonymous analysis. */
+    expect(html).toContain("Bring the document you are about to sign.");
     expect(html).toContain("Not signed in");
   });
 
@@ -132,7 +134,7 @@ describe("a deployment with no account system", () => {
   it("still renders the workspace", () => {
     const html = shell({ accounts: "not-configured" });
 
-    expect(html).toContain("Nothing inspected yet");
+    expect(html).toContain("Bring the document you are about to sign.");
     expect(html).toContain('class="sheet"');
   });
 
@@ -163,6 +165,8 @@ describe("an account system that did not answer", () => {
   });
 
   it("still renders the workspace", () => {
-    expect(shell({ accounts: "unreachable" })).toContain("Nothing inspected yet");
+    expect(shell({ accounts: "unreachable" })).toContain(
+      "Bring the document you are about to sign.",
+    );
   });
 });

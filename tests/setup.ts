@@ -21,4 +21,9 @@ export function stubMatchMedia(matches: (query: string) => boolean): void {
   });
 }
 
-stubMatchMedia(() => false);
+/* Only in a DOM environment. A file that declares `@vitest-environment node` —
+   the extraction integration tests, which parse real files and touch no DOM —
+   has no window to stand in for. */
+if (typeof window !== "undefined") {
+  stubMatchMedia(() => false);
+}
