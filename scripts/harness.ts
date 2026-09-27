@@ -11,11 +11,16 @@
  *
  * and optionally `export const describe: string`, which is what the report prints
  * as the thing that ran. `npm run harness` names the analyser built out of the
- * corpus's own labels, which measures the harness rather than Redline; ticket 04's
- * analysis boundary is named the same way once it exists.
+ * corpus's own labels, which measures the harness rather than Redline, and needs
+ * no key. Redline's own analysis is named the same way:
  *
- * It needs no model and no key. Given neither an analyser nor a key it says so and
- * stops, because a run that quietly measured nothing would look like a pass.
+ *     npm run harness -- --analyser lib/analysis/redline-analyser.ts
+ *
+ * which does need a key and a model identifier, and says so rather than running
+ * empty if either is missing.
+ *
+ * Given no analyser at all it says so and stops, because a run that quietly
+ * measured nothing would look like a pass.
  */
 
 import { pathToFileURL } from "node:url";
@@ -25,6 +30,11 @@ import type { Analyser } from "@/lib/analysis/analysis";
 import { loadCorpus, repositoryRoot, type Corpus } from "@/lib/harness/corpus";
 import { renderReport } from "@/lib/harness/report";
 import { runHarness } from "@/lib/harness/run";
+import {
+  MODEL_ID_VARIABLE,
+  MODEL_KEY_VARIABLE,
+  modelConfiguration,
+} from "@/lib/model/openrouter";
 
 type Arguments = {
   readonly analyserPath: string | null;
@@ -55,6 +65,8 @@ function parseArguments(argv: readonly string[]): Arguments {
 const USAGE = `Runs one analysis across the labelled corpus and prints what it found.
 
   npm run harness                          the analyser built from the corpus labels
+  npm run harness -- --analyser lib/analysis/redline-analyser.ts
+                                           Redline's own analysis, which needs a key
   npm run harness -- --analyser <module>   any module exporting analyse or createAnalyser
 
 The module is a path from the repository root. It must export one of:
@@ -111,8 +123,10 @@ async function main(): Promise<number> {
     return 0;
   }
 
-  /* Presence only. The value of a key is never read here and never printed. */
-  const hasModelKey = (process.env.OPENROUTER_API_KEY ?? "").length > 0;
+  /* Presence only, and asked of the one module that reads those variables. No
+     key value is read here and none is ever printed. */
+  const configuration = modelConfiguration(process.env);
+  const hasModelKey = configuration.outcome === "configured";
 
   if (analyserPath === null) {
     process.stdout.write(
@@ -124,10 +138,11 @@ async function main(): Promise<number> {
         "The harness does not contain an analysis of its own. It runs the one it is",
         "handed, so that what it measures is the analysis the product ships.",
         hasModelKey
-          ? "OPENROUTER_API_KEY is set in this environment, which is not enough on its own:"
-          : "OPENROUTER_API_KEY is not set in this environment, and no analyser was named:",
-        "the analysis boundary that calls a model is ticket 04's work and is not",
-        "wired up yet. Nothing here needs a key.",
+          ? `${MODEL_KEY_VARIABLE} and ${MODEL_ID_VARIABLE} are both set, which is not enough on its own:`
+          : `${MODEL_KEY_VARIABLE} is not set in this environment, and no analyser was named:`,
+        "an analyser has to be named either way. The label-derived one below needs",
+        "no key; Redline's own analysis needs one. Nothing here needs a key until",
+        "you name that one.",
         "",
         USAGE,
       ].join("\n"),
@@ -154,8 +169,8 @@ async function main(): Promise<number> {
       notes: [
         `Analyser module  ${analyserPath}`,
         hasModelKey
-          ? "OPENROUTER_API_KEY is set; this run did not use it"
-          : "OPENROUTER_API_KEY is not set; this run did not need one",
+          ? `Model access     ${MODEL_KEY_VARIABLE} and ${MODEL_ID_VARIABLE} are both set; whether this run used them is the named analyser's business`
+          : `Model access     ${configuration.statement}`,
       ],
     }),
   );

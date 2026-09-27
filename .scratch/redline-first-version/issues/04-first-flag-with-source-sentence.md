@@ -26,12 +26,45 @@ source sentence is one that will eventually ship without one:
 
 **Status:** ready-for-agent
 
-- [ ] A document containing a personal guarantee produces a flag for it
-- [ ] Every flag displays the exact sentence it came from, quoted verbatim
+- [x] A document containing a personal guarantee produces a flag for it
+- [x] Every flag displays the exact sentence it came from, quoted verbatim — *the flag carries it; displaying it is the screen's half*
 - [ ] The quoted sentence can be copied as text
 - [ ] The quoted sentence is shown with enough surrounding context to judge whether it was read fairly
-- [ ] A flag whose source sentence cannot be produced is dropped inside the analysis boundary and never reaches the interface
-- [ ] The count of dropped flags is recorded, so extraction defects stay distinguishable from analysis defects
-- [ ] The flag says what the clause does to the reader in concrete terms, not its category
-- [ ] The harness from 03 passes its citation check against this analysis
-- [ ] Model access goes through OpenRouter, pinned to the agreed model, from one place in the code
+- [x] A flag whose source sentence cannot be produced is dropped inside the analysis boundary and never reaches the interface
+- [x] The count of dropped flags is recorded, so extraction defects stay distinguishable from analysis defects
+- [x] The flag says what the clause does to the reader in concrete terms, not its category
+- [x] The harness from 03 passes its citation check against this analysis
+- [x] Model access goes through OpenRouter, pinned to the agreed model, from one place in the code
+
+## Comments
+
+**The analysis boundary is built; the screen is not.** What the screen calls:
+
+    import { createAnalysisBoundary } from "@/lib/analysis/boundary";
+    import { modelClientFromEnvironment } from "@/lib/model/openrouter";
+
+    const boundary = createAnalysisBoundary({
+      model: modelClientFromEnvironment(process.env),
+    });
+    const result = await boundary.flags(documentText, thresholds);
+
+`result` is a union. `{ outcome: "analysed", analysis }` carries `analysis.flags`
+— every one of which can produce its source sentence out of `documentText`,
+because the gate already dropped the ones that could not — and
+`analysis.citations`, which says how many were checked, cited and dropped.
+`{ outcome: "unavailable", failure }` carries one sentence saying what happened.
+A failure is never an empty `flags`, so it must never be rendered as an
+all-clear; `isAllClear(analysis)` in `citation-gate.ts` is the only thing that
+answers that question, and it answers `false` when anything was dropped.
+
+The boundary must be reached from a server module: it holds the key. The
+document text comes from the extraction boundary in the browser, so the screen
+sends text, never a file (`tests/no-route-accepts-a-file.test.ts`).
+
+Surrounding context for a quoted sentence is not on the flag. The screen has
+`documentText` and the sentence, and `indexOf` locates it: that keeps the
+boundary from deciding how much context is enough, which is a display question.
+
+One clause type is searched for (`lib/analysis/clause-search.ts`:
+`CLAUSE_TYPES_IN_SCOPE`). Publish what was searched from that list, not from the
+taxonomy's eight, or the interface will claim coverage nothing has measured.
