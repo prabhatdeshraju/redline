@@ -115,6 +115,10 @@ token.json
 *.sqlite3
 *.db
 *.sql
+
+# ...except the migrations, which are source and not a dump. The rule above
+# would otherwise swallow the schema the database is built from.
+!supabase/migrations/*.sql
 *.dump
 *.bak
 
