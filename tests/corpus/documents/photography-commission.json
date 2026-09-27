@@ -1,0 +1,26 @@
+{
+  "documentType": "negotiable",
+  "title": "Alderly Photography — Photography Commission Agreement",
+  "expectedAllClear": true,
+  "plantedClauses": [],
+  "checkedAndAbsent": [
+    "personal-guarantee",
+    "uncapped-indemnification",
+    "non-compete-non-solicit",
+    "ip-assignment-work-for-hire",
+    "limitation-of-liability",
+    "termination-and-notice",
+    "payment-terms",
+    "scope-and-change-control"
+  ],
+  "notes": {
+    "personal-guarantee": "No guarantee of any kind. The photographer signs as a sole practitioner for the photographer's own obligations, which is not a guarantee of anyone else's, and there is no guarantor signature block.",
+    "uncapped-indemnification": "Clause 9.1 is a mutual indemnity limited to third-party copyright and trademark claims about each party's own material, and clause 9.2 subjects it to the liability limit in clause 10.1.",
+    "non-compete-non-solicit": "No restraint on either party's other work. Clause 12.1 states positively that either party may work with anyone else, including a competitor.",
+    "ip-assignment-work-for-hire": "Clause 5.1 keeps copyright with the photographer and clause 5.2 grants the client a licence for its own use rather than ownership. Clause 5.4 permits portfolio display, and clause 5.5 leaves the client's own brand assets with the client.",
+    "limitation-of-liability": "Clause 10.1 limits each party's liability to the fee and applies to both equally. Clause 10.2 preserves the liabilities that cannot lawfully be limited, and clause 10.3 waives no remedy and preserves an injunction for either party.",
+    "termination-and-notice": "Clause 11.2 gives both parties the same fourteen days' notice before the shoot, clause 11.3 gives both the same cure period, and clause 11.4 requires payment for work already performed and a refund of any unearned deposit.",
+    "payment-terms": "Clause 4.2 sets half the fee on signing and the balance fifteen days after delivery, with no acceptance condition. Clause 4.4 sets late interest and keeps an undisputed amount payable while another amount is in dispute.",
+    "scope-and-change-control": "Clause 2.1 fixes the work to the agreed shot list, clause 3.1 requires both parties to confirm a change and its effect on the fee and the date, and clause 3.2 makes a client-requested re-shoot chargeable while clause 3.3 keeps a re-shoot needed to meet the shot list free of charge."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "documentType": "negotiable",
+  "title": "Millpond Data Ltd — Supply of Services Agreement, Schedule 2",
+  "expectedAllClear": false,
+  "plantedClauses": [
+    {
+      "clauseType": "limitation-of-liability",
+      "severity": "high",
+      "clauseRef": "footnote 2",
+      "sourceSentence": "A Monthly Service Credit is the Customer's only remedy for a failure to meet the availability target, and the Customer waives every other claim arising from that failure.",
+      "whatItPermits": "The document, in a footnote, makes the service credit the customer's only remedy when the availability target is missed and waives every other claim arising from that failure. The credit is two percent of one month's fees for each point below the target, so the recoverable amount is fixed by paragraph 6.2 however much the failure costs. Whether a waiver of remedies drafted this way would be upheld depends on the governing law."
+    },
+    {
+      "clauseType": "termination-and-notice",
+      "severity": "medium",
+      "clauseRef": "7.1",
+      "sourceSentence": "The Customer may not terminate this Schedule or the Agreement before the end of the thirty-six (36) month Term, and the Supplier may terminate either of them at any time on ten (10) days' written notice to the Customer.",
+      "whatItPermits": "The document gives the customer no way out before the end of the thirty-six month term and lets the supplier end the arrangement at any time on ten days' notice. The right to terminate runs one way only."
+    }
+  ],
+  "checkedAndAbsent": [
+    "personal-guarantee",
+    "uncapped-indemnification",
+    "non-compete-non-solicit",
+    "ip-assignment-work-for-hire",
+    "payment-terms",
+    "scope-and-change-control"
+  ],
+  "survivingSentences": [
+    "The Supplier shall meet the availability target stated in paragraph 5.2 in each calendar month of the Term.",
+    "The availability target is ninety-nine percent (99%) of each calendar month, measured at the Supplier's monitoring endpoint and excluding any period of planned maintenance notified to the Customer in advance.",
+    "Capitalised terms used in this Schedule have the meanings given in clause 1 of the Agreement.",
+    "A Monthly Service Credit is two percent (2%) of the fees for the month in which the failure occurred, for each full percentage point below the availability target.",
+    "The Customer may not terminate this Schedule or the Agreement before the end of the thirty-six (36) month Term, and the Supplier may terminate either of them at any time on ten (10) days' written notice to the Customer.",
+    "A Monthly Service Credit is the Customer's only remedy for a failure to meet the availability target, and the Customer waives every other claim arising from that failure."
+  ],
+  "notes": {
+    "personal-guarantee": "No guarantee of any kind. This Schedule is signed by nobody in a personal capacity.",
+    "uncapped-indemnification": "This Schedule contains no indemnity.",
+    "non-compete-non-solicit": "No restraint on either party's other business.",
+    "ip-assignment-work-for-hire": "This Schedule assigns nothing and licenses nothing.",
+    "payment-terms": "This Schedule sets service credits against fees rather than payment terms. When a fee falls due is in Schedule 3 rather than here.",
+    "scope-and-change-control": "This Schedule states a fixed availability target and a fixed credit. It contains no revision or change process."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "documentType": "negotiable",
+  "title": "Ridgeline Capital Equipment LLC — Commercial Equipment Lease",
+  "expectedAllClear": false,
+  "plantedClauses": [
+    {
+      "clauseType": "personal-guarantee",
+      "severity": "highest",
+      "clauseRef": "12.1",
+      "sourceSentence": "Each individual signing this Lease on behalf of Lessee personally, jointly and severally and unconditionally guarantees every payment and obligation of Lessee under this Lease, waives notice of default and any requirement that Lessor first proceed against Lessee or against the Equipment, and consents to the entry of judgment against that individual for any amount remaining due after Lessor has disposed of the Equipment.",
+      "whatItPermits": "The document makes each individual who signs for the business personally liable, jointly and severally, for every payment and obligation under the lease, waives the requirement that the lessor pursue the business or the equipment first, and records the individual's consent to judgment for whatever is left owing after the equipment is sold. Whether a consent to judgment in these terms is effective, and which of the individual's assets it could reach, depends on the jurisdiction."
+    },
+    {
+      "clauseType": "uncapped-indemnification",
+      "severity": "highest",
+      "clauseRef": "10.1",
+      "sourceSentence": "Lessee shall defend, indemnify and hold harmless Lessor, its officers, employees, assignees and agents from and against every claim, loss, liability, damage, penalty, cost and expense of any kind arising out of or relating to the possession, operation, condition or use of the Equipment, including a claim caused wholly or partly by Lessor's own negligence, and this obligation is not subject to any limitation stated anywhere in this Lease.",
+      "whatItPermits": "The document requires the lessee to pay the lessor's losses and costs for any claim connected with the equipment, including a claim caused wholly or partly by the lessor's own negligence, and states that no limit anywhere in the lease applies to that obligation. The amount is not bounded by the rent or by the value of the equipment."
+    },
+    {
+      "clauseType": "uncapped-indemnification",
+      "severity": "highest",
+      "clauseRef": "10.3",
+      "sourceSentence": "Lessee shall also indemnify Lessor on demand against every tax, assessment, fine and penalty imposed on the Equipment or on this Lease by any authority at any time, whether imposed before or after the Term ends, and that obligation is without limit as to amount or period.",
+      "whatItPermits": "The document requires the lessee to reimburse the lessor on demand for every tax, assessment, fine and penalty imposed on the equipment or on the lease by any authority, whenever imposed, and states that the obligation has no limit as to amount or period. It continues to reach amounts imposed after the lease has ended."
+    },
+    {
+      "clauseType": "limitation-of-liability",
+      "severity": "high",
+      "clauseRef": "11.2",
+      "sourceSentence": "Lessor's total liability to Lessee under this Lease, whether in contract, tort or otherwise, shall not exceed one month's Rent, Lessor gives no warranty of merchantability or of fitness for any purpose, and Lessee waives every right to reject the Equipment, to withhold or reduce Rent, and to bring any counterclaim in an action by Lessor for Rent.",
+      "whatItPermits": "The document caps what the lessee can recover from the lessor at one month's rent, disclaims any warranty that the equipment is merchantable or fit for a purpose, and removes the lessee's right to reject the equipment, to withhold or reduce rent, and to counterclaim if the lessor sues for rent. The cap runs one way only: clause 11.3 confirms it does not limit the lessee's indemnity obligations. Whether a disclaimer and waiver of remedies drafted this way would be upheld depends on the governing law."
+    },
+    {
+      "clauseType": "termination-and-notice",
+      "severity": "medium",
+      "clauseRef": "13.2",
+      "sourceSentence": "Lessee may not terminate this Lease before the end of the Term for any reason, and if Lessor terminates this Lease after a default Lessee shall immediately pay the whole of the Rent remaining for the full Term together with Lessor's costs of repossession, storage and disposition of the Equipment.",
+      "whatItPermits": "The document gives the lessee no way out of the lease before the end of its sixty-month term, and provides that on termination after a default the whole of the remaining rent falls due at once, together with the lessor's costs of repossession, storage and disposal. Whether a court would treat the whole remaining rent as recoverable or as a penalty depends on the jurisdiction."
+    }
+  ],
+  "checkedAndAbsent": [
+    "non-compete-non-solicit",
+    "ip-assignment-work-for-hire",
+    "payment-terms",
+    "scope-and-change-control"
+  ],
+  "notes": {
+    "non-compete-non-solicit": "No restraint on the lessee's other business, and no restriction on approaching the lessor's customers or staff.",
+    "ip-assignment-work-for-hire": "The lease has no intellectual property clause. Nothing is created under it and nothing is assigned by it.",
+    "payment-terms": "Clause 4.1 sets rent monthly in advance, clause 4.2 sets late interest at a single stated rate, and clause 4.3 requires the lessor to invoice ten business days before rent falls due. The lessee's exposure to being unpaid does not arise: the lessee is the paying party. The lessee's waiver of any right to withhold rent is flagged at clause 11.2 rather than here.",
+    "scope-and-change-control": "There is no statement of work and no revision process. The equipment is fixed by the Equipment Schedule, and clause 2.3 requires the lessor's written consent before the lessee moves it."
+  }
+}

@@ -36,7 +36,7 @@ npm run dev
 | — | Labelled fixtures | **done** | 3 fixtures; citation invariant independently verified. Commit `925c164` |
 | 01 | Project foundation and auth | **done** | 4 of 6 criteria met; Vercel + Supabase reachability unverified (no projects exist). Commit `b841299` |
 | 02 | Upload and extract in the browser | **done** | All 7 criteria met. 2 runtime dependencies installed, 0 devDependencies. |
-| 03 | Labelled corpus and citation harness | not started | |
+| 03 | Labelled corpus and citation harness | in progress | |
 | 04 | First flag with source sentence | not started | |
 | 05 | Full taxonomy ranked | not started | |
 | 06 | Plain-English summary | not started | |
@@ -226,6 +226,40 @@ pre-work states; none means the work is finished.
 Used `**Status:** done` for want of a completion label, and ticked only the
 criteria actually verified. **Left for you:** add a completion label to that
 table, or tell me which of the five you intended for finished work.
+
+### 12. The corpus is authored, not real — and is labelled as such
+
+Ticket 03 asks for "real negotiable documents … public or properly licensed for
+this use". I could not get those. Scraping contracts whose licence I cannot
+verify was not acceptable, and pulling a labelled dataset such as CUAD is a
+large third-party dependency nobody approved.
+
+**Did:** built the corpus *structure* so real documents drop in without changing
+the harness — a manifest, per-document labels, and a `provenance` field on every
+entry. Seeded it with authored documents carrying `provenance:
+authored-for-this-repo`. `tests/corpus/README.md` states the gap plainly.
+
+**Why this matters more than it sounds:** every recall and precision number the
+harness reports is measured against documents this repo wrote. That is
+materially weaker evidence than real contracts, because authored documents
+contain the clauses the author was thinking about. A real corpus is the only way
+to find the clause types the system is blind to.
+
+**Left for you:** this is the highest-value thing you can add. The structure is
+ready; the documents are not.
+
+### 13. The harness measures recall and precision but does not gate on them
+
+`PRD.md` §4.2 and §4.3 leave every threshold unset, and the spec says an agent
+reaching one should stop rather than choose a number. Those are two of the five
+values you reserved.
+
+So the harness prints per-clause-type recall and precision and marks the
+pass/fail threshold as unset, with a line saying the number is yours to set. The
+only gate it enforces is the citation check, which is binary and already decided
+by ADR 0001.
+
+I did not invent a number to make the suite look complete.
 
 ---
 

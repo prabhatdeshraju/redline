@@ -1,0 +1,39 @@
+{
+  "documentType": "negotiable",
+  "title": "Millpond Data Ltd — Supply of Services Agreement, Schedule 3",
+  "expectedAllClear": false,
+  "plantedClauses": [
+    {
+      "clauseType": "payment-terms",
+      "severity": "medium",
+      "clauseRef": "3.2",
+      "sourceSentence": "Client may withhold the whole of a milestone fee until Client has accepted every milestone listed in Schedule 3, and acceptance is at Client's sole discretion.",
+      "whatItPermits": "The document lets the client hold back the whole of a milestone fee until it has accepted every milestone in the schedule, and makes acceptance the client's own decision. On these terms work that has been delivered and not yet accepted has no date by which it must be paid."
+    }
+  ],
+  "checkedAndAbsent": [
+    "personal-guarantee",
+    "uncapped-indemnification",
+    "non-compete-non-solicit",
+    "ip-assignment-work-for-hire",
+    "limitation-of-liability",
+    "termination-and-notice",
+    "scope-and-change-control"
+  ],
+  "survivingSentences": [
+    "The fee for each milestone and the date it falls due are set out in the table below.",
+    "Ninety days after Client accepts this milestone.",
+    "Ninety days after Client accepts the final milestone.",
+    "Client shall pay each fee by the date stated in the third column of the table above.",
+    "Client may withhold the whole of a milestone fee until Client has accepted every milestone listed in Schedule 3, and acceptance is at Client's sole discretion."
+  ],
+  "notes": {
+    "personal-guarantee": "No guarantee of any kind.",
+    "uncapped-indemnification": "This Schedule contains no indemnity.",
+    "non-compete-non-solicit": "No restraint on either party's other business.",
+    "ip-assignment-work-for-hire": "This Schedule assigns nothing and licenses nothing.",
+    "limitation-of-liability": "This Schedule caps nothing and waives no remedy. The sole-remedy clause is in Schedule 2 rather than here.",
+    "termination-and-notice": "This Schedule contains no termination right.",
+    "scope-and-change-control": "The milestones are fixed by the table. There is no revision or change process in this Schedule."
+  }
+}

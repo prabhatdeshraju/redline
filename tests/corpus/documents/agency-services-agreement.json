@@ -1,0 +1,49 @@
+{
+  "documentType": "negotiable",
+  "title": "Brightwater Collective LLC — Digital Marketing Services Agreement",
+  "expectedAllClear": false,
+  "plantedClauses": [
+    {
+      "clauseType": "non-compete-non-solicit",
+      "severity": "high",
+      "clauseRef": "9.2",
+      "sourceSentence": "For twenty-four (24) months after this Agreement ends, Consultant shall not provide marketing, advertising, content or communications services of any kind, whether as an employee, contractor or principal, to any business that competes with Agency or with any End Client, anywhere in the United States.",
+      "whatItPermits": "The document bars the consultant, for two years after the agreement ends, from providing marketing, advertising, content or communications services anywhere in the United States to any business that competes with the agency or with any of its end clients, as an employee as well as on their own account. How much of a restraint in these terms a court would enforce, and on what geography, depends on the state."
+    },
+    {
+      "clauseType": "non-compete-non-solicit",
+      "severity": "high",
+      "clauseRef": "9.3",
+      "sourceSentence": "For twenty-four (24) months after this Agreement ends, Consultant shall not solicit, accept work from, or perform any service for an End Client, including an End Client that Consultant introduced to Agency and an End Client that Consultant worked with before this Agreement began.",
+      "whatItPermits": "The document bars the consultant, for two years after the agreement ends, from working for any end client of the agency, and says expressly that this includes a client the consultant introduced and a client the consultant already worked with before the agreement began. Whether a restraint reaching a relationship that predates the agreement would be enforced is a separate question from what the document says."
+    },
+    {
+      "clauseType": "termination-and-notice",
+      "severity": "medium",
+      "clauseRef": "12.2",
+      "sourceSentence": "Agency may terminate this Agreement, or any Assignment then in progress, at any time and without notice, while Consultant may terminate only on ninety (90) days' written notice, during which Consultant shall continue to perform every Assignment then in progress.",
+      "whatItPermits": "The document lets the agency end the agreement, or an assignment already under way, at any time and with no notice, while the consultant must give ninety days' notice and keep working through it. The notice obligation runs one way only."
+    },
+    {
+      "clauseType": "payment-terms",
+      "severity": "medium",
+      "clauseRef": "4.3",
+      "sourceSentence": "Agency shall pay each invoice within sixty (60) days of the end of the calendar month in which Agency receives payment from the End Client to which the Assignment relates, and Agency has no obligation to pay Consultant for any Assignment for which the End Client has not paid Agency.",
+      "whatItPermits": "The document makes payment due sixty days after the end of the month in which the agency is paid by its own client, and states that the agency owes the consultant nothing for an assignment the end client has not paid for. On these terms the consultant can deliver accepted work and have no date by which payment is due, and can be owed nothing at all for it."
+    }
+  ],
+  "checkedAndAbsent": [
+    "personal-guarantee",
+    "uncapped-indemnification",
+    "ip-assignment-work-for-hire",
+    "limitation-of-liability",
+    "scope-and-change-control"
+  ],
+  "notes": {
+    "personal-guarantee": "No guarantee of any kind. Nobody signs in a personal capacity for the obligations of a party, and there is no guarantor signature block.",
+    "uncapped-indemnification": "Clause 10.1 is a mutual indemnity limited to third-party copyright and trademark claims about each party's own material, and clause 10.2 subjects it to the liability limit in clause 11.1.",
+    "ip-assignment-work-for-hire": "Clause 7.1 grants a licence for the purposes of the assignment and states that the consultant retains ownership. Clause 7.2 keeps pre-existing material, methods, templates and tooling with the consultant, and clause 7.3 permits portfolio display once the campaign is published.",
+    "limitation-of-liability": "Clause 11.1 limits each party's liability to twelve months of assignment fees and applies to both equally. Clause 11.2 preserves the liabilities that cannot lawfully be limited, and clause 11.3 waives no remedy.",
+    "scope-and-change-control": "Clause 3.1 fixes scope to the assignment brief, clause 3.2 includes two revision rounds and makes further rounds chargeable at a rate confirmed in advance, and clause 3.3 requires both parties to confirm a change and its effect on the fee."
+  }
+}

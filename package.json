@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "harness": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./scripts/typescript-modules.mjs scripts/harness.ts --analyser tests/corpus/analysers/as-labelled.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

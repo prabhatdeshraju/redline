@@ -4,11 +4,12 @@
  *
  *     node tests/fixtures/build-binary-fixtures.mjs
  *
- * The three files it writes are committed; nothing in the suite runs this
- * script, and no dependency was added for it. It exists so the provenance of
- * a binary fixture is readable rather than magic: a PDF with a real text
- * layer, a PDF with none, and a DOCX, all carrying the same six source
- * sentences as `negotiable-flagged.json`.
+ * The files it writes are committed; nothing in the suite runs this script, and
+ * no dependency was added for it. It exists so the provenance of a binary
+ * fixture is readable rather than magic: a PDF with a real text layer, a PDF
+ * with none, and a DOCX, all carrying the same six source sentences as
+ * `negotiable-flagged.json`, plus two further PDFs that stress extraction in the
+ * two ways the first one does not — footnotes and a table.
  *
  * The PDF writer below is deliberately minimal — uncompressed content
  * streams, a plain cross-reference table, one Courier font. Courier is chosen
@@ -30,6 +31,24 @@
  *     - a source sentence that starts in the last column of one page and
  *       finishes on the next
  *
+ *   footnoted.pdf
+ *     - superscript footnote markers set immediately after a sentence's full
+ *       stop, in smaller type on a raised baseline, which land inside the body
+ *       line a parser reports
+ *     - a footnote block at the foot of each page, under a drawn rule, in
+ *       smaller type: it sits between the last body line of one page and the
+ *       first of the next, which is where a sentence continuing across a page
+ *       would be spliced
+ *     - one of its labelled clauses is in a footnote rather than in the body,
+ *       so a clause hidden in the small print has to come back citable
+ *
+ *   tabular.pdf
+ *     - a three-column table whose column gaps are wide enough to read as
+ *       gutters, so the page's reading order is not simply top to bottom
+ *     - a whole sentence inside one table cell, which has to survive as a
+ *       sentence rather than being run together with its neighbours
+ *     - prose above and below the table, which must not absorb a cell
+ *
  *   scan-no-text-layer.pdf
  *     - two pages, each painting one image XObject and showing no text at
  *       all: the shape a scan has
@@ -37,6 +56,11 @@
  *   negotiable-flagged.docx
  *     - the same six sentences as Word paragraphs, one of them carrying the
  *       ﬁ ligature and one the typographic apostrophe
+ *
+ * Each of the two new PDFs is written with a `.json` sidecar listing the
+ * sentences that must survive extraction intact. The sidecars are generated from
+ * the same constants the pages are drawn from, so a label cannot drift away from
+ * the document it describes.
  */
 
 import { deflateSync } from "node:zlib";
@@ -460,6 +484,430 @@ function buildScanPdf() {
 }
 
 /* ------------------------------------------------------------------ *
+ * Shared page furniture for the two extraction-stress PDFs
+ * ------------------------------------------------------------------ */
+
+/** One positioned run of text as a content-stream fragment. */
+function textOp(size, x, y, text) {
+  return `BT /F1 ${size} Tf 1 0 0 1 ${x} ${y.toFixed(2)} Tm ${pdfString(text).toString("latin1")} Tj ET`;
+}
+
+/** The running header and footer both fixtures carry, so that furniture removal
+ *  is exercised alongside whatever else the page is testing. */
+function furnitureOps(header, page, pageCount) {
+  return [
+    textOp(8, MARGIN, PAGE_HEIGHT - 40, header),
+    textOp(8, PAGE_WIDTH / 2 - 24, 36, `Page ${page} of ${pageCount}`),
+  ];
+}
+
+function pageObjects({ pageCount, contentFor, extraResources = "" }) {
+  const objects = [];
+  objects.push("<< /Type /Catalog /Pages 2 0 R >>");
+  const kids = Array.from({ length: pageCount }, (_, index) => `${4 + index} 0 R`);
+  objects.push(`<< /Type /Pages /Count ${pageCount} /Kids [${kids.join(" ")}] >>`);
+  objects.push(
+    `<< /Type /Font /Subtype /Type1 /BaseFont /Courier /FirstChar 1 /LastChar 255 /Widths [${new Array(255).fill(600).join(" ")}] /Encoding << /Type /Encoding /BaseEncoding /WinAnsiEncoding /Differences [1 /fi] >> >>`,
+  );
+  for (let page = 1; page <= pageCount; page += 1) {
+    objects.push(
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE_WIDTH} ${PAGE_HEIGHT}] /Resources << /Font << /F1 3 0 R >> ${extraResources} >> /Contents ${3 + pageCount + page} 0 R >>`,
+    );
+  }
+  for (let page = 1; page <= pageCount; page += 1) {
+    objects.push(streamObject("", contentFor(page).join("\n")));
+  }
+  return objects;
+}
+
+/* ------------------------------------------------------------------ *
+ * footnoted.pdf
+ * ------------------------------------------------------------------ */
+
+const FOOTNOTE_HEADER = "SUPPLY OF SERVICES AGREEMENT - SCHEDULE 2 (SERVICE LEVELS)";
+const FOOTNOTE_SIZE = 7;
+const FOOTNOTE_CHARACTER_WIDTH = FOOTNOTE_SIZE * 0.6;
+const FOOTNOTE_LEADING = 9.8;
+const MARKER_SIZE = 6;
+/* Two rises, on purpose. A marker raised a little sits inside its line's own row,
+   which is where the body sentence survives it. A marker raised further —
+   paragraph 6.1's, and a third of the body size is an ordinary superscript — is
+   reported by the parser as a row of its own between the two body lines, and the
+   recovery reads it there, splitting the sentence in half. Only the first case is
+   labelled as surviving; `tests/corpus/README.md` records the second as
+   extraction work rather than hiding it. */
+const MARKER_RISE_IN_LINE = 1.2;
+const MARKER_RISE_ABOVE_LINE = 2.5;
+const PARAGRAPH_GAP = 24;
+const BODY_TOP = 720;
+const BODY_BOTTOM = 176;
+const RULE_Y = 152;
+const FOOTNOTE_TOP = 138;
+const MEASURE = PAGE_WIDTH - 2 * MARGIN;
+
+/* The reader of this document is the Customer: the small business buying the
+   service. Paragraph 7.1 and footnote 2 are the clauses that work against them,
+   and footnote 2 is there because a clause in the small print has to come back
+   as citable as a clause in the body. */
+const FOOTNOTED_PAGES = [
+  {
+    blocks: [
+      { kind: "heading", text: "5. SERVICE LEVELS" },
+      {
+        kind: "paragraph",
+        marker: "1",
+        markerRise: MARKER_RISE_IN_LINE,
+        text:
+          "5.1 The Supplier shall meet the availability target stated in paragraph 5.2 in each calendar month of the Term.",
+      },
+      {
+        kind: "paragraph",
+        text:
+          "5.2 The availability target is ninety-nine percent (99%) of each calendar month, measured at the Supplier's monitoring endpoint and excluding any period of planned maintenance notified to the Customer in advance.",
+      },
+      {
+        kind: "paragraph",
+        text:
+          "5.3 Planned maintenance is notified at least five (5) Business Days in advance and does not count towards the availability target.",
+      },
+    ],
+    footnotes: [
+      {
+        marker: "1",
+        text:
+          "Capitalised terms used in this Schedule have the meanings given in clause 1 of the Agreement.",
+      },
+    ],
+  },
+  {
+    blocks: [
+      { kind: "heading", text: "6. SERVICE CREDITS" },
+      {
+        kind: "paragraph",
+        marker: "2",
+        markerRise: MARKER_RISE_ABOVE_LINE,
+        text:
+          "6.1 Where the Supplier does not meet the availability target in a calendar month, the Customer may claim a Monthly Service Credit by notifying the Supplier within thirty (30) days of the end of that month.",
+      },
+      {
+        kind: "paragraph",
+        text:
+          "6.2 A Monthly Service Credit is two percent (2%) of the fees for the month in which the failure occurred, for each full percentage point below the availability target.",
+      },
+      { kind: "heading", text: "7. TERM AND TERMINATION" },
+      {
+        kind: "paragraph",
+        text:
+          "7.1 The Customer may not terminate this Schedule or the Agreement before the end of the thirty-six (36) month Term, and the Supplier may terminate either of them at any time on ten (10) days' written notice to the Customer.",
+      },
+    ],
+    footnotes: [
+      {
+        marker: "2",
+        text:
+          "A Monthly Service Credit is the Customer's only remedy for a failure to meet the availability target, and the Customer waives every other claim arising from that failure.",
+      },
+    ],
+  },
+];
+
+function buildFootnotedPdf() {
+  const columns = Math.floor(MEASURE / CHARACTER_WIDTH);
+  const footnoteColumns = Math.floor(MEASURE / FOOTNOTE_CHARACTER_WIDTH);
+
+  const contentFor = (page) => {
+    const spec = FOOTNOTED_PAGES[page - 1];
+    const ops = [];
+    let y = BODY_TOP;
+
+    for (const block of spec.blocks) {
+      const lines = wrap(block.text, columns);
+      lines.forEach((line, index) => {
+        ops.push(textOp(BODY_SIZE, MARGIN, y, line));
+        /* The marker follows the full stop of the last line, in smaller type on
+           a raised baseline and with no gap before it, which is how a parser
+           comes to report it as part of the body line. */
+        if (block.marker && index === lines.length - 1) {
+          ops.push(
+            textOp(
+              MARKER_SIZE,
+              MARGIN + line.length * CHARACTER_WIDTH,
+              y + block.markerRise,
+              block.marker,
+            ),
+          );
+        }
+        y -= LEADING;
+      });
+      y -= PARAGRAPH_GAP - LEADING;
+      if (y < BODY_BOTTOM) {
+        throw new Error(`page ${page} of footnoted.pdf overflows its body frame`);
+      }
+    }
+
+    /* The rule above the footnotes is drawn, not typed: it is part of what makes
+       the block below it look like a footnote rather than a paragraph. */
+    ops.push(`q 0.5 w ${MARGIN} ${RULE_Y} m ${MARGIN + 180} ${RULE_Y} l S Q`);
+
+    let footnoteY = FOOTNOTE_TOP;
+    for (const footnote of spec.footnotes) {
+      const lines = wrap(footnote.text, footnoteColumns);
+      lines.forEach((line, index) => {
+        if (index === 0) {
+          ops.push(
+            textOp(
+              MARKER_SIZE,
+              MARGIN,
+              footnoteY + MARKER_RISE_IN_LINE,
+              footnote.marker,
+            ),
+          );
+          ops.push(
+            textOp(
+              FOOTNOTE_SIZE,
+              MARGIN + MARKER_SIZE * 0.6 + 3,
+              footnoteY,
+              line,
+            ),
+          );
+        } else {
+          ops.push(textOp(FOOTNOTE_SIZE, MARGIN, footnoteY, line));
+        }
+        footnoteY -= FOOTNOTE_LEADING;
+      });
+    }
+
+    ops.push(...furnitureOps(FOOTNOTE_HEADER, page, FOOTNOTED_PAGES.length));
+    return ops;
+  };
+
+  return assemblePdf(
+    pageObjects({ pageCount: FOOTNOTED_PAGES.length, contentFor }),
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * tabular.pdf
+ * ------------------------------------------------------------------ */
+
+const TABLE_HEADER = "MILLPOND DATA LTD - SCHEDULE 3 (FEES AND PAYMENT MILESTONES)";
+const TABLE_SIZE = 8;
+const TABLE_CHARACTER_WIDTH = TABLE_SIZE * 0.6;
+const TABLE_COLUMNS = [
+  { x: MARGIN, width: 160 },
+  { x: 215, width: 70 },
+  { x: 295, width: 260 },
+];
+const TABLE_ROW_LEADING = 14;
+
+/* Every prose line on the table page is written to fit one line and to reach
+   across the table's gutters. A short line that stopped inside a gutter would be
+   read as part of a column rather than as prose, which is a property of the page
+   rather than of the extraction, and this fixture is here to test the table. */
+const TABULAR_PAGE_ONE = {
+  heading: { y: 720, text: "SCHEDULE 3 - FEES AND PAYMENT MILESTONES" },
+  intro: {
+    y: 694,
+    text:
+      "2.1 The fee for each milestone and the date it falls due are set out in the table below.",
+  },
+  table: {
+    top: 656,
+    rows: [
+      ["Milestone", "Fee", "When the fee falls due"],
+      ["Discovery workshop", "$4,000", "On signature of this Schedule."],
+      ["Design system", "$9,500", "Ninety days after Client accepts this milestone."],
+      [
+        "Build and handover",
+        "$12,500",
+        "Ninety days after Client accepts the final milestone.",
+      ],
+    ],
+  },
+  closing: {
+    y: 588,
+    text:
+      "2.2 Client shall pay each fee by the date stated in the third column of the table above.",
+  },
+};
+
+const TABULAR_PAGE_TWO = [
+  { kind: "heading", text: "3. ACCEPTANCE AND WITHHOLDING" },
+  {
+    kind: "paragraph",
+    text:
+      "3.1 Client shall tell Supplier in writing within ten (10) Business Days of delivery whether Client accepts a milestone.",
+  },
+  {
+    kind: "paragraph",
+    text:
+      "3.2 Client may withhold the whole of a milestone fee until Client has accepted every milestone listed in Schedule 3, and acceptance is at Client's sole discretion.",
+  },
+  {
+    kind: "paragraph",
+    text:
+      "3.3 An amount that is not in dispute remains payable on its original due date.",
+  },
+];
+
+function buildTabularPdf() {
+  const columns = Math.floor(MEASURE / CHARACTER_WIDTH);
+
+  const contentFor = (page) => {
+    const ops = [];
+
+    if (page === 1) {
+      const spec = TABULAR_PAGE_ONE;
+      ops.push(textOp(BODY_SIZE, MARGIN, spec.heading.y, spec.heading.text));
+      ops.push(textOp(BODY_SIZE, MARGIN, spec.intro.y, spec.intro.text));
+
+      let y = spec.table.top;
+      for (const row of spec.table.rows) {
+        row.forEach((cell, index) => {
+          const column = TABLE_COLUMNS[index];
+          if (cell.length * TABLE_CHARACTER_WIDTH > column.width) {
+            throw new Error(`cell does not fit its column: ${cell}`);
+          }
+          ops.push(textOp(TABLE_SIZE, column.x, y, cell));
+        });
+        y -= TABLE_ROW_LEADING;
+      }
+
+      ops.push(textOp(BODY_SIZE, MARGIN, spec.closing.y, spec.closing.text));
+    } else {
+      let y = BODY_TOP;
+      for (const block of TABULAR_PAGE_TWO) {
+        for (const line of wrap(block.text, columns)) {
+          ops.push(textOp(BODY_SIZE, MARGIN, y, line));
+          y -= LEADING;
+        }
+        y -= PARAGRAPH_GAP - LEADING;
+      }
+    }
+
+    ops.push(...furnitureOps(TABLE_HEADER, page, 2));
+    return ops;
+  };
+
+  return assemblePdf(pageObjects({ pageCount: 2, contentFor }));
+}
+
+/** The sentences each stress fixture is labelled with, generated from the same
+ *  constants the pages are drawn from. */
+function footnotedLabels() {
+  const paragraph = (page, prefix) =>
+    FOOTNOTED_PAGES[page].blocks.find((block) =>
+      block.kind === "paragraph" && block.text.startsWith(prefix),
+    ).text;
+  const footnote = (page) => FOOTNOTED_PAGES[page].footnotes[0].text;
+
+  const terminationSentence = paragraph(1, "7.1").slice("7.1 ".length);
+  const soleRemedySentence = footnote(1);
+
+  return {
+    documentType: "negotiable",
+    title: "Millpond Data Ltd — Supply of Services Agreement, Schedule 2",
+    expectedAllClear: false,
+    plantedClauses: [
+      {
+        clauseType: "limitation-of-liability",
+        severity: "high",
+        clauseRef: "footnote 2",
+        sourceSentence: soleRemedySentence,
+        whatItPermits:
+          "The document, in a footnote, makes the service credit the customer's only remedy when the availability target is missed and waives every other claim arising from that failure. The credit is two percent of one month's fees for each point below the target, so the recoverable amount is fixed by paragraph 6.2 however much the failure costs. Whether a waiver of remedies drafted this way would be upheld depends on the governing law.",
+      },
+      {
+        clauseType: "termination-and-notice",
+        severity: "medium",
+        clauseRef: "7.1",
+        sourceSentence: terminationSentence,
+        whatItPermits:
+          "The document gives the customer no way out before the end of the thirty-six month term and lets the supplier end the arrangement at any time on ten days' notice. The right to terminate runs one way only.",
+      },
+    ],
+    checkedAndAbsent: [
+      "personal-guarantee",
+      "uncapped-indemnification",
+      "non-compete-non-solicit",
+      "ip-assignment-work-for-hire",
+      "payment-terms",
+      "scope-and-change-control",
+    ],
+    survivingSentences: [
+      paragraph(0, "5.1").slice("5.1 ".length),
+      paragraph(0, "5.2").slice("5.2 ".length),
+      footnote(0),
+      paragraph(1, "6.2").slice("6.2 ".length),
+      terminationSentence,
+      soleRemedySentence,
+    ],
+    notes: {
+      "personal-guarantee":
+        "No guarantee of any kind. This Schedule is signed by nobody in a personal capacity.",
+      "uncapped-indemnification": "This Schedule contains no indemnity.",
+      "non-compete-non-solicit": "No restraint on either party's other business.",
+      "ip-assignment-work-for-hire":
+        "This Schedule assigns nothing and licenses nothing.",
+      "payment-terms":
+        "This Schedule sets service credits against fees rather than payment terms. When a fee falls due is in Schedule 3 rather than here.",
+      "scope-and-change-control":
+        "This Schedule states a fixed availability target and a fixed credit. It contains no revision or change process.",
+    },
+  };
+}
+
+function tabularLabels() {
+  const withholdingSentence = TABULAR_PAGE_TWO.find((block) =>
+    block.text.startsWith("3.2"),
+  ).text.slice("3.2 ".length);
+
+  return {
+    documentType: "negotiable",
+    title: "Millpond Data Ltd — Supply of Services Agreement, Schedule 3",
+    expectedAllClear: false,
+    plantedClauses: [
+      {
+        clauseType: "payment-terms",
+        severity: "medium",
+        clauseRef: "3.2",
+        sourceSentence: withholdingSentence,
+        whatItPermits:
+          "The document lets the client hold back the whole of a milestone fee until it has accepted every milestone in the schedule, and makes acceptance the client's own decision. On these terms work that has been delivered and not yet accepted has no date by which it must be paid.",
+      },
+    ],
+    checkedAndAbsent: [
+      "personal-guarantee",
+      "uncapped-indemnification",
+      "non-compete-non-solicit",
+      "ip-assignment-work-for-hire",
+      "limitation-of-liability",
+      "termination-and-notice",
+      "scope-and-change-control",
+    ],
+    survivingSentences: [
+      TABULAR_PAGE_ONE.intro.text.slice("2.1 ".length),
+      TABULAR_PAGE_ONE.table.rows[2][2],
+      TABULAR_PAGE_ONE.table.rows[3][2],
+      TABULAR_PAGE_ONE.closing.text.slice("2.2 ".length),
+      withholdingSentence,
+    ],
+    notes: {
+      "personal-guarantee": "No guarantee of any kind.",
+      "uncapped-indemnification": "This Schedule contains no indemnity.",
+      "non-compete-non-solicit": "No restraint on either party's other business.",
+      "ip-assignment-work-for-hire":
+        "This Schedule assigns nothing and licenses nothing.",
+      "limitation-of-liability":
+        "This Schedule caps nothing and waives no remedy. The sole-remedy clause is in Schedule 2 rather than here.",
+      "termination-and-notice": "This Schedule contains no termination right.",
+      "scope-and-change-control":
+        "The milestones are fixed by the table. There is no revision or change process in this Schedule.",
+    },
+  };
+}
+
+/* ------------------------------------------------------------------ *
  * A very small DOCX writer (a zip of three parts)
  * ------------------------------------------------------------------ */
 
@@ -592,6 +1040,22 @@ writeFileSync(join(here, "negotiable-flagged.pdf"), flaggedPdf);
 writeFileSync(join(here, "scan-no-text-layer.pdf"), buildScanPdf());
 writeFileSync(join(here, "negotiable-flagged.docx"), buildDocx());
 
+const footnoted = buildFootnotedPdf();
+writeFileSync(join(here, "footnoted.pdf"), footnoted);
+writeFileSync(
+  join(here, "footnoted.json"),
+  `${JSON.stringify(footnotedLabels(), null, 2)}\n`,
+);
+
+const tabular = buildTabularPdf();
+writeFileSync(join(here, "tabular.pdf"), tabular);
+writeFileSync(
+  join(here, "tabular.json"),
+  `${JSON.stringify(tabularLabels(), null, 2)}\n`,
+);
+
+console.log("footnoted.pdf", footnoted.length, "bytes");
+console.log("tabular.pdf", tabular.length, "bytes");
 console.log("negotiable-flagged.pdf", flaggedPdf.length, "bytes");
 FRAMES.forEach((frame, index) => {
   console.log(

@@ -1,0 +1,106 @@
+{
+  "corpusVersion": 1,
+  "taxonomyVersion": 1,
+  "documents": [
+    {
+      "id": "msa-flagged-text",
+      "path": "tests/fixtures/negotiable-flagged.txt",
+      "format": "plain-text",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "flagged",
+      "labels": "tests/fixtures/negotiable-flagged.json",
+      "note": "Six of the eight clause types, two at the highest band, in ordinary contract prose. The .txt, .pdf and .docx entries carry the same prose in three files; each is counted once below."
+    },
+    {
+      "id": "msa-flagged-pdf",
+      "path": "tests/fixtures/negotiable-flagged.pdf",
+      "format": "pdf",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "extraction-stress",
+      "labels": "tests/fixtures/negotiable-flagged.json",
+      "note": "Multi-column, hyphenated at line ends, ligature-heavy, running header and footer, and one sentence split across a page boundary."
+    },
+    {
+      "id": "msa-flagged-docx",
+      "path": "tests/fixtures/negotiable-flagged.docx",
+      "format": "docx",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "extraction-stress",
+      "labels": "tests/fixtures/negotiable-flagged.json",
+      "note": "The same six sentences as Word paragraphs. No pages and no line breaks, so it isolates the character rule from the layout repair."
+    },
+    {
+      "id": "footnoted-schedule",
+      "path": "tests/fixtures/footnoted.pdf",
+      "format": "pdf",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "extraction-stress",
+      "labels": "tests/fixtures/footnoted.json",
+      "note": "Superscript footnote markers inside body lines, footnote blocks under a rule at the foot of each page, and one labelled clause that lives in a footnote rather than in the body."
+    },
+    {
+      "id": "tabular-schedule",
+      "path": "tests/fixtures/tabular.pdf",
+      "format": "pdf",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "extraction-stress",
+      "labels": "tests/fixtures/tabular.json",
+      "note": "A three-column fee table with gutters wide enough to read as columns, one whole sentence inside a cell, and prose above and below it."
+    },
+    {
+      "id": "agency-services-agreement",
+      "path": "tests/corpus/documents/agency-services-agreement.txt",
+      "format": "plain-text",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "flagged",
+      "labels": "tests/corpus/documents/agency-services-agreement.json",
+      "note": "Carries the two clause types no other document in the corpus does: non-compete and non-solicit, and termination and notice. Two separate non-compete clauses, so one clause type has to produce two flags."
+    },
+    {
+      "id": "equipment-lease",
+      "path": "tests/corpus/documents/equipment-lease.txt",
+      "format": "plain-text",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "flagged",
+      "labels": "tests/corpus/documents/equipment-lease.json",
+      "note": "A guarantee with a consent to judgment, two separate uncapped indemnities, a one-way cap that strips remedies, and no way out before the end of a sixty-month term."
+    },
+    {
+      "id": "clean-retainer",
+      "path": "tests/fixtures/clean.txt",
+      "format": "plain-text",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "clean",
+      "labels": "tests/fixtures/clean.json",
+      "note": "Handles all eight topics fairly rather than omitting them, which makes it a harder all-clear than a document that says nothing about them."
+    },
+    {
+      "id": "clean-photography-commission",
+      "path": "tests/corpus/documents/photography-commission.txt",
+      "format": "plain-text",
+      "documentType": "negotiable",
+      "provenance": "authored-for-this-repo",
+      "role": "clean",
+      "labels": "tests/corpus/documents/photography-commission.json",
+      "note": "A second all-clear document, shorter and in a different trade, so an all-clear is not measured against a single piece of prose."
+    },
+    {
+      "id": "adhesion-terms-of-service",
+      "path": "tests/fixtures/adhesion.txt",
+      "format": "plain-text",
+      "documentType": "adhesion",
+      "provenance": "authored-for-this-repo",
+      "role": "adhesion",
+      "labels": "tests/fixtures/adhesion.json",
+      "note": "Out of scope for analysis (ADR 0002). The harness extracts it and reports it as not analysed: what Redline returns for an adhesion contract is ticket 07's to decide, and one of the five questions PRD.md section 8 leaves open."
+    }
+  ]
+}
