@@ -1,0 +1,31 @@
+# Line endings are normalised to LF in the repository and checked out as LF on
+# every platform. Without this, a Windows checkout with core.autocrlf=true
+# rewrites text files as CRLF, and anything compared byte-for-byte against a
+# file that did not come through git starts failing.
+#
+# The case that bit us: public/pdfjs/pdf.worker.min.mjs is committed so it can
+# be served by URL, and a test asserts it is byte-identical to the copy in
+# node_modules — because a parser and a worker from different versions fail at
+# run time in the browser and nowhere else. A CRLF checkout broke that test
+# while the repository's own copy was correct, which is the worst shape for a
+# defect: red locally, invisible in the diff, fine in production.
+
+* text=auto eol=lf
+
+# Binary, so git never applies any end-of-line conversion to them. Git's own
+# detection is a NUL-byte heuristic and it has held so far, but the fixtures it
+# protects are the entire evidence base for the citation gate: a PDF or DOCX
+# silently altered on checkout would break verbatim matching, which is the one
+# property ADR 0001 makes a bug rather than a degraded result.
+*.pdf   binary
+*.docx  binary
+*.woff2 binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
+
+# Minified and generated output. Diffing it helps nobody and it is large enough
+# to bury a real change in a review.
+*.min.js   -diff
+*.min.mjs  -diff
+package-lock.json -diff linguist-generated

@@ -170,9 +170,6 @@ scratch/
 # Local agent scratch & regenerable build evidence
 # ---------------------------------------------------------------
 
-# Issue tracker — local-only per CLAUDE.md
-.scratch/
-
 # Impeccable: keep the durable records (config, surface briefs, design.json),
 # drop the regenerable evidence and local caches
 .impeccable/review/

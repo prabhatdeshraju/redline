@@ -62,7 +62,7 @@ A long build may run while I am not watching.
 
 ### Issue tracker
 
-Issues live as markdown under `.scratch/<feature>/`, gitignored and local-only. See `docs/agents/issue-tracker.md`.
+Issues live as markdown under `.scratch/<feature>/`, committed to the repo. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
