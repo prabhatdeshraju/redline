@@ -224,9 +224,13 @@ without altering it.
 
 ### Model access
 
-All model calls go through OpenRouter, pinned to `anthropic/claude-opus-5`. The
-model identifier lives in one place. Changing it requires asking first
-(`CLAUDE.md`).
+All model calls go through OpenRouter, pinned to `z-ai/glm-5.3-flash`, with the
+provider pinned to `fireworks` and fallbacks off. The model identifier lives in
+one place — `OPENROUTER_MODEL`, never in code. Changing either pin requires
+asking first (`CLAUDE.md`). A model the pinned provider does not serve fails
+outright rather than routing elsewhere, which is deliberate: a silent failover
+would change the model that produced an analysis without changing anything a
+reader or a report can see.
 
 The analysis boundary is the only caller. Nothing else in the product talks to a
 model, so there is exactly one place where grounding discipline has to hold.

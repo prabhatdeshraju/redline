@@ -9,14 +9,17 @@ web
 ## Stack
 
 Next.js, with Supabase for auth and database, deployed on Vercel. The model is
-called through OpenRouter, pinned to `anthropic/claude-opus-5`; changing the
-model requires asking first. Uploaded files are parsed in the browser — only the
+called through OpenRouter, pinned to `z-ai/glm-5.3-flash` with the provider
+pinned to `fireworks` and fallbacks off; the id lives in `OPENROUTER_MODEL` and
+never in code, and changing either pin requires asking first. Uploaded files are parsed in the browser — only the
 extracted text leaves it. Settled before init, recorded in `CLAUDE.md`, not
 reopened here. Adding a dependency requires asking first.
 
-No Supabase project, OpenRouter key, or Vercel deployment exists yet. Accounts
-and cloud projects are not to be created unprompted; work that needs one stops
-and asks.
+The Supabase project (`thwqzltdgtckqhoqaoud`, us-east-1), the OpenRouter key and
+the Vercel deployment all exist; `supabase/migrations` has been applied to the
+project. Further accounts and cloud projects are not to be created unprompted,
+and the ones that exist are not to be altered beyond what a task asks for; work
+that needs something new stops and asks.
 
 ## Users
 

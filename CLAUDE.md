@@ -13,8 +13,11 @@ Not open for reinterpretation. If one of these looks wrong while building, say
 so and stop — don't route around it.
 
 - Next.js. Supabase for auth and database. Deployed on Vercel.
-- The model is called through OpenRouter, pinned to `anthropic/claude-opus-5`.
-  Ask before changing the model.
+- The model is called through OpenRouter, pinned to `z-ai/glm-5.3-flash`, with
+  the provider pinned to `fireworks` and fallbacks off. The model id lives in
+  `OPENROUTER_MODEL` and never in code. Ask before changing either pin — a
+  model the pinned provider does not serve fails outright rather than routing
+  elsewhere, which is deliberate.
 - The uploaded file is parsed in the browser. Only the extracted text is stored.
 - Every risk flag cites the exact sentence it came from. A flag whose source
   sentence cannot be shown is a bug, not a degraded result.
@@ -44,8 +47,10 @@ A long build may run while I am not watching.
 
 - Hit a product question the PRD does not answer: stop that thread of work,
   leave everything else in a working state, and ask. Do not guess and continue.
-- No Supabase project, OpenRouter key, or Vercel deployment exists yet. Do not
-  create accounts or cloud projects. If the work needs one, stop and ask.
+- The Supabase project (`thwqzltdgtckqhoqaoud`), the OpenRouter key and the
+  Vercel deployment all exist. Do not create further accounts or cloud
+  projects, and do not alter the ones that exist beyond what a task asks for.
+  If the work needs something new, stop and ask.
 
 ## Read these when they matter
 
